@@ -1,0 +1,78 @@
+{
+  "//": [
+    "Copyright (c) Alaska Air. All right reserved. Licensed under the Apache-2.0 license",
+    "See LICENSE in the project root for license information."
+  ],
+
+  "//": [
+    "================================================================================",
+    "This is the file that drives the shape of the component as defined in component specific Design Tokens.",
+    "",
+    "The shape of a component is to be described using JSON. The intent behind this",
+    "is to drive the creation of component specific design tokens, as well to ",
+    "communicate the full shape of the component in an other than CSS construct.",
+    "",
+    "Please review the example below that illustrates a common pattern use.",
+    "When creating shape definitions, it's best to create a local component reference,",
+    "then when referencing a global value, please use the CSS Custom Selector as reference.",
+    "================================================================================"
+  ],
+
+  "colors": {
+    "focus": {
+      "backgroundborder": { "value": "var(--color-base-white)" }
+    }
+  },
+
+  "spacing": {
+    "thin":          { "value": "2px" },
+    "skinny":        { "value": "3px" },
+    "medsml":        { "value": "7px" },
+    "sml":           { "value": "var(size-scale-sml)" },
+    "smlmed":        { "value": "9px" },
+    "block":         { "value": "10px" },
+    "thick":         { "value": "12px" },
+    "thicker":       { "value": "13px" },
+    "doublemedsml":  { "value": "14px" },
+    "medium":        { "value": "var(--size-scale-med)" },
+    "doublesmlmed":  { "value": "18px" },
+    "doubleblock":   { "value": "20px" }
+  },
+
+  "host": {
+    "focus": {
+      "inputgroup": {
+        "width": { "value": "100%" },
+        "display": { "value": "block" },
+        "color": { "value": "var(--color-base-white)" },
+        "backgroundColor": { "value": "var(--color-brand-blue-atlas-base)" },
+        "marginLeft": { "value": "-{spacing.block.value}"},
+        "paddingLeft": { "value": "{spacing.block.value}"},
+        "radioLabel": {
+          "before": {
+            "backgroundcolor": { "value": "{colors.focus.backgroundborder.value}"},
+            "left": { "value": "{spacing.doublesmlmed.value}"}
+          },
+          "after": {
+            "bordercolor": { "value": "{colors.focus.backgroundborder.value}"}
+          }
+        },
+        "checkboxLabel": {
+          "before": {
+            "backgroundcolor": { "value": "{colors.focus.backgroundborder.value}"}
+          },
+          "after": {
+            "bordercolor": { "value": "{colors.focus.backgroundborder.value}"}
+          }
+        }
+      }
+    }
+  },
+
+  "ods-inputoptions": {
+    "display": {"value": "inline-block"},
+    "background": {
+      "color": {"value": "var(--color-brand-blue-atlas-base)"}
+    }
+  }
+}
