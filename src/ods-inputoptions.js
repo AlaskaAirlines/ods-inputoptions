@@ -31,6 +31,11 @@ class OdsInputoptions extends LitElement {
   // function to define props used within the scope of thie component
   static get properties() {
     return {
+      disabled:         { type: Boolean },
+      horizontal:       { type: Boolean },
+      error:            { type: String },
+      for:              { type: String },
+      label:            { type: String },
       name:             { type: String },
       type:             { type: String },
       componentData:    { type: Array }
@@ -41,26 +46,51 @@ class OdsInputoptions extends LitElement {
     return type === "radio" ? "ods-inputLabel--radio" : 'ods-inputLabel--checkbox'
   }
 
+  getErrorClass(error) {
+    if (error) {
+      return `errorBorder`
+    }
+  }
+
+  getHorizontal(horizontal) {
+    if (horizontal && this.componentData.length <= 3 ) {
+      return 'displayFlex'
+    }
+  }
+
+
   // function that renders the HTML and CSS into  the scope of the component
   render() {
     return html`
       ${componentProperties}
       ${styleCss}
 
-      ${this.componentData.map(i => html`
-        <div class="ods-inputGroup">
-          <input
-            type="${this.type}"
-            name="${this.name}"
-            id="${i.id}"
-            value="${i.value}"
-            class="util_displayHiddenVisually ods-inputOption"
-          />
-          <label for="${i.id}" class="ods-inputLabel ${this.getInputtype(this.type)}">
-            ${i.label}
-          </label>
-        </div>
-      `)}
+      ${this.label ?
+        html`<label for="${this.for}"class="ods-label">${this.label}</label>` :
+        html``}
+
+      <div class="${this.getHorizontal(this.horizontal)}">
+        ${this.componentData.map(i => html`
+          <div class="ods-inputGroup">
+            <input
+              type="${this.type}"
+              ?disabled="${this.disabled}"
+              ?checked="${i.checked}"
+              name="${this.name}"
+              id="${i.id}"
+              value="${i.value}"
+              class="util_displayHiddenVisually ods-inputOption"
+            />
+            <label for="${i.id}" class="ods-inputLabel ${this.getInputtype(this.type)} ${this.getErrorClass(this.error)}">
+              ${i.label}
+            </label>
+          </div>
+        `)}
+      </div>
+
+      ${this.error ?
+        html`<p class="errorText">${this.error}</p>` :
+        html``}
     `;
   }
 }

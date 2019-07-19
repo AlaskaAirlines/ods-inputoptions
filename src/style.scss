@@ -28,115 +28,179 @@
 
 // component shape styles
 :host(.focus-visible) {
+
+  .displayFlex {
+    .ods-inputGroup:focus-within {
+      width: var(--host-focus-display-flex-width);
+    }
+  }
+
   .ods-inputGroup:focus-within {
     width: var(--host-focus-inputgroup-width);
     display: var(--host-focus-inputgroup-display);
     color: var(--host-focus-inputgroup-color);
     background-color: var(--host-focus-inputgroup-background-color);
-    margin-left: var(--host-focus-inputgroup-margin-left);
-    padding-left: var(--host-focus-inputgroup-padding-left);
+
+    padding-right: var(--host-focus-inputgroup-padding-right);
+    margin-right: var(--host-focus-inputgroup-margin-right);
 
     .ods-inputLabel--radio {
       &:before {
         background-color: var(--host-focus-inputgroup-radio-label-before-backgroundcolor);
-        left: 18px;
       }
 
       &:after {
         border-color: var(--host-focus-inputgroup-radio-label-after-bordercolor);
-        left: 13px;
       }
     }
 
     .ods-inputLabel--checkbox {
       &:before,
       &:after {
-        border-color: white;
+        border-color: var(--colors-focus-backgroundborder);
       }
+    }
+  }
+}
 
-      &:before {
-        left: 20px;
-      }
+.displayFlex {
+  @include breakpoint-narrow {
+    display: var(--display-flex-breakpoint-narrow-display);
 
-      &:after {
-        left: 14px;
+    .ods-inputGroup {
+      margin-left: var(--ods-inputgroup-breakpoint-narrow-margin-left);
+
+      &:first-child {
+        margin-left: var(--ods-inputgroup-breakpoint-narrow-first-child);
       }
     }
   }
 }
 
 .ods-inputGroup {
-  position: relative;
-  line-height: 48px;
+  position: var(--ods-inputgroup-position);
+  line-height: var(--ods-inputgroup-line-height);
+  padding-left: var(--ods-inputgroup-padding-left);
 }
 
 .ods-inputOption {
+  &:disabled {
+    & + .ods-inputLabel {
+      color: var(--ods-inputoption-disabled-label-color);
+    }
+    & + .ods-inputLabel--checkbox {
+      &:before,
+      &:after {
+        border-color: var(--ods-inputoption-disabled-checkbox-psudo-border-color);
+      }
+    }
+
+    & + .ods-inputLabel--radio {
+      &:after {
+        border-color: var(--ods-inputoption-disabled-radio-after-border-color);
+      }
+      &:before {
+        background-color: var(--ods-inputoption-disabled-radio-before-background-color);
+      }
+    }
+  }
   &:checked {
     & + .ods-inputLabel {
       &:after {
-        border-color: $color-brand-blue-atlas-base;
-        opacity: 1;
+        opacity: var(--ods-inputoption-checked-label-after-opacity);
       }
       &:before {
-        transition: background-color .2s cubic-bezier(.35,.9,.4,.9);
-        opacity: 1;
+        transition: var(--ods-inputoption-checked-label-before-transition-fulltransition);
+        opacity: var(--ods-inputoption-checked-label-before-opacity);
       }
     }
   }
 }
 
 .ods-inputLabel {
-  margin-left: 32px;
+  margin-left: var(--ods-inputlabel-margin-left);
+  display: var(--ods-inputlabel-display);
 
   &:after {
-    position: absolute;
-    content: '';
-    top: 13px;
-    left: 3px;
-    width: 20px;
-    height: 20px;
-    border: 2px solid $color-base-shark;
     -webkit-tap-highlight-color: transparent;
-    z-index: 1;
+    position: var(--ods-inputlabel-after-position);
+    content: '';
+    top: var(--ods-inputlabel-after-top);
+    left: var(--ods-inputlabel-after-left);
+    width: var(--ods-inputlabel-after-width);
+    height: var(--ods-inputlabel-after-height);
+    border: var(--ods-inputlabel-after-border);
+    z-index: var(--ods-inputlabel-after-z-index);
   }
 
   &:before {
     content: '';
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-    z-index: 1;
+    position: var(--ods-inputlabel-before-position);
+    opacity: var(--ods-inputlabel-before-opacity);
+    pointer-events: var(--ods-inputlabel-before-pointer-events);
+    z-index: var(--ods-inputlabel-before-z-index);
   }
 }
 
 .ods-inputLabel--radio {
   &:after {
-    border-radius: 100%;
+    border-radius: var(--ods-inputlabel-radio-after-border-radius);
   }
 
   &:before {
-    top: 18px;
-    left: 8px;
-    width: 10px;
-    height: 10px;
-    border-radius: 100%;
-    background: $color-brand-blue-atlas-base;
-    transform: scale(1);
+    top: var(--ods-inputlabel-radio-before-top);
+    left: var(--ods-inputlabel-radio-before-left);
+    width: var(--ods-inputlabel-radio-before-width);
+    height: var(--ods-inputlabel-radio-before-height);
+    border-radius: var(--ods-inputlabel-radio-before-border-radius);
+    background-color: var(--ods-inputlabel-radio-before-background-color);
+    transform: var(--ods-inputlabel-radio-before-border-transform);
   }
 }
 
 .ods-inputLabel--checkbox {
   &:after {
-    border-radius: 3px;
+    border-radius: var(--ods-inputlabel-checkbox-after-border-radius);
   }
 
   &:before {
-    top: 16px;
-    left: 9px;
-    width: 7px;
-    height: 12px;
-    border: solid $color-brand-blue-atlas-base;
-    border-width: 0 3px 3px 0;
-    transform: rotate(45deg);
+    top: var(--ods-inputlabel-checkbox-before-top);
+    left: var(--ods-inputlabel-checkbox-before-left);
+    width: var(--ods-inputlabel-checkbox-before-width);
+    height: var(--ods-inputlabel-checkbox-before-height);
+    border-style: var(--ods-inputlabel-checkbox-before-border-style);
+    border-color: var(--ods-inputlabel-checkbox-before-border-color);
+    border-width: var(--ods-inputlabel-checkbox-before-border-width);
+    transform: var(--ods-inputlabel-checkbox-before-transform);
   }
+}
+
+.errorText {
+  color: var(--error-text-color);
+}
+
+.ods-inputLabel--radio {
+  &.errorBorder {
+    &:after {
+      border-color: var(--ods-inputlabel-radio-error-border-after-border-color);
+    }
+    &:before {
+      background-color: var(--ods-inputlabel-radio-error-border-before-background-color);
+    }
+  }
+}
+
+.ods-inputLabel--checkbox {
+  &.errorBorder {
+    &:before,
+    &:after {
+      border-color: var(--ods-inputlabel-checkbox-error-border-before-after-border-color);
+    }
+  }
+}
+
+.ods-label {
+  color: var(--ods-label-color);
+  margin-bottom: var(--ods-label-margin-bottom);
+  display: var(--ods-label-display);
 }
