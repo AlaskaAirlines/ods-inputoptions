@@ -114,71 +114,59 @@ gulp.task('processSrc', function() {
 // task for Production Sass processing and legacy support
 gulp.task('processImportsCanonical', function() {
   // set path to where Sass files are located to be processed
-  return (
-    gulp
-      .src('./src/*.scss')
+  return gulp.src('./src/*.scss')
 
-      // Sass pipeline
-      .pipe(
-        gulpSass({
-          errLogToConsole: true,
-          outputStyle: 'compressed', //alt options: nested, compact, compressed, expanded
-        })
+    // Sass pipeline
+    .pipe(gulpSass({
+      errLogToConsole: true,
+      outputStyle: 'compressed', //alt options: nested, compact, compressed, expanded
+    }))
+
+    // Post Sass to CSS process for addressing proprietary prefixes
+    //.pipe(gulpautoprefixer({ browsers: ['last 4 versions'], cascade: false }))
+
+    // PostCss polyfill pipeline for CSS Custom Properties (CSS variables)
+    .pipe(postcss([
+
+      // Boolean flag determines if CSS Custom Property code is in final output
+      // or only outputs legacy supported version CSS
+      postcssCustomProperties({
+        preserve: false
+      }),
+
+      removeSelectors({
+        selectors: [":root"]}
       )
+    ]))
 
-      // Post Sass to CSS process for addressing proprietary prefixes
-      //.pipe(gulpautoprefixer({ browsers: ['last 4 versions'], cascade: false }))
-
-      // PostCss polyfill pipeline for CSS Custom Properties (CSS variables)
-      .pipe(
-        postcss([
-          // Boolean flag determines if CSS Custom Property code is in final output
-          // or only outputs legacy supported version CSS
-          postcssCustomProperties({
-            preserve: false,
-          }),
-
-          removeSelectors({
-            selectors: [':root'],
-          }),
-        ])
-      )
-
-      // Output final CSS in destination
-      .pipe(gulp.dest('./src/altImportsCanonical/'))
-  );
+    // Output final CSS in destination
+    .pipe(gulp.dest('./altImports/canonical/'));
 });
 
 // task for Production Sass processing and legacy support
 gulp.task('processImportsVariable', function() {
   // set path to where Sass files are located to be processed
-  return (
-    gulp
-      .src('./src/*.scss')
+  return gulp.src('./src/*.scss')
 
-      // Sass pipeline
-      .pipe(
-        gulpSass({
-          errLogToConsole: true,
-          outputStyle: 'compressed', //alt options: nested, compact, compressed, expanded
-        })
+    // Sass pipeline
+    .pipe(gulpSass({
+      errLogToConsole: true,
+      outputStyle: 'compressed', //alt options: nested, compact, compressed, expanded
+    }))
+
+    // Post Sass to CSS process for addressing proprietary prefixes
+    //.pipe(gulpautoprefixer({ browsers: ['last 4 versions'], cascade: false }))
+
+    // PostCss polyfill pipeline for CSS Custom Properties (CSS variables)
+    .pipe(postcss([
+
+      removeSelectors({
+        selectors: [":root"]}
       )
+    ]))
 
-      // Post Sass to CSS process for addressing proprietary prefixes
-      //.pipe(gulpautoprefixer({ browsers: ['last 4 versions'], cascade: false }))
-
-      // PostCss polyfill pipeline for CSS Custom Properties (CSS variables)
-      .pipe(
-        postcss([
-          removeSelectors({
-            selectors: [':root'],
-          }),
-        ])
-      )
-
-      // Output final CSS in destination
-      .pipe(gulp.dest('./src/altImportsVariable/'))
-  );
+    // Output final CSS in destination
+    .pipe(gulp.dest('./altImports/variable/'));
 });
 
 // task for Development Sass processing
