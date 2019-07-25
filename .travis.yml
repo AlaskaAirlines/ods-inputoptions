@@ -16,7 +16,6 @@ before_script:
   - gulp processImportsVariable
   - npm run stylefluxCanonical
   - npm run stylefluxVariable
-  - gulp reprocessClean
   - npm run distTokens
   - npm run sassRender
   - npm run distJS
