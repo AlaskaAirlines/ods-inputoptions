@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [1.1.0](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions/compare/v1.0.0...v1.1.0) (2019-07-26)
+
+
+### Features
+
+* add support for radio button data display limit ([cd67a1f](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions/commit/cd67a1f))
+
 # 1.0.0 (2019-07-25)
 
 
