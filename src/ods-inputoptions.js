@@ -58,6 +58,12 @@ class OdsInputoptions extends LitElement {
     }
   }
 
+  capComponentLoop(type, data) {
+    if (type === 'radio' && data.length > 6 ) {
+      return true
+    }
+  }
+
 
   // function that renders the HTML and CSS into  the scope of the component
   render() {
@@ -69,24 +75,30 @@ class OdsInputoptions extends LitElement {
         html`<label for="${this.for}"class="ods-label">${this.label}</label>` :
         html``}
 
-      <div class="${this.getHorizontal(this.horizontal)}">
-        ${this.componentData.map(i => html`
-          <div class="ods-inputGroup">
-            <input
-              type="${this.type}"
-              ?disabled="${this.disabled}"
-              ?checked="${i.checked}"
-              name="${this.name}"
-              id="${i.id}"
-              value="${i.value}"
-              class="util_displayHiddenVisually ods-inputOption"
-            />
-            <label for="${i.id}" class="ods-inputLabel ${this.getInputtype(this.type)} ${this.getErrorClass(this.error)}">
-              ${i.label}
-            </label>
+      ${this.capComponentLoop(this.type, this.componentData) ?
+
+        html`<p class="errorText">Sorry. The max number of options is 6. Please consider an alternative UI component.</p>` :
+
+        html`
+          <div class="${this.getHorizontal(this.horizontal)}">
+            ${this.componentData.map(i => html`
+              <div class="ods-inputGroup">
+                <input
+                  type="${this.type}"
+                  ?disabled="${this.disabled}"
+                  ?checked="${i.checked}"
+                  name="${this.name}"
+                  id="${i.id}"
+                  value="${i.value}"
+                  class="util_displayHiddenVisually ods-inputOption"
+                />
+                <label for="${i.id}" class="ods-inputLabel ${this.getInputtype(this.type)} ${this.getErrorClass(this.error)}">
+                  ${i.label}
+                </label>
+              </div>
+            `)}
           </div>
-        `)}
-      </div>
+        `}
 
       ${this.error ?
         html`<p class="errorText">${this.error}</p>` :
