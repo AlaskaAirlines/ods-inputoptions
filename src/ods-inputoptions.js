@@ -13,20 +13,11 @@ import styleCss from "./style-css.js";
 
 // build the component class
 class OdsInputoptions extends LitElement {
-  // constructor() {
-  //   super();
-  //   /*
-  //     If the component requires a touch detection,
-  //     please use this function to determine if a user is
-  //     activelly touching a device, versus detecting if
-  //     the device is touych enables or a handheld device.
-
-  //     Also uncomment the touch detection lib above
-  //   */
-  //   this.addEventListener('touchstart', function() {
-  //     this.classList.add('is-touching');
-  //   });
-  // }
+  constructor() {
+    super();
+    this.value = '';
+    this.valueArray = [];
+  }
 
   // function to define props used within the scope of thie component
   static get properties() {
@@ -38,7 +29,8 @@ class OdsInputoptions extends LitElement {
       label:            { type: String },
       name:             { type: String },
       type:             { type: String },
-      componentData:    { type: Array }
+      value:            { type: String },
+      componentData:    { type: Array },
     };
   }
 
@@ -64,8 +56,40 @@ class OdsInputoptions extends LitElement {
     }
   }
 
+  handleInput({target}) {
+    if (target.checked && this.type === `checkbox`) {
+      this.dispatchEvent(new CustomEvent('input', {
+        composed: true,
+        bubbles: true,
+        detail: {
+          value: this.valueArray.push(target.value)
+        }
+      }))
+    } else if (this.type === `radio`) {
+      if (target.value === this.value) return;
+        this.value = target.value;
 
-  // function that renders the HTML and CSS into  the scope of the component
+      this.dispatchEvent(new CustomEvent('input', {
+        composed: true,
+        bubbles: true,
+        detail: {
+          value: this.value
+        }
+      }))
+    }
+
+    if (target.checked == false && this.type === `checkbox`) {
+      this.valueArray = this.valueArray.filter(item => !target.value.includes(item))
+      this.dispatchEvent(new CustomEvent('input', {
+        composed: true,
+        bubbles: true,
+        detail: {
+          value: this.valueArray
+        }
+      }))
+    }
+  }
+
   render() {
     return html`
       ${componentProperties}
@@ -80,7 +104,7 @@ class OdsInputoptions extends LitElement {
         html`<p class="errorText">Sorry. The max number of options is 6. Please consider an alternative UI component.</p>` :
 
         html`
-          <div class="${this.getHorizontal(this.horizontal)}">
+          <div @input=${this.handleInput} class="${this.getHorizontal(this.horizontal)}">
             ${this.componentData.map(i => html`
               <div class="ods-inputGroup">
                 <input
