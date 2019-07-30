@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.1.2](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions/compare/v1.1.1...v1.1.2) (2019-07-30)
+
+
+### Bug Fixes
+
+* refactor to support pre-selected options ([aa71b08](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions/commit/aa71b08))
+
 ## [1.1.1](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions/compare/v1.1.0...v1.1.1) (2019-07-29)
 
 
