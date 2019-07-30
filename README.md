@@ -79,6 +79,45 @@ The \<ods-inputoptions> element should be used in situations where users may:
 | type | string | Accepts `radio` or `checkbox` to assume functional type |
 | componentData | object | Required to pass in `id`, `value` and `label` strings for each input |
 
+## Type data return
+
+The scope of a radio button or checkbox group is maintained within the scope of its shadow DOM. Depending on `type` option, determines type of data returned. This data object is assigned to the \<ods-inputoptions> element. 
+
+| Type | data type | Object name |
+|---|---|---|
+| radio | string | value |
+| checkbox | array | valueArray | 
+
+### Example: get value from radio button group
+
+```js
+const rdos = document.getElementById('rdo');
+alert(rdos.value);
+```
+
+```html
+<ods-inputoptions id="rdo" type="radio" name="rdo" label="Even Asher can do this!" for="radio1" componentData='[
+  { "id": "radio1", "value": "yes", "label": "Yes" },
+  { "id": "radio2", "value": "no", "label": "No" },
+  { "id": "radio3", "value": "maybe", "label": "Maybe" }
+]'></ods-inputoptions>
+```
+
+### Example: get value from checkbox group
+
+```js
+const cbxs = document.getElementById('cbx');
+alert(cbxs.valueArray);
+```
+
+```html
+<ods-inputoptions id="cbx" type="checkbox" name="cbx" label="Form label goes here" for="cbx1" componentData='[
+  { "id": "cbx1", "value": "yes", "label": "Yes" },
+  { "id": "cbx2", "value": "no", "label": "No" },
+  { "id": "cbx3", "value": "maybe", "label": "Maybe" }
+]'></ods-inputoptions>
+```
+
 ## API Code Examples
 
 ### Default radio button group
