@@ -15,8 +15,17 @@ import styleCss from "./style-css.js";
 class OdsInputoptions extends LitElement {
   constructor() {
     super();
-    this.value = '';
-    this.valueArray = [];
+    this.value = [];
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    const preChecked = this.componentData.filter(el => el.checked === true);
+    this.value = preChecked.map(el => el.value);
+
+    // this.updateComplete.then(() => {
+    //   console.log(this.renderRoot.querySelectorAll('.ods-inputOption')[0].checked);
+    // });
   }
 
   // function to define props used within the scope of thie component
@@ -29,8 +38,8 @@ class OdsInputoptions extends LitElement {
       label:            { type: String },
       name:             { type: String },
       type:             { type: String },
-      value:            { type: String },
       componentData:    { type: Array },
+      value:            { type: Array }
     };
   }
 
@@ -62,7 +71,7 @@ class OdsInputoptions extends LitElement {
         composed: true,
         bubbles: true,
         detail: {
-          value: this.valueArray.push(target.value)
+          value: this.value.push(target.value)
         }
       }))
     } else if (this.type === `radio`) {
@@ -79,16 +88,17 @@ class OdsInputoptions extends LitElement {
     }
 
     if (target.checked == false && this.type === `checkbox`) {
-      this.valueArray = this.valueArray.filter(item => !target.value.includes(item))
+      this.value = this.value.filter(item => !target.value.includes(item))
       this.dispatchEvent(new CustomEvent('input', {
         composed: true,
         bubbles: true,
         detail: {
-          value: this.valueArray
+          value: this.value
         }
       }))
     }
   }
+
 
   render() {
     return html`

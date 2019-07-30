@@ -81,12 +81,12 @@ The \<ods-inputoptions> element should be used in situations where users may:
 
 ## Type data return
 
-The scope of a radio button or checkbox group is maintained within the scope of its shadow DOM. Depending on `type` option, determines type of data returned. This data object is assigned to the \<ods-inputoptions> element. 
+Checking options for either radio buttons or checkboxes, the value of that selection is bubbled up to the parent component itself.
 
 | Type | data type | Object name |
 |---|---|---|
-| radio | string | value |
-| checkbox | array | valueArray | 
+| radio | array | value |
+| checkbox | array | value |
 
 ### Example: get value from radio button group
 
@@ -107,7 +107,7 @@ alert(rdos.value);
 
 ```js
 const cbxs = document.getElementById('cbx');
-alert(cbxs.valueArray);
+alert(cbxs.value);
 ```
 
 ```html
@@ -117,6 +117,8 @@ alert(cbxs.valueArray);
   { "id": "cbx3", "value": "maybe", "label": "Maybe" }
 ]'></ods-inputoptions>
 ```
+
+For more complete [examples using React](./docs/reactSupport.md).
 
 ## API Code Examples
 
@@ -198,7 +200,7 @@ alert(cbxs.valueArray);
 ![example-img](./images/6.png)
 
 ```html
-<ods-inputoptions type="radio" name="radios" for="radio1" label="Form label goes here" error="Selection is required; please update." 
+<ods-inputoptions type="radio" name="radios" for="radio1" label="Form label goes here" error="Selection is required; please update."
   componentData='[
     { "id": "radio1", "value": "yes", "label": "Yes", "checked": true },
     { "id": "radio2", "value": "no", "label": "No"},
