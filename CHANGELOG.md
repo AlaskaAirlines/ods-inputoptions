@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.1.3](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions/compare/v1.1.2...v1.1.3) (2019-07-31)
+
+
+### Bug Fixes
+
+* [#1](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions/issues/1) update selector assignement if undefined ([967042c](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions/commit/967042c))
+
 ## [1.1.2](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions/compare/v1.1.1...v1.1.2) (2019-07-30)
 
 
