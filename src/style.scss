@@ -18,9 +18,10 @@
 // @import "./node_modules/@alaskaairux/orion-web-core-style-sheets/animation";
 
 // container styles - defines the look of the outer custom componet
-// :host {
-//   ...
-// }
+:host {
+  display: block;
+  padding-bottom: var(--size-scale-med);
+}
 
 // layout styles - define any layout specifications for UI that is contained WITHIN the component
 // never define layout that would cause effect on element ouside the scope of this component
@@ -177,6 +178,7 @@
 
 .errorText {
   color: var(--error-text-color);
+  margin-bottom: 0;
 }
 
 .ods-inputLabel--radio {
