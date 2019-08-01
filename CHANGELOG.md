@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.1.4](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions/compare/v1.1.3...v1.1.4) (2019-08-01)
+
+
+### Bug Fixes
+
+* update outer margin below WC to be inner padding ([16278d6](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions/commit/16278d6))
+
 ## [1.1.3](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions/compare/v1.1.2...v1.1.3) (2019-07-31)
 
 
