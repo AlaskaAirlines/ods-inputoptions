@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.1.5](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions/compare/v1.1.4...v1.1.5) (2019-10-18)
+
+
+### Bug Fixes
+
+* add barrel file to simplify import statements ([b377f8e](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions/commit/b377f8e))
+
 ## [1.1.4](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions/compare/v1.1.3...v1.1.4) (2019-08-01)
 
 
