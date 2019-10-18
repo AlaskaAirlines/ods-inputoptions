@@ -33,7 +33,7 @@ CSS Custom Properties are not supported in older browsers. For this, fallback pr
 Define the component dependency within each component that is using the \<ods-inputoptions> component.
 
 ```javascript
-import "@alaskaairux/ods-inputoptions/dist/ods-inputoptions";
+import "@alaskaairux/ods-inputoptions";
 ```
 
 **Reference component in HTML**
@@ -296,12 +296,12 @@ For more complete [examples using React](./docs/reactSupport.md).
 
 ## React support
 
-React does not require specific support, but if you are choosing to place your componentData in a variable, you will be required to stringify that data when using it with the component. 
+React does not require specific support, but if you are choosing to place your componentData in a variable, you will be required to stringify that data when using it with the component.
 
 ```javascript
-const options = [ 
-  { "id": "radio1", "value": "yes", "label": "Yes" }, 
-  { "id": "radio2", "value": "no", "label": "No" }, 
+const options = [
+  { "id": "radio1", "value": "yes", "label": "Yes" },
+  { "id": "radio2", "value": "no", "label": "No" },
   { "id": "radio3", "value": "maybe", "label": "Maybe" } ]
 
 return <ods-inputoptions componentData={JSON.stringify(options)} />
