@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.1.6](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions/compare/v1.1.5...v1.1.6) (2019-11-14)
+
+
+### Bug Fixes
+
+* add focus styles fallback for IE11 ([7e550ce](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions/commit/7e550ce))
+
 ## [1.1.5](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions/compare/v1.1.4...v1.1.5) (2019-10-18)
 
 
