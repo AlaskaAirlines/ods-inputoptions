@@ -36,6 +36,18 @@
     }
   }
 
+  /* Fallback for browsers that don't support focus-within */ 
+  .ods-inputOption:focus {
+    & + .ods-inputLabel {
+      background-color: var(--host-focus-inputgroup-background-color);
+      color: var(--host-focus-inputgroup-color);
+
+      &:after {
+        border-color: var(--color-base-shark);
+      }
+    }
+  } 
+
   .ods-inputGroup:focus-within {
     width: var(--host-focus-inputgroup-width);
     display: var(--host-focus-inputgroup-display);
