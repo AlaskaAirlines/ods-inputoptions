@@ -66,7 +66,7 @@ class OdsInputoptions extends LitElement {
     }
   }
 
-  handleInput({target}) {
+  handleChange({target}) {
     if (target.checked && this.type === `checkbox`) {
       this.dispatchEvent(new CustomEvent('input', {
         composed: true,
@@ -116,7 +116,7 @@ class OdsInputoptions extends LitElement {
 
         html`
           <div
-            @input=${this.handleInput}
+            @change=${this.handleChange}
             class="${ifDefined(this.horizontal ? this.getHorizontal(this.horizontal) : undefined)}">
 
             ${this.componentData.map(i => html`
