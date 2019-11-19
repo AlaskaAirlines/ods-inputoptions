@@ -42,6 +42,8 @@
     "@alaskaairux/orion-web-core-style-sheets": "^2.6.3",
     "@commitlint/cli": "^7.6.1",
     "@commitlint/config-conventional": "^7.6.0",
+    "@open-wc/testing": "^2.3.9",
+    "@open-wc/testing-karma": "^3.1.54",
     "@polymer/iron-demo-helpers": "^3.1.0",
     "@polymer/iron-icons": "^3.0.1",
     "@polymer/polymer": "^3.2.0",
@@ -77,6 +79,7 @@
     "stylelint-config-standard": "^18.3.0",
     "wc-sass-render": "^1.2.1",
     "wct-mocha": "^1.0.1",
+    "webpack-merge": "^4.2.2",
     "yaml-lint": "^1.2.4"
   },
   "watch": {
@@ -102,11 +105,16 @@
     "processImportsCanonical": "gulp processImportsCanonical",
     "processImportsVariable": "gulp processImportsVariable",
     "ciBuild": "npm-run-all buildTokens processSrc processImportsCanonical processImportsVariable stylefluxCanonical stylefluxVariable distTokens sassRender distJS",
-    "test": "npm run cssLint | npm run jsonLint | yamllint .travis.yml"
+    "yamltest": "yamllint .travis.yml",
+    "lint": "npm-run-all cssLint jsonLint yamltest",
+    "test": "karma start --coverage",
+    "test:debug": "karma start --no-single-run --auto-watch=true",
+    "test:watch": "karma start --auto-watch=true --single-run=false",
+    "test:ci": "npm-run-all test lint"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm test",
+      "pre-commit": "npm-run-all test lint",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
