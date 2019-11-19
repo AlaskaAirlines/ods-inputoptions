@@ -3,6 +3,7 @@
 // ---------------------------------------------------------------------
 import { LitElement, html } from "lit-element";
 import { classMap } from 'lit-html/directives/class-map';
+import {ifDefined} from 'lit-html/directives/if-defined';
 
 // Import touch detection lib
 import 'focus-visible/dist/focus-visible.min.js';
@@ -12,13 +13,14 @@ import componentProperties from './tokens/componentShapeProperties-css.js';
 import styleCss from "./style-css.js";
 
 export default class OdsInputoption extends LitElement {
+  // TODO: rename `id` as this field will be in conflict between the
+  // custom element and the <input> element in the light dom.
   static get properties() {
     return {
       checked:  { type: Boolean, reflect: true },
       disabled: { type: Boolean },
       required: { type: Boolean },
       error:    { type: String },
-      for:      { type: String },
       id:       { type: String },
       label:    { type: String },
       name:     { type: String },
@@ -43,21 +45,21 @@ export default class OdsInputoption extends LitElement {
       ${componentProperties}
       ${styleCss}
 
-      <div class="ods-inputGroup" @change="${this.handleChange}">
+      <div class="ods-inputGroup">
         <input
           class="util_displayHiddenVisually ods-inputOption"
           @change="${this.handleChange}"
           ?disabled="${this.disabled}"
           ?required="${this.required}"
-          .checked="${this.checked}"
-          id="${this.id}-id"
-          name="${this.name}"
-          type="${this.type}"
-          value="${this.value}"
+          .checked="${ifDefined(this.checked)}"
+          id="${ifDefined(this.id)}"
+          name="${ifDefined(this.name)}"
+          type="${ifDefined(this.type)}"
+          value="${ifDefined(this.value)}"
         />
 
         <label
-          for="${this.id}-id"
+          for="${ifDefined(this.id)}"
           class="${classMap(labelClasses)}"
         >
           ${this.label}

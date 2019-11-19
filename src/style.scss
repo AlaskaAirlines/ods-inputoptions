@@ -20,6 +20,9 @@
 // container styles - defines the look of the outer custom componet
 :host {
   display: block;
+}
+
+:host(ods-inputoption-group) {
   padding-bottom: var(--size-scale-med);
 }
 
