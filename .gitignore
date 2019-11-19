@@ -19,3 +19,6 @@ demo/fonts
 
 ## dist files
 dist/
+
+# Istanbul coverage reports / Karma
+coverage/

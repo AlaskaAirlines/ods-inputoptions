@@ -61,9 +61,7 @@ export default class OdsInputoption extends LitElement {
         <label
           for="${ifDefined(this.id)}"
           class="${classMap(labelClasses)}"
-        >
-          ${this.label}
-        </label>
+        >${this.label}</label>
       </div>
     `;
   }
