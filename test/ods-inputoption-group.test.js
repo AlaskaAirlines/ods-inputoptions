@@ -15,6 +15,7 @@ describe('ods-inputoption-group', () => {
         error=${expectedError}
         for=${expectedFor}
         label=${expectedLabel}
+        type="radio"
       ></ods-inputoption-group>
     `);
 
@@ -35,6 +36,7 @@ describe('ods-inputoption-group', () => {
       <ods-inputoption-group
         for="stateSelection"
         label="Select your state of residence"
+        type="radio"
       >
         <ods-inputoption
           id="alaska"
@@ -78,6 +80,49 @@ describe('ods-inputoption-group', () => {
     expect(alaskaRadio.checked).to.not.be.true;
     expect(washingtonRadio.checked).to.be.true;
   });
+
+  it('can select multiple checkboxes', async () => {
+    const el = await fixture(html`
+      <ods-inputoption-group
+        for="stateSelection"
+        label="Select your favorite states"
+      >
+        <ods-inputoption
+          id="alaska"
+          label="Alaska"
+          name="states"
+          type="checkbox"
+          value="alaska"
+        ></ods-inputoption>
+
+        <ods-inputoption
+          id="washington"
+          label="Washington"
+          name="states"
+          type="checkbox"
+          value="washington"
+        ></ods-inputoption>
+      </ods-inputoption-group>
+    `);
+
+    const alaskaCheckbox = el.querySelector("ods-inputoption[id=alaska]");
+    const alaskaCheckboxInput = alaskaCheckbox.shadowRoot.querySelector('input');
+
+    const washingtonCheckbox = el.querySelector("ods-inputoption[id=washington]");
+    const washingtonCheckboxInput = washingtonCheckbox.shadowRoot.querySelector('input');
+
+    expect(alaskaCheckbox.checked).to.not.be.true;
+    expect(washingtonCheckbox.checked).to.not.be.true;
+
+    alaskaCheckboxInput.click();
+    washingtonCheckboxInput.click();
+    await elementUpdated(el);
+
+    // Selecting the first radio button should make it `checked`
+    expect(alaskaCheckbox.checked).to.be.true;
+    expect(washingtonCheckbox.checked).to.be.true;
+  });
+
 
   it('does not crash for empty input option groups', async () => {
     const el = await fixture(html`

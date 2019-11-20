@@ -16,7 +16,7 @@ describe('ods-inputoption-light', () => {
         checked
         required
         error=${expectedError}
-        id=${expectedId}
+        inputId=${expectedId}
         label=${expectedLabel}
         name=${expectedName}
         type=${type}
@@ -46,7 +46,7 @@ describe('ods-inputoption-light', () => {
     const el = await fixture(html`
       <div>
         <ods-inputoption-light
-          id="alaska"
+          inputId="alaska"
           label="Alaska"
           name="states"
           type="radio"
@@ -54,7 +54,7 @@ describe('ods-inputoption-light', () => {
         ></ods-inputoption-light>
 
         <ods-inputoption-light
-          id="washington"
+          inputId="washington"
           label="Washington"
           name="states"
           type="radio"
@@ -63,8 +63,8 @@ describe('ods-inputoption-light', () => {
       </div>
     `);
 
-    const alaskaRadioInput = el.querySelector("ods-inputoption-light[id=alaska] input");
-    const washingtonRadioInput = el.querySelector("ods-inputoption-light[id=washington] input");
+    const alaskaRadioInput = el.querySelector("ods-inputoption-light[inputId=alaska] input");
+    const washingtonRadioInput = el.querySelector("ods-inputoption-light[inputId=washington] input");
 
     alaskaRadioInput.click();
     await elementUpdated(el);
