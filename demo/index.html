@@ -13,6 +13,9 @@
       import '@polymer/iron-demo-helpers/demo-snippet';
     </script>
     <script type="module" src="../src/ods-inputoptions.js"></script>
+    <script type="module" src="../src/ods-inputoption.js"></script>
+    <script type="module" src="../src/ods-inputoption-group.js"></script>
+    <script type="module" src="../src/ods-inputoption-light.js"></script>
     <script src="../demo/alert.js"></script>
     <script type="module">
       import '../node_modules/@polymer/iron-icons/hardware-icons.js';
@@ -67,12 +70,29 @@
       <p>Default radio button group</p>
       <demo-snippet>
         <template>
-          <ods-inputoptions type="radio" name="radios" label="Form label goes here" for="radio1"
-            componentData='[
-              { "id": "radio1", "value": "yes", "label": "Yes" },
-              { "id": "radio2", "value": "no", "label": "No" },
-              { "id": "radio3", "value": "maybe", "label": "Maybe" }
-            ]'></ods-inputoptions>
+          <ods-inputoption-group for="radioDemo1" label="Form label goes here"  type="radio">
+            <ods-inputoption
+              inputId="radio1"
+              label="Yes"
+              name="radioDemo1"
+              type="radio"
+              value="yes"
+            ></ods-inputoption>
+            <ods-inputoption
+              inputId="radio2"
+              label="No"
+              name="radioDemo1"
+              type="radio"
+              value="no"
+            ></ods-inputoption>
+            <ods-inputoption
+              inputId="radio3"
+              label="Maybe"
+              name="radioDemo1"
+              type="radio"
+              value="maybe"
+            ></ods-inputoption>
+          </ods-inputoption-group>
         </template>
       </demo-snippet>
 
@@ -85,87 +105,211 @@
               { "id": "radio2", "value": "no", "label": "No" },
               { "id": "radio3", "value": "maybe", "label": "Maybe" }
             ]'></ods-inputoptions>
-        </template>
-      </demo-snippet>
-
-      <p>Radio button group, ignored due to option limit (6)</p>
-      <demo-snippet>
-        <template>
-          <ods-inputoptions type="radio" horizontal name="radios" label="Form label goes here" for="radio1"
-            componentData='[
-              { "id": "radio1", "value": "yes", "label": "Yes" },
-              { "id": "radio2", "value": "no", "label": "No" },
-              { "id": "radio3", "value": "maybe", "label": "Maybe" },
-              { "id": "radio4", "value": "somewhat", "label": "somewhat" },
-              { "id": "radio6", "value": "yupppers", "label": "yupppers" },
-              { "id": "radio7", "value": "nope!", "label": "nope!" },
-              { "id": "radio8", "value": "WILL NOT", "label": "WILL NOT" }
-            ]'></ods-inputoptions>
+          <ods-inputoption-group for="radioDemo2" label="Form label goes here" type="radio" horizontal>
+            <ods-inputoption
+              inputId="radio1"
+              label="Yes"
+              name="radioDemo2"
+              type="radio"
+              value="yes"
+            ></ods-inputoption>
+            <ods-inputoption
+              inputId="radio2"
+              label="No"
+              name="radioDemo2"
+              type="radio"
+              value="no"
+            ></ods-inputoption>
+            <ods-inputoption
+              inputId="radio3"
+              label="Maybe"
+              name="radioDemo2"
+              type="radio"
+              value="maybe"
+            ></ods-inputoption>
+          </ods-inputoption-group>
         </template>
       </demo-snippet>
 
       <p>Radio button group, <code>horizontal</code> option ignored due to option limit (3)</p>
       <demo-snippet>
         <template>
-          <ods-inputoptions type="radio" horizontal name="radios" label="Form label goes here" for="radio1"
-            componentData='[
-              { "id": "radio1", "value": "yes", "label": "Yes" },
-              { "id": "radio2", "value": "no", "label": "No" },
-              { "id": "radio3", "value": "maybe", "label": "Maybe" },
-              { "id": "radio4", "value": "somewhat", "label": "somewhat" },
-              { "id": "radio6", "value": "yupppers", "label": "yupppers" },
-              { "id": "radio7", "value": "nope!", "label": "nope!" }
-            ]'></ods-inputoptions>
+          <ods-inputoption-group for="radioDemo3" label="Form label goes here" type="radio" horizontal>
+            <ods-inputoption
+              inputId="radio1"
+              label="Yes"
+              name="radioDemo3"
+              type="radio"
+              value="yes"
+            ></ods-inputoption>
+            <ods-inputoption
+              inputId="radio2"
+              label="No"
+              name="radioDemo3"
+              type="radio"
+              value="no"
+            ></ods-inputoption>
+            <ods-inputoption
+              inputId="radio3"
+              label="Maybe"
+              name="radioDemo3"
+              type="radio"
+              value="maybe"
+            ></ods-inputoption>
+            <ods-inputoption
+              inputId="radio4"
+              label="Somewhat"
+              name="radioDemo3"
+              type="radio"
+              value="somewhat"
+            ></ods-inputoption>
+            <ods-inputoption
+              inputId="radio5"
+              label="Yuppers"
+              name="radioDemo3"
+              type="radio"
+              value="yuppers"
+            ></ods-inputoption>
+            <ods-inputoption
+              inputId="radio6"
+              label="Nope"
+              name="radioDemo3"
+              type="radio"
+              value="nope"
+            ></ods-inputoption>
+          </ods-inputoption-group>
         </template>
       </demo-snippet>
 
       <p>Radio button group with option set to <code>checked</code></p>
       <demo-snippet>
         <template>
-          <ods-inputoptions type="radio" name="radios" label="Form label goes here" for="radio1"
-            componentData='[
-              { "id": "radio1", "value": "yes", "label": "Yes" },
-              { "id": "radio2", "value": "no", "label": "No", "checked": true },
-              { "id": "radio3", "value": "maybe", "label": "Maybe" }
-            ]'></ods-inputoptions>
+          <ods-inputoption-group for="radioDemo4" label="Form label goes here" type="radio">
+            <ods-inputoption
+              inputId="radio1"
+              label="Yes"
+              name="radioDemo4"
+              type="radio"
+              value="yes"
+            ></ods-inputoption>
+            <ods-inputoption
+              inputId="radio2"
+              label="No"
+              name="radioDemo4"
+              type="radio"
+              value="no"
+              checked
+            ></ods-inputoption>
+            <ods-inputoption
+              inputId="radio3"
+              label="Maybe"
+              name="radioDemo4"
+              type="radio"
+              value="maybe"
+            ></ods-inputoption>
+          </ods-inputoption-group>
         </template>
       </demo-snippet>
 
       <p>Radio button group set <code>disabled</code></p>
       <demo-snippet>
         <template>
-          <ods-inputoptions type="radio" name="radios" disabled label="Form label goes here" for="radio1"
-            componentData='[
-              { "id": "radio1", "value": "yes", "label": "Yes" },
-              { "id": "radio2", "value": "no", "label": "No", "checked": true },
-              { "id": "radio3", "value": "maybe", "label": "Maybe" }
-            ]'></ods-inputoptions>
+          <ods-inputoption-group for="radioDemo5" label="Form label goes here" type="radio" disabled>
+            <ods-inputoption
+              inputId="radio1"
+              label="Yes"
+              name="radioDemo5"
+              type="radio"
+              value="yes"
+            ></ods-inputoption>
+            <ods-inputoption
+              inputId="radio2"
+              label="No"
+              name="radioDemo5"
+              type="radio"
+              value="no"
+              checked
+            ></ods-inputoption>
+            <ods-inputoption
+              inputId="radio3"
+              label="Maybe"
+              name="radioDemo5"
+              type="radio"
+              value="maybe"
+            ></ods-inputoption>
+          </ods-inputoption-group>
         </template>
       </demo-snippet>
 
       <p>Radio button group with error</p>
       <demo-snippet>
         <template>
-          <ods-inputoptions type="radio" name="radios" for="radio1" label="Form label goes here" error="Selection is required; please update."
-            componentData='[
-              { "id": "radio1", "value": "yes", "label": "Yes" },
-              { "id": "radio2", "value": "no", "label": "No"},
-              { "id": "radio3", "value": "maybe", "label": "Maybe" }
-            ]'></ods-inputoptions>
+          <ods-inputoption-group for="radioDemo6" label="Form label goes here" error="Selection is required; please update." type="radio">
+            <ods-inputoption
+              inputId="radio1"
+              label="Yes"
+              name="radioDemo6"
+              type="radio"
+              value="yes"
+            ></ods-inputoption>
+            <ods-inputoption
+              inputId="radio2"
+              label="No"
+              name="radioDemo6"
+              type="radio"
+              value="no"
+            ></ods-inputoption>
+            <ods-inputoption
+              inputId="radio3"
+              label="Maybe"
+              name="radioDemo6"
+              type="radio"
+              value="maybe"
+            ></ods-inputoption>
+          </ods-inputoption-group>
         </template>
       </demo-snippet>
 
       <p>Default checkbox group</p>
       <demo-snippet>
         <template>
-            <ods-inputoptions type="checkbox" name="interests" for="coding" label="Form label goes here"
-              componentData='[
-              { "id": "computers", "value": "computers", "label": "Computers" },
-              { "id": "music", "value": "music", "label": "Music" },
-              { "id": "sports", "value": "sports", "label": "Sports" },
-              { "id": "arts", "value": "arts", "label": "Arts" },
-              { "id": "machines", "value": "machines", "label": "Machines" }
-              ]'></ods-inputoptions>
+          <ods-inputoption-group for="checkboxDemo1" label="Form label goes here">
+            <ods-inputoption
+              inputId="computers"
+              label="Computers"
+              name="checkboxDemo1"
+              type="checkbox"
+              value="computers"
+            ></ods-inputoption>
+            <ods-inputoption
+              inputId="music"
+              label="Music"
+              name="checkboxDemo1"
+              type="checkbox"
+              value="music"
+            ></ods-inputoption>
+            <ods-inputoption
+              inputId="arts"
+              label="Arts"
+              name="checkboxDemo1"
+              type="checkbox"
+              value="arts"
+            ></ods-inputoption>
+            <ods-inputoption
+              inputId="sports"
+              label="Sports"
+              name="checkboxDemo1"
+              type="checkbox"
+              value="sports"
+            ></ods-inputoption>
+            <ods-inputoption
+              inputId="machines"
+              label="Machines"
+              name="checkboxDemo1"
+              type="checkbox"
+              value="machines"
+            ></ods-inputoption>
+          </ods-inputoption-group>
         </template>
       </demo-snippet>
 
@@ -178,56 +322,217 @@
             { "id": "music", "value": "music", "label": "Music" },
             { "id": "sports", "value": "sports", "label": "Sports" }
             ]'></ods-inputoptions>
+            <ods-inputoption-group for="checkboxDemo2" label="Form label goes here" horizontal>
+              <ods-inputoption
+                inputId="computers"
+                label="Computers"
+                name="checkboxDemo2"
+                type="checkbox"
+                value="computers"
+              ></ods-inputoption>
+              <ods-inputoption
+                inputId="music"
+                label="Music"
+                name="checkboxDemo2"
+                type="checkbox"
+                value="music"
+              ></ods-inputoption>
+              <ods-inputoption
+                inputId="sports"
+                label="Sports"
+                name="checkboxDemo2"
+                type="checkbox"
+                value="sports"
+              ></ods-inputoption>
+            </ods-inputoption-group>
         </template>
       </demo-snippet>
 
       <p>Checkbox group, <code>horizontal</code> option ignored due to option limit</p>
       <demo-snippet>
         <template>
-          <ods-inputoptions type="checkbox" horizontal name="interests" label="Form label goes here" for="computers"
-            componentData='[
-            { "id": "computers", "value": "computers", "label": "Computers" },
-            { "id": "music", "value": "music", "label": "Music" },
-            { "id": "sports", "value": "sports", "label": "Sports" },
-            { "id": "arts", "value": "arts", "label": "Arts" },
-            { "id": "machines", "value": "machines", "label": "Machines" }
-            ]'></ods-inputoptions>
+          <ods-inputoption-group for="checkboxDemo3" label="Form label goes here" horizontal>
+            <ods-inputoption
+              inputId="computers"
+              label="Computers"
+              name="checkboxDemo3"
+              type="checkbox"
+              value="computers"
+            ></ods-inputoption>
+            <ods-inputoption
+              inputId="music"
+              label="Music"
+              name="checkboxDemo3"
+              type="checkbox"
+              value="music"
+            ></ods-inputoption>
+            <ods-inputoption
+              inputId="arts"
+              label="Arts"
+              name="checkboxDemo3"
+              type="checkbox"
+              value="arts"
+            ></ods-inputoption>
+            <ods-inputoption
+              inputId="sports"
+              label="Sports"
+              name="checkboxDemo3"
+              type="checkbox"
+              value="sports"
+            ></ods-inputoption>
+            <ods-inputoption
+              inputId="machines"
+              label="Machines"
+              name="checkboxDemo3"
+              type="checkbox"
+              value="machines"
+            ></ods-inputoption>
+          </ods-inputoption-group>
         </template>
       </demo-snippet>
 
       <p>Checkbox group with option set to <code>checked</code></p>
       <demo-snippet>
         <template>
-            <ods-inputoptions type="checkbox" name="interests" for="computers" label="Form label goes here"
-              componentData='[
-                { "id": "computers", "value": "computers", "label": "Computers", "checked": true },
-                { "id": "music", "value": "music", "label": "Music" },
-                { "id": "sports", "value": "sports", "label": "Sports" }
-              ]'></ods-inputoptions>
+          <ods-inputoption-group for="checkboxDemo4" label="Form label goes here">
+            <ods-inputoption
+              inputId="computers"
+              label="Computers"
+              name="checkboxDemo4"
+              type="checkbox"
+              value="computers"
+              checked
+            ></ods-inputoption>
+            <ods-inputoption
+              inputId="music"
+              label="Music"
+              name="checkboxDemo4"
+              type="checkbox"
+              value="music"
+            ></ods-inputoption>
+            <ods-inputoption
+              inputId="arts"
+              label="Arts"
+              name="checkboxDemo4"
+              type="checkbox"
+              value="arts"
+            ></ods-inputoption>
+          </ods-inputoption-group>
         </template>
       </demo-snippet>
 
       <p>Checkbox group set <code>disabled</code></p>
       <demo-snippet>
         <template>
-            <ods-inputoptions type="checkbox" name="interests" disabled for="computers" label="Form label goes here"
-              componentData='[
-                { "id": "computers", "value": "computers", "label": "Computers", "checked": true },
-                { "id": "music", "value": "music", "label": "Music" },
-                { "id": "sports", "value": "sports", "label": "Sports" }
-              ]'></ods-inputoptions>
-        </template>
+          <ods-inputoption-group for="checkboxDemo5" label="Form label goes here" disabled>
+            <ods-inputoption
+              inputId="computers"
+              label="Computers"
+              name="checkboxDemo5"
+              type="checkbox"
+              value="computers"
+              checked
+            ></ods-inputoption>
+            <ods-inputoption
+              inputId="music"
+              label="Music"
+              name="checkboxDemo5"
+              type="checkbox"
+              value="music"
+            ></ods-inputoption>
+            <ods-inputoption
+              inputId="arts"
+              label="Arts"
+              name="checkboxDemo5"
+              type="checkbox"
+              value="arts"
+            ></ods-inputoption>
+          </ods-inputoption-group>
+      </template>
       </demo-snippet>
 
       <p>Checkbox group with error</p>
       <demo-snippet>
         <template>
-            <ods-inputoptions type="checkbox" name="interests" for="computers" label="Form label goes here" error="Selection is required; please update."
-              componentData='[
-                { "id": "computers", "value": "computers", "label": "Computers"},
-                { "id": "music", "value": "music", "label": "Music" },
-                { "id": "sports", "value": "sports", "label": "Sports" }
-              ]'></ods-inputoptions>
+          <ods-inputoption-group for="checkboxDemo6" label="Form label goes here" error="Selection is required; please update.">
+            <ods-inputoption
+              inputId="computers"
+              label="Computers"
+              name="checkboxDemo6"
+              type="checkbox"
+              value="computers"
+            ></ods-inputoption>
+            <ods-inputoption
+              inputId="music"
+              label="Music"
+              name="checkboxDemo6"
+              type="checkbox"
+              value="music"
+            ></ods-inputoption>
+            <ods-inputoption
+              inputId="arts"
+              label="Arts"
+              name="checkboxDemo6"
+              type="checkbox"
+              value="arts"
+            ></ods-inputoption>
+          </ods-inputoption-group>
+        </template>
+      </demo-snippet>
+
+      <p>Light dom version of the radio group</p>
+      <demo-snippet>
+        <template>
+          <div>Form label goes here</div>
+          <ods-inputoption-light
+            inputId="computers"
+            label="Computers"
+            name="radioLightDom1"
+            type="radio"
+            value="computers"
+          ></ods-inputoption-light>
+          <ods-inputoption-light
+            inputId="music"
+            label="Music"
+            name="radioLightDom1"
+            type="radio"
+            value="music"
+          ></ods-inputoption-light>
+          <ods-inputoption-light
+            inputId="arts"
+            label="Arts"
+            name="radioLightDom1"
+            type="radio"
+            value="arts"
+          ></ods-inputoption-light>
+        </template>
+      </demo-snippet>
+
+      <p>Light dom version of checkbox</p>
+      <demo-snippet>
+        <template>
+          <div>Form label goes here</div>
+          <ods-inputoption-light
+            inputId="computers-check"
+            label="Computers"
+            name="checkboxLightDom1"
+            type="checkbox"
+            value="computers"
+          ></ods-inputoption-light>
+          <ods-inputoption-light
+            inputId="music-check"
+            label="Music"
+            name="checkboxLightDom1"
+            type="checkbox"
+            value="music"
+          ></ods-inputoption-light>
+          <ods-inputoption-light
+            inputId="arts-check"
+            label="Arts"
+            name="checkboxLightDom1"
+            type="checkbox"
+            value="arts"
+          ></ods-inputoption-light>
         </template>
       </demo-snippet>
 

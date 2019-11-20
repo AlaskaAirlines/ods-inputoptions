@@ -8,7 +8,7 @@ export default class OdsInputoptionLight extends OdsInputoption {
     return this;
   }
 
-  handleChange({target}) {
+  handleChange({ target }) {
     /* Override `handleChange` in the light dom element; this will allow
      *   the <input> element to manage the checked state and will prevent
      *   <ods-inputoption-light> elements from receiving the `checked`

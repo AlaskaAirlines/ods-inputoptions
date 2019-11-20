@@ -20,24 +20,30 @@ class OdsInputoptionGroup extends LitElement {
 
   static get properties() {
     return {
+      disabled:   { type: Boolean },
       horizontal: { type: Boolean },
       error:      { type: String },
       for:        { type: String },
-      label:      { type: String }
+      label:      { type: String },
+      type:       { type: String }
     };
   }
 
   connectedCallback() {
     super.connectedCallback();
     this._items = this.getElementsByTagName(this._selectable) || [];
+
+    Array.from(this._items).forEach(el => el.disabled = this.disabled);
   }
 
   _handleInput({ target }) {
-    Array.from(this._items).forEach(el => {
-      el === target ?
-        el.setAttribute('checked', '') :
-        el.removeAttribute('checked');
-    });
+    if (this.type === "radio") {
+      Array.from(this._items).forEach(el => {
+        el === target ?
+          el.setAttribute('checked', '') :
+          el.removeAttribute('checked');
+      });
+    }
   }
 
   _errorChange() {

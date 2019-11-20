@@ -16,7 +16,7 @@ describe('ods-inputoption', () => {
         checked
         required
         error=${expectedError}
-        id=${expectedId}
+        inputId=${expectedId}
         label=${expectedLabel}
         name=${expectedName}
         type=${type}
@@ -54,7 +54,7 @@ describe('ods-inputoption', () => {
       <ods-inputoption
         required
         error=${error}
-        id=${id}
+        inputId=${id}
         label=${label}
         name=${name}
         type=${type}
