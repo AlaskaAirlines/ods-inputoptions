@@ -16,6 +16,7 @@ class OdsInputoptionGroup extends LitElement {
     super();
 
     this._selectable = 'ods-inputoption'
+    this._index = 0;
   }
 
   static get properties() {
@@ -31,14 +32,81 @@ class OdsInputoptionGroup extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-    this._items = this.getElementsByTagName(this._selectable) || [];
+    this._items = Array.from(this.querySelectorAll(this._selectable)) || [];
 
-    Array.from(this._items).forEach(el => el.disabled = this.disabled);
+    this._items.forEach(el => el.disabled = this.disabled);
+    this._focusIndex(this._items)
+
+    this.addEventListener('click', this._handleClick)
+    this.addEventListener('keydown', this._handleKeyDown)
+  }
+
+  _handleClick({target}) {
+    const idx = this._items.indexOf(target)
+
+    if (idx !== -1) {
+      this._selectItem(idx)
+    }
+  }
+
+  _focusIndex(items) {
+    let index = 0;
+    let checked = false;
+
+    items.forEach((el, idx) => {
+      el.setAttribute('tabindex', '-1')
+
+      if (el.checked) {
+        index = idx;
+        checked = true;
+      }
+    })
+
+    this._selectItem(index, checked);
+  }
+
+  _selectItem(newIndex, checked=true) {
+    let oldIndex = this._index;
+    newIndex = newIndex % this._items.length;
+    newIndex = (newIndex < 0) ? this._items.length - 1 : newIndex;
+
+    if (this._items[oldIndex]) this._items[oldIndex].setAttribute("tabindex", "-1");
+    if (this._items[newIndex]) this._items[newIndex].setAttribute("tabindex", "0");
+
+    if (checked) {
+      this.focus();
+      const label = this._items[newIndex].renderRoot.querySelector('label');
+      if (label) label.click();
+    }
+
+    this._index = newIndex
+  }
+
+  _handleKeyDown(event) {
+    switch (event.key) {
+      case "Down":
+      case "ArrowDown":
+      case "Right":
+      case "ArrowRight": {
+        event.preventDefault();
+        this._selectItem(this._index + 1);
+        break;
+      }
+
+      case "Up":
+      case "ArrowUp":
+      case "Left":
+      case "ArrowLeft": {
+        event.preventDefault();
+        this._selectItem(this._index - 1);
+        break;
+      }
+    }
   }
 
   _handleInput({ target }) {
     if (this.type === "radio") {
-      Array.from(this._items).forEach(el => {
+      this._items.forEach(el => {
         el === target ?
           el.setAttribute('checked', '') :
           el.removeAttribute('checked');
@@ -47,7 +115,7 @@ class OdsInputoptionGroup extends LitElement {
   }
 
   _errorChange() {
-    Array.from(this._items).forEach(el => el.error = !!this.error);
+    this._items.forEach(el => el.error = !!this.error);
   }
 
   render() {

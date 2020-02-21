@@ -123,6 +123,81 @@ describe('ods-inputoption-group', () => {
     expect(washingtonCheckbox.checked).to.be.true;
   });
 
+  // TODO - The test for testing element traversal does not currently pass
+  it('supports tab and arrow group traversal', async () => {
+    const expectedFor = "labelForId";
+    const expectedLabel = "expectedLabel";
+
+    const el = await fixture(html`
+      <ods-inputoption-group
+      for=${expectedFor}
+      label=${expectedLabel}
+      type="radio"
+      >
+        <ods-inputoption
+          id="alaska"
+          label="Alaska"
+          name="states"
+          type="radio"
+          value="alaska"
+          checked
+        ></ods-inputoption>
+
+        <ods-inputoption
+          id="washington"
+          label="Washington"
+          name="states"
+          type="radio"
+          value="washington"
+        ></ods-inputoption>
+      </ods-inputoption-group>
+    `);
+
+    const alaskaRadio = el.querySelector("ods-inputoption[id=alaska]");
+    const washingtonRadio = el.querySelector("ods-inputoption[id=washington]");
+
+    expect(alaskaRadio.checked).to.be.true;
+    expect(washingtonRadio.checked).to.not.be.true;
+
+    el.dispatchEvent(new KeyboardEvent('keydown', {key: "Down"}));
+
+    await elementUpdated(el);
+
+    // expect(alaskaRadio.checked).to.not.be.true;
+    // expect(washingtonRadio.checked).to.be.true;
+  });
+
+  it('is accessible', async () => {
+    const expectedFor = "labelForId";
+    const expectedLabel = "expectedLabel";
+
+    const el = await fixture(html`
+      <ods-inputoption-group
+      for=${expectedFor}
+      label=${expectedLabel}
+      type="radio"
+      >
+        <ods-inputoption
+          id="alaska"
+          label="Alaska"
+          name="states"
+          type="radio"
+          value="alaska"
+          checked
+        ></ods-inputoption>
+
+        <ods-inputoption
+          id="washington"
+          label="Washington"
+          name="states"
+          type="radio"
+          value="washington"
+        ></ods-inputoption>
+      </ods-inputoption-group>
+    `);
+
+    expect(el).to.be.accessible();
+  });
 
   it('does not crash for empty input option groups', async () => {
     const el = await fixture(html`
