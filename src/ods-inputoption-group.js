@@ -101,15 +101,6 @@ class OdsInputoptionGroup extends LitElement {
         this._selectItem(this._index - 1);
         break;
       }
-
-      case "Tab": {
-        event.preventDefault()
-        if (event.shiftKey) {
-          this._selectItem(this._index - 1);
-        } else {
-          this._selectItem(this._index + 1);
-        }
-      }
     }
   }
 
