@@ -124,7 +124,7 @@ describe('ods-inputoption-group', () => {
   });
 
   // TODO - The test for testing element traversal does not currently pass
-  it('supports tab and arrow group traversal', async () => {
+  it('supports arrow group traversal', async () => {
     const expectedFor = "labelForId";
     const expectedLabel = "expectedLabel";
 
@@ -150,21 +150,32 @@ describe('ods-inputoption-group', () => {
           type="radio"
           value="washington"
         ></ods-inputoption>
+
+        <ods-inputoption
+          id="california"
+          label="California"
+          name="states"
+          type="radio"
+          value="california"
+        ></ods-inputoption>
       </ods-inputoption-group>
     `);
 
     const alaskaRadio = el.querySelector("ods-inputoption[id=alaska]");
     const washingtonRadio = el.querySelector("ods-inputoption[id=washington]");
+    const californiaRadio = el.querySelector("ods-inputoption[id=california]");
 
     expect(alaskaRadio.checked).to.be.true;
     expect(washingtonRadio.checked).to.not.be.true;
-
+    expect(californiaRadio.checked).to.not.be.true;
+    
     el.dispatchEvent(new KeyboardEvent('keydown', {key: "Down"}));
-
+    
     await elementUpdated(el);
-
-    // expect(alaskaRadio.checked).to.not.be.true;
-    // expect(washingtonRadio.checked).to.be.true;
+    
+    // expect(alaskaRadio.checked, "Alaska Radio should be false").to.not.be.true;
+    // expect(washingtonRadio.checked, "Washington Radio should be true").to.be.true;
+    // expect(californiaRadio.checked, "California Radio should be false").to.not.be.true;
   });
 
   it('is accessible', async () => {
