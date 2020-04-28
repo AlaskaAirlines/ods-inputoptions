@@ -13,8 +13,6 @@ import componentProperties from './tokens/componentShapeProperties-css.js';
 import styleCss from "./style-css.js";
 
 export default class OdsInputoption extends LitElement {
-  // TODO: rename `id` as this field will be in conflict between the
-  // custom element and the <input> element in the light dom.
   static get properties() {
     return {
       checked:  { type: Boolean, reflect: true },
