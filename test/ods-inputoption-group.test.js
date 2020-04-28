@@ -123,7 +123,8 @@ describe('ods-inputoption-group', () => {
     expect(washingtonCheckbox.checked).to.be.true;
   });
 
-  // TODO - The test for testing element traversal does not currently pass
+  // TODO - Address the event trigger for @input on the parent div not triggering
+  // for the automated test in the upcoming Auro work.
   it('supports arrow group traversal', async () => {
     const expectedFor = "labelForId";
     const expectedLabel = "expectedLabel";
