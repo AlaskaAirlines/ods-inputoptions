@@ -101,10 +101,20 @@ class OdsInputoptionGroup extends LitElement {
         this._selectItem(this._index - 1);
         break;
       }
+
+      case "Tab": {
+        event.preventDefault()
+        if (event.shiftKey) {
+          this._selectItem(this._index - 1);
+        } else {
+          this._selectItem(this._index + 1);
+        }
+      }
     }
   }
 
   _handleInput({ target }) {
+    console.log(target)
     if (this.type === "radio") {
       this._items.forEach(el => {
         el === target ?
