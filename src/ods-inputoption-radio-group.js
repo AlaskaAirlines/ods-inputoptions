@@ -17,6 +17,14 @@ class OdsInputoptionRadioGroup extends OdsInputoptionGroupBase {
     };
   }
 
+  connectedCallback() {
+    super.connectedCallback();
+
+    this._focusIndex(this._items)
+    this.addEventListener('click', this._handleClick)
+    this.addEventListener('keydown', this._handleKeyDown)
+  }
+
   _handleClick({target}) {
     const idx = this._items.indexOf(target)
 
