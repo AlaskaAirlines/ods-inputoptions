@@ -16,6 +16,7 @@
     <script type="module" src="../src/ods-inputoption.js"></script>
     <script type="module" src="../src/ods-inputoption-group.js"></script>
     <script type="module" src="../src/ods-inputoption-light.js"></script>
+    <script type="module" src="../src/ods-inputoption-radio-group.js"></script>
     <script src="../demo/alert.js"></script>
     <script type="module">
       import '../node_modules/@polymer/iron-icons/hardware-icons.js';
@@ -70,7 +71,7 @@
       <p>Default radio button group</p>
       <demo-snippet>
         <template>
-          <ods-inputoption-group for="radioDemo1" label="Form label goes here"  type="radio">
+          <ods-inputoption-radio-group for="radioDemo1" label="Form label goes here">
             <ods-inputoption
               inputId="radio1"
               label="Yes"
@@ -106,7 +107,7 @@
               type="radio"
               value="hellz yeah"
             ></ods-inputoption>
-          </ods-inputoption-group>
+          </ods-inputoption-radio-group>
         </template>
       </demo-snippet>
 
@@ -119,7 +120,7 @@
               { "id": "radio2", "value": "no", "label": "No" },
               { "id": "radio3", "value": "maybe", "label": "Maybe" }
             ]'></ods-inputoptions> -->
-          <ods-inputoption-group for="radioDemo2" label="Form label goes here" type="radio" horizontal>
+          <ods-inputoption-radio-group for="radioDemo2" label="Form label goes here" horizontal>
             <ods-inputoption
               inputId="radio1"
               label="Yes"
@@ -141,14 +142,14 @@
               type="radio"
               value="maybe"
             ></ods-inputoption>
-          </ods-inputoption-group>
+          </ods-inputoption-radio-group>
         </template>
       </demo-snippet>
 
       <p>Radio button group, <code>horizontal</code> option ignored due to option limit (3)</p>
       <demo-snippet>
         <template>
-          <ods-inputoption-group for="radioDemo3" label="Form label goes here" type="radio" horizontal>
+          <ods-inputoption-radio-group for="radioDemo3" label="Form label goes here" horizontal>
             <ods-inputoption
               inputId="radio1"
               label="Yes"
@@ -191,14 +192,14 @@
               type="radio"
               value="nope"
             ></ods-inputoption>
-          </ods-inputoption-group>
+          </ods-inputoption-radio-group>
         </template>
       </demo-snippet>
 
       <p>Radio button group with option set to <code>checked</code></p>
       <demo-snippet>
         <template>
-          <ods-inputoption-group for="radioDemo4" label="Form label goes here" type="radio">
+          <ods-inputoption-radio-group for="radioDemo4" label="Form label goes here">
             <ods-inputoption
               inputId="radio1"
               label="Yes"
@@ -221,14 +222,14 @@
               type="radio"
               value="maybe"
             ></ods-inputoption>
-          </ods-inputoption-group>
+          </ods-inputoption-radio-group>
         </template>
       </demo-snippet>
 
       <p>Radio button group set <code>disabled</code></p>
       <demo-snippet>
         <template>
-          <ods-inputoption-group for="radioDemo5" label="Form label goes here" type="radio" disabled>
+          <ods-inputoption-radio-group for="radioDemo5" label="Form label goes here" disabled>
             <ods-inputoption
               inputId="radio1"
               label="Yes"
@@ -251,14 +252,14 @@
               type="radio"
               value="maybe"
             ></ods-inputoption>
-          </ods-inputoption-group>
+          </ods-inputoption-radio-group>
         </template>
       </demo-snippet>
 
       <p>Radio button group with error</p>
       <demo-snippet>
         <template>
-          <ods-inputoption-group for="radioDemo6" label="Form label goes here" error="Selection is required; please update." type="radio">
+          <ods-inputoption-radio-group for="radioDemo6" label="Form label goes here" error="Selection is required; please update.">
             <ods-inputoption
               inputId="radio1"
               label="Yes"
@@ -280,7 +281,7 @@
               type="radio"
               value="maybe"
             ></ods-inputoption>
-          </ods-inputoption-group>
+          </ods-inputoption-radio-group>
         </template>
       </demo-snippet>
 

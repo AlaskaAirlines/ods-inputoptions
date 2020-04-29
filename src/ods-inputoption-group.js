@@ -44,7 +44,7 @@ class OdsInputoptionGroup extends LitElement {
   _handleClick({target}) {
     const idx = this._items.indexOf(target)
 
-    if (idx !== -1) {
+    if (idx !== -1 && this._items[idx].type === "radio") {
       this._selectItem(idx)
     }
   }
@@ -82,30 +82,48 @@ class OdsInputoptionGroup extends LitElement {
     this._index = newIndex
   }
 
-  _handleKeyDown(event) {
-    switch (event.key) {
-      case "Down":
-      case "ArrowDown":
-      case "Right":
-      case "ArrowRight": {
-        event.preventDefault();
-        this._selectItem(this._index + 1);
-        break;
+  _selectCheckBoxItem(newIndex) {
+    let oldIndex = this._index;
+    
+    if (this._index > 0 && this._index < this._items.length - 1) {
+      if (this._items[oldIndex]) this._items[oldIndex].setAttribute("tabindex", "-1");
+      if (this._items[newIndex]) {
+        this._items[newIndex].setAttribute("tabindex", "0");
+        this._items[newIndex].focus()
       }
 
-      case "Up":
-      case "ArrowUp":
-      case "Left":
-      case "ArrowLeft": {
-        event.preventDefault();
-        this._selectItem(this._index - 1);
-        break;
+      this._index = newIndex;
+    }
+  }
+
+  _handleKeyDown(event) {
+    if (event.key === "Tab" && this._items[this._index].type === "checkbox") {
+      let newIndex = this._index + (event.shiftKey? -1 : 1);
+      this._selectCheckBoxItem(newIndex);
+    } else {
+      switch (event.key) {
+        case "Down":
+        case "ArrowDown":
+        case "Right":
+        case "ArrowRight": {
+          event.preventDefault();
+          this._selectItem(this._index + 1);
+          break;
+        } 
+  
+        case "Up":
+        case "ArrowUp":
+        case "Left":
+        case "ArrowLeft": {
+          event.preventDefault();
+          this._selectItem(this._index - 1);
+          break;
+        }
       }
     }
   }
 
   _handleInput({ target }) {
-    console.log(target)
     if (this.type === "radio") {
       this._items.forEach(el => {
         el === target ?
