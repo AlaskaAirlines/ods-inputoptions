@@ -17,6 +17,7 @@
     <script type="module" src="../src/ods-inputoption-group.js"></script>
     <script type="module" src="../src/ods-inputoption-light.js"></script>
     <script type="module" src="../src/ods-inputoption-radio-group.js"></script>
+    <script type="module" src="../src/ods-inputoption-checkbox-group.js"></script>
     <script src="../demo/alert.js"></script>
     <script type="module">
       import '../node_modules/@polymer/iron-icons/hardware-icons.js';
@@ -93,20 +94,6 @@
               type="radio"
               value="maybe"
             ></ods-inputoption>
-            <ods-inputoption
-              inputId="radio4"
-              label="Well ..."
-              name="radioDemo1"
-              type="radio"
-              value="well ..."
-            ></ods-inputoption>
-            <ods-inputoption
-              inputId="radio5"
-              label="Hellz yeah!"
-              name="radioDemo1"
-              type="radio"
-              value="hellz yeah"
-            ></ods-inputoption>
           </ods-inputoption-radio-group>
         </template>
       </demo-snippet>
@@ -114,12 +101,6 @@
       <p>Radio button group, <code>horizontal</code> option (limit 3 min breakpoint-narrow)</p>
       <demo-snippet>
         <template>
-          <!-- <ods-inputoptions type="radio" horizontal name="radios" label="Form label goes here" for="radio1"
-            componentData='[
-              { "id": "radio1", "value": "yes", "label": "Yes" },
-              { "id": "radio2", "value": "no", "label": "No" },
-              { "id": "radio3", "value": "maybe", "label": "Maybe" }
-            ]'></ods-inputoptions> -->
           <ods-inputoption-radio-group for="radioDemo2" label="Form label goes here" horizontal>
             <ods-inputoption
               inputId="radio1"
@@ -288,7 +269,7 @@
       <p>Default checkbox group</p>
       <demo-snippet>
         <template>
-          <ods-inputoption-group for="checkboxDemo1" label="Form label goes here">
+          <ods-inputoption-checkbox-group for="checkboxDemo1" label="Form label goes here">
             <ods-inputoption
               inputId="computers"
               label="Computers"
@@ -324,20 +305,14 @@
               type="checkbox"
               value="machines"
             ></ods-inputoption>
-          </ods-inputoption-group>
+          </ods-inputoption-checkbox-group>
         </template>
       </demo-snippet>
 
       <p>Checkbox group, <code>horizontal</code> option (limit 3 min breakpoint-narrow)</p>
       <demo-snippet>
         <template>
-          <!-- <ods-inputoptions type="checkbox" horizontal name="interests" label="Form label goes here" for="computers"
-            componentData='[
-            { "id": "computers", "value": "computers", "label": "Computers" },
-            { "id": "music", "value": "music", "label": "Music" },
-            { "id": "sports", "value": "sports", "label": "Sports" }
-            ]'></ods-inputoptions> -->
-            <ods-inputoption-group for="checkboxDemo2" label="Form label goes here" horizontal>
+            <ods-inputoption-checkbox-group for="checkboxDemo2" label="Form label goes here" horizontal>
               <ods-inputoption
                 inputId="computers"
                 label="Computers"
@@ -359,14 +334,14 @@
                 type="checkbox"
                 value="sports"
               ></ods-inputoption>
-            </ods-inputoption-group>
+            </ods-inputoption-checkbox-group>
         </template>
       </demo-snippet>
 
       <p>Checkbox group, <code>horizontal</code> option ignored due to option limit</p>
       <demo-snippet>
         <template>
-          <ods-inputoption-group for="checkboxDemo3" label="Form label goes here" horizontal>
+          <ods-inputoption-checkbox-group for="checkboxDemo3" label="Form label goes here" horizontal>
             <ods-inputoption
               inputId="computers"
               label="Computers"
@@ -402,14 +377,14 @@
               type="checkbox"
               value="machines"
             ></ods-inputoption>
-          </ods-inputoption-group>
+          </ods-inputoption-checkbox-group>
         </template>
       </demo-snippet>
 
       <p>Checkbox group with option set to <code>checked</code></p>
       <demo-snippet>
         <template>
-          <ods-inputoption-group for="checkboxDemo4" label="Form label goes here">
+          <ods-inputoption-checkbox-group for="checkboxDemo4" label="Form label goes here">
             <ods-inputoption
               inputId="computers"
               label="Computers"
@@ -432,14 +407,14 @@
               type="checkbox"
               value="arts"
             ></ods-inputoption>
-          </ods-inputoption-group>
+          </ods-inputoption-checkbox-group>
         </template>
       </demo-snippet>
 
       <p>Checkbox group set <code>disabled</code></p>
       <demo-snippet>
         <template>
-          <ods-inputoption-group for="checkboxDemo5" label="Form label goes here" disabled>
+          <ods-inputoption-checkbox-group for="checkboxDemo5" label="Form label goes here" disabled>
             <ods-inputoption
               inputId="computers"
               label="Computers"
@@ -462,14 +437,14 @@
               type="checkbox"
               value="arts"
             ></ods-inputoption>
-          </ods-inputoption-group>
+          </ods-inputoption-checkbox-group>
       </template>
       </demo-snippet>
 
       <p>Checkbox group with error</p>
       <demo-snippet>
         <template>
-          <ods-inputoption-group for="checkboxDemo6" label="Form label goes here" error="Selection is required; please update.">
+          <ods-inputoption-checkbox-group for="checkboxDemo6" label="Form label goes here" error="Selection is required; please update.">
             <ods-inputoption
               inputId="computers"
               label="Computers"
@@ -491,7 +466,7 @@
               type="checkbox"
               value="arts"
             ></ods-inputoption>
-          </ods-inputoption-group>
+          </ods-inputoption-checkbox-group>
         </template>
       </demo-snippet>
 

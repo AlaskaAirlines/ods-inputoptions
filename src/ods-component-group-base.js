@@ -35,10 +35,6 @@ export default class OdsInputoptionGroupBase extends LitElement {
     this._items = Array.from(this.querySelectorAll(this._selectable)) || [];
 
     this._items.forEach(el => el.disabled = this.disabled);
-    this._focusIndex(this._items)
-
-    this.addEventListener('click', this._handleClick)
-    this.addEventListener('keydown', this._handleKeyDown)
   }
 
   _errorChange() {
