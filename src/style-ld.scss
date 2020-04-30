@@ -1,0 +1,100 @@
+// Copyright (c) Alaska Air. All right reserved. Licensed under the Apache-2.0 license
+// See LICENSE in the project root for license information.
+
+// ---------------------------------------------------------------------
+
+// import button styles into element namespaced wrapper
+ods-inputoption-light {
+  @import './style.scss';
+
+    .displayFlex {
+      .ods-inputGroup:focus-within {
+        width: var(--host-focus-display-flex-width);
+      }
+    }
+
+    .focus-visible {
+      &:focus {
+        & + .ods-inputLabel {
+          background-color: var(--host-focus-inputgroup-background-color);
+          color: var(--host-focus-inputgroup-color);
+    
+          &:after {
+            border-color: var(--color-base-shark);
+          }
+        }
+      }
+
+      @at-root .ods-inputGroup {
+        &:focus-within {
+          width: var(--host-focus-inputgroup-width);
+          display: var(--host-focus-inputgroup-display);
+          background-color: var(--host-focus-inputgroup-background-color);
+      
+          padding-right: var(--host-focus-inputgroup-padding-right);
+          margin-right: var(--host-focus-inputgroup-margin-right);
+      
+          .ods-inputLabel--radio {
+            &:before {
+              background-color: var(--host-focus-inputgroup-radio-label-before-backgroundcolor);
+            }
+      
+            &:after {
+              border-color: var(--host-focus-inputgroup-radio-label-after-bordercolor);
+            }
+          }
+
+          .ods-inputLabel--checkbox {
+            &:before,
+            &:after {
+              border-color: var(--colors-focus-backgroundborder);
+            }
+          }
+        }
+      }
+    }
+      //@include focus-visible;
+      // .displayFlex {
+      //   .ods-inputGroup:focus-within {
+      //     width: var(--host-focus-display-flex-width);
+      //   }
+      // }
+      
+      // // /* Fallback for browsers that don't support focus-within */
+      // .ods-inputOption:focus {
+      //   .ods-inputLabel {
+      //     background-color: var(--host-focus-inputgroup-background-color);
+      //     color: var(--host-focus-inputgroup-color);
+    
+      //     &:after {
+      //       border-color: var(--color-base-shark);
+      //     }
+      //   }
+      // }
+    
+      // .ods-inputGroup:focus-within {
+        // width: var(--host-focus-inputgroup-width);
+        // display: var(--host-focus-inputgroup-display);
+        // background-color: var(--host-focus-inputgroup-background-color);
+    
+        // padding-right: var(--host-focus-inputgroup-padding-right);
+        // margin-right: var(--host-focus-inputgroup-margin-right);
+    
+        // .ods-inputLabel--radio {
+        //   &:before {
+        //     background-color: var(--host-focus-inputgroup-radio-label-before-backgroundcolor);
+        //   }
+    
+        //   &:after {
+        //     border-color: var(--host-focus-inputgroup-radio-label-after-bordercolor);
+        //   }
+      //   }
+    
+      //   .ods-inputLabel--checkbox {
+      //     &:before,
+      //     &:after {
+      //       border-color: var(--colors-focus-backgroundborder);
+      //     }
+      //   }
+      // }
+}

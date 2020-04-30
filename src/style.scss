@@ -29,10 +29,7 @@
 // layout styles - define any layout specifications for UI that is contained WITHIN the component
 // never define layout that would cause effect on element ouside the scope of this component
 
-
-// component shape styles
-:host(.focus-visible) {
-
+@mixin focus-visible {
   .displayFlex {
     .ods-inputGroup:focus-within {
       width: var(--host-focus-display-flex-width);
@@ -76,6 +73,11 @@
       }
     }
   }
+}
+
+// component shape styles
+:host(.focus-visible) {
+  @include focus-visible
 }
 
 .displayFlex {
