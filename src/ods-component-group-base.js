@@ -25,8 +25,7 @@ export default class OdsInputoptionGroupBase extends LitElement {
       horizontal: { type: Boolean },
       error:      { type: String },
       for:        { type: String },
-      label:      { type: String },
-      type:       { type: String }
+      label:      { type: String }
     };
   }
 
@@ -41,6 +40,23 @@ export default class OdsInputoptionGroupBase extends LitElement {
     this._items.forEach(el => el.error = !!this.error);
   }
 
+  // function to replicate a11y feature of tapping on label for the option group
+  _labelClick() {
+    if (!this.disabled) {
+      for (let child of this.children) {
+        if (child.id === `${this.for}`) {
+          if (child.getAttribute('checked') === null) {
+            child.setAttribute('checked', '')
+          } else if (child.getAttribute('checked') === '' && child.getAttribute('type') === 'checkbox') {
+            child.removeAttribute('checked')
+          }
+        } else if (child.id != `${this.for}`) {
+          child.removeAttribute('checked')
+        }
+      }
+    }
+  }
+
   render() {
     let groupClasses = {
       'displayFlex': (this.horizontal && this._items.length <= 3)
@@ -53,7 +69,7 @@ export default class OdsInputoptionGroupBase extends LitElement {
       ${this._errorChange()}
 
       ${this.label ?
-        html`<label for="${this.for}" class="ods-label">${this.label}</label>` :
+        html`<label for="${this.for}" @click="${this._labelClick}"class="ods-label">${this.label}</label>` :
         html``}
 
       <div

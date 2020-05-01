@@ -36,20 +36,20 @@
     }
   }
 
-  // /* Fallback for browsers that don't support focus-within */
-  .ods-inputOption:focus {
-    & + .ods-inputLabel {
-      background-color: var(--host-focus-inputgroup-background-color);
-      color: var(--host-focus-inputgroup-color);
+  .ods-inputOption {
+    background-color: var(--host-focus-inputgroup-background-color);
+    color: var(--host-focus-inputgroup-color);
 
-      &:after {
-        border-color: var(--color-base-shark);
-      }
+    &:after {
+      border-color: var(--color-base-shark);
+    }
+
+    & + .ods-inputLabel {
+      color: var(--host-focus-inputgroup-color);
     }
   }
 
-  .ods-inputGroup:focus-within {
-    width: var(--host-focus-inputgroup-width);
+  .ods-inputGroup {
     display: var(--host-focus-inputgroup-display);
     background-color: var(--host-focus-inputgroup-background-color);
 
@@ -77,7 +77,7 @@
 
 // component shape styles
 :host(.focus-visible) {
-  @include focus-visible
+  @include focus-visible;
 }
 
 .displayFlex {

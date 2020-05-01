@@ -12,9 +12,8 @@ export default class OdsInputoptionBase extends LitElement {
     return {
       checked:  { type: Boolean, reflect: true },
       disabled: { type: Boolean },
-      required: { type: Boolean },
       error:    { type: String },
-      inputId:  { type: String },
+      id:       { type: String },
       label:    { type: String },
       name:     { type: String },
       type:     { type: String },
@@ -39,16 +38,15 @@ export default class OdsInputoptionBase extends LitElement {
           class="util_displayHiddenVisually ods-inputOption"
           @change="${this.handleChange}"
           ?disabled="${this.disabled}"
-          ?required="${this.required}"
           .checked="${ifDefined(this.checked)}"
-          id="${ifDefined(this.inputId)}"
+          id="${ifDefined(this.id)}"
           name="${ifDefined(this.name)}"
           type="${ifDefined(this.type)}"
           value="${ifDefined(this.value)}"
         />
 
         <label
-          for="${ifDefined(this.inputId)}"
+          for="${ifDefined(this.id)}"
           class="${classMap(labelClasses)}"
         >${this.label}</label>
       </div>
