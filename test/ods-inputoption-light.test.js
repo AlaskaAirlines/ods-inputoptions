@@ -14,9 +14,8 @@ describe('ods-inputoption-light', () => {
     const el = await fixture(html`
       <ods-inputoption-light
         checked
-        required
         error=${expectedError}
-        inputId=${expectedId}
+        id=${expectedId}
         label=${expectedLabel}
         name=${expectedName}
         type=${type}
@@ -31,7 +30,6 @@ describe('ods-inputoption-light', () => {
     expect(el.error).to.equal(expectedError);
 
     expect(inputElement.disabled).to.not.be.true;
-    expect(inputElement.required).to.be.true;
     expect(inputElement.checked).to.be.true;
     expect(inputElement.id).to.equal(expectedId);
     expect(inputElement.name).to.equal(expectedName);
@@ -46,7 +44,7 @@ describe('ods-inputoption-light', () => {
     const el = await fixture(html`
       <div>
         <ods-inputoption-light
-          inputId="alaska"
+          id="alaska"
           label="Alaska"
           name="states"
           type="radio"
@@ -54,7 +52,7 @@ describe('ods-inputoption-light', () => {
         ></ods-inputoption-light>
 
         <ods-inputoption-light
-          inputId="washington"
+          id="washington"
           label="Washington"
           name="states"
           type="radio"
@@ -63,8 +61,8 @@ describe('ods-inputoption-light', () => {
       </div>
     `);
 
-    const alaskaRadioInput = el.querySelector("ods-inputoption-light[inputId=alaska] input");
-    const washingtonRadioInput = el.querySelector("ods-inputoption-light[inputId=washington] input");
+    const alaskaRadioInput = el.querySelector("ods-inputoption-light[id=alaska] input");
+    const washingtonRadioInput = el.querySelector("ods-inputoption-light[id=washington] input");
 
     alaskaRadioInput.click();
     await elementUpdated(el);

@@ -14,9 +14,8 @@ describe('ods-inputoption', () => {
     const el = await fixture(html`
       <ods-inputoption
         checked
-        required
         error=${expectedError}
-        inputId=${expectedId}
+        id=${expectedId}
         label=${expectedLabel}
         name=${expectedName}
         type=${type}
@@ -31,7 +30,6 @@ describe('ods-inputoption', () => {
     expect(el.error).to.equal(expectedError);
 
     expect(inputElement.disabled).to.not.be.true;
-    expect(inputElement.required).to.be.true;
     expect(inputElement.checked).to.be.true;
     expect(inputElement.id).to.equal(expectedId);
     expect(inputElement.name).to.equal(expectedName);
@@ -54,7 +52,7 @@ describe('ods-inputoption', () => {
       <ods-inputoption
         required
         error=${error}
-        inputId=${id}
+        id=${id}
         label=${label}
         name=${name}
         type=${type}

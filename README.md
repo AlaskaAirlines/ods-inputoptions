@@ -1,16 +1,14 @@
-<img src="https://resource.alaskaair.net/-/media/2C1969F8FB244C919205CD48429C13AC" alt="Orion Design System Logo" title="Be the change you want to see" width="125" align="right" />
-
-[![Build Status](https://travis-ci.org/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions.svg?branch=master)](https://travis-ci.org/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions)
+[![Build Status](https://travis-ci.org/AlaskaAirlines/ods-inputoptions.svg?branch=master)](https://travis-ci.org/AlaskaAirlines/ods-inputoptions)
 ![npm (scoped)](https://img.shields.io/npm/v/@alaskaairux/ods-inputoptions.svg?color=orange)
 ![NPM](https://img.shields.io/npm/l/@alaskaairux/ods-inputoptions.svg?color=blue)
 
-# \<ods-inputoptions>
+# ods-inputoption
 
-\<ods-inputoptions> is a wrapper component for a HTML \<input type"checkbox"> or \<input type"radio"> elements containing styling and behavior.
+`<ods-inputoption>` is a wrapper component for a HTML `<input type"checkbox">` or `<input type"radio">` elements containing styling and behavior.
 
 ## Docs
 
-All information regarding Project Setup, Technical Details, Tests and information regarding ODS Stateless Components can be found in the [./docs](https://github.com/AlaskaAirlines/OrionStatelessComponents__docs/tree/master/docs) repository.
+All information regarding Project Setup, Technical Details, Tests and information regarding ODS Stateless Components can be found in the [./docs](https://github.com/AlaskaAirlines/auro_docs/blob/master/README.md) repository.
 
 ## Install
 
@@ -39,322 +37,187 @@ import "@alaskaairux/ods-inputoptions";
 **Reference component in HTML**
 
 ```html
-<ods-inputoptions></ods-inputoptions>
+<ods-inputoption></ods-inputoption>
 ```
 
 See additional examples below.
 
-## Element \<ods-inputoptions>
+## Element ods-inputoption
 
-```javascript
-class Odsinputoptions extends LitElement
-```
+### inputoption use cases
 
-### Styling (experimental)
-
-Option(s) for component customization not supported
-
-| Selector | Type | State | Description |
-|----|----|----|---|
-| ::part() | pseudo-element | experimental | Update shadowDOM CSS from outside the component |
-
-### inputoptions use cases
-
-The \<ods-inputoptions> element should be used in situations where users may:
+The `<ods-inputoptions>` element should be used in situations where users may:
 
 * Want an element that can be turned on and off.
 * Have a collections of radio buttons describing a set of related options
 * Require users to check an options
 
-### Properties:
+### inputoption groups 
+
+Using ods-inputoption required a group wrapper. Depending on wether the intention is to use radio buttons or checkboxes, depends on the group used. 
+
+For radio buttons, use:
+
+```html
+<ods-inputoption-radio-group for="radioDemo1" label="Form label goes here">
+  <ods-inputoption inputid="radio1" label="Yes" type="radio"></ods-inputoption>
+  <ods-inputoption inputid="radio2" label="No" type="radio"></ods-inputoption>
+</ods-inputoption-radio-group>
+``` 
+
+For checkboxes, use:
+
+```html
+<ods-inputoption-checkbox-group for="checkboxDemo1" label="Form label goes here" horizontal>
+  <ods-inputoption inputid="computers" label="Computers" name="checkboxDemo2" type="checkbox" value="computers"></ods-inputoption>
+  <ods-inputoption inputid="music" label="Music" name="checkboxDemo2" type="checkbox" value="music"></ods-inputoption>![]()
+</ods-inputoption-checkbox-group>
+``` 
+
+### Properties: inputoption group
 
 | Attribute | Value type | Description |
 |----|----|----|
 | disabled | boolean | enables disabled state of the element |
-| horizontal | boolean | toggles layout direction, default is `vertical`, max 3 options |
 | error | string | set error message for button/checkbox group |
 | for | string | sets the `for` attribute for button/checkbox group label |
+| horizontal | boolean | toggles layout direction, default is `vertical`, max 3 options |
 | label | string | sets content for button/checkbox group label |
+
+### Properties: inputoption
+
+| Attribute | Value type | Description |
+|----|----|----|
+| checked | boolean | `checked="true"` | 
+| id | string | sets the individual `id` per element |
+| label | string | sets content for button/checkbox label |
 | name | string | Accepts any string, `DOMString` representing the value of the input |
 | type | string | Accepts `radio` or `checkbox` to assume functional type |
-| componentData | object | Required to pass in `id`, `value` and `label` strings for each input |
+| value | string | sets the elements input value |
 
-## Type data return
+## Examples 
 
-Checking options for either radio buttons or checkboxes, the value of that selection is bubbled up to the parent component itself.
-
-| Type | data type | Object name |
-|---|---|---|
-| radio | array | value |
-| checkbox | array | value |
-
-### Example: get value from radio button group
-
-```js
-const rdos = document.getElementById('rdo');
-alert(rdos.value);
-```
-
-```html
-<ods-inputoptions id="rdo" type="radio" name="rdo" label="Even Asher can do this!" for="radio1" componentData='[
-  { "id": "radio1", "value": "yes", "label": "Yes" },
-  { "id": "radio2", "value": "no", "label": "No" },
-  { "id": "radio3", "value": "maybe", "label": "Maybe" }
-]'></ods-inputoptions>
-```
-
-### Example: get value from checkbox group
-
-```js
-const cbxs = document.getElementById('cbx');
-alert(cbxs.value);
-```
-
-```html
-<ods-inputoptions id="cbx" type="checkbox" name="cbx" label="Form label goes here" for="cbx1" componentData='[
-  { "id": "cbx1", "value": "yes", "label": "Yes" },
-  { "id": "cbx2", "value": "no", "label": "No" },
-  { "id": "cbx3", "value": "maybe", "label": "Maybe" }
-]'></ods-inputoptions>
-```
-
-For more complete [examples using React](./docs/reactSupport.md).
-
-## API Code Examples
+The following examples illustrate the use of `ods-inputoption` within the scope of either `ods-inputoption-checkbox-group` or `ods-inputoption-radio-group`.
 
 ### Default radio button group
 
-`name` attribute is required to associate radio button group.
-
-`componentData` object addresses `id`, `value` and `label` for each radio button in the group.
-
-![example-img](./images/1.png)
-
 ```html
-<ods-inputoptions type="radio" name="radios" label="Form label goes here" for="radio1"
-  componentData='[
-    { "id": "radio1", "value": "yes", "label": "Yes" },
-    { "id": "radio2", "value": "no", "label": "No" },
-    { "id": "radio3", "value": "maybe", "label": "Maybe" }
-  ]'></ods-inputoptions>
+<ods-inputoption-radio-group for="radio1" label="Form label goes here">
+  <ods-inputoption id="radio1" label="Yes" name="radioDemo1" type="radio" value="yes"></ods-inputoption>
+  <ods-inputoption id="radio2" label="No" name="radioDemo1" type="radio" value="no"></ods-inputoption>
+  <ods-inputoption id="radio3" label="Maybe" name="radioDemo1" type="radio" value="maybe"></ods-inputoption>
+</ods-inputoption-radio-group>
 ```
 
-### Radio button group, `horizontal` option (limit 3 min breakpoint-narrow)
-
-![example-img](./images/2.png)
+### Radio button group, horizontal option (limit 3 min breakpoint-narrow)
 
 ```html
-<ods-inputoptions type="radio" horizontal name="radios" label="Form label goes here" for="radio1"
-  componentData='[
-    { "id": "radio1", "value": "yes", "label": "Yes" },
-    { "id": "radio2", "value": "no", "label": "No" },
-    { "id": "radio3", "value": "maybe", "label": "Maybe" }
-  ]'></ods-inputoptions>
+<ods-inputoption-radio-group for="radio4" label="Form label goes here" horizontal>
+  <ods-inputoption id="radio4" label="Yes" name="radioDemo2" type="radio" value="yes"></ods-inputoption>
+  <ods-inputoption id="radio5" label="No" name="radioDemo2" type="radio" value="no"></ods-inputoption>
+  <ods-inputoption id="radio6" label="Maybe" name="radioDemo2" type="radio" value="maybe"></ods-inputoption>
+</ods-inputoption-radio-group>
 ```
 
-### Radio button group, `horizontal` option ignored due to option limit
-
-![example-3](./images/3.png)
+### Radio button group with option set to checked
 
 ```html
-<ods-inputoptions type="radio" horizontal name="radios" label="Form label goes here" for="radio1"
-  componentData='[
-    { "id": "radio1", "value": "yes", "label": "Yes" },
-    { "id": "radio2", "value": "no", "label": "No" },
-    { "id": "radio3", "value": "maybe", "label": "Maybe" },
-    { "id": "radio4", "value": "somewhat", "label": "somewhat" },
-    { "id": "radio6", "value": "yupppers", "label": "yupppers" },
-    { "id": "radio7", "value": "nope!", "label": "nope!" },
-    { "id": "radio8", "value": "WILL NOT", "label": "WILL NOT" }
-  ]'></ods-inputoptions>
+<ods-inputoption-radio-group for="radio13" label="Form label goes here">
+  <ods-inputoption id="radio13" label="Yes" name="radioDemo4" type="radio" value="yes"></ods-inputoption>
+  <ods-inputoption id="radio14" label="No" name="radioDemo4" type="radio" value="no" checked="true"></ods-inputoption>
+  <ods-inputoption id="radio15" label="Maybe" name="radioDemo4" type="radio" value="maybe"></ods-inputoption>
+</ods-inputoption-radio-group>
 ```
 
-### Radio button group with option set to `checked`
-
-![example-img](./images/4.png)
+### Radio button group set disabled
 
 ```html
-<ods-inputoptions type="radio" name="radios" label="Form label goes here" for="radio1"
-  componentData='[
-    { "id": "radio1", "value": "yes", "label": "Yes", "checked": true },
-    { "id": "radio2", "value": "no", "label": "No" },
-    { "id": "radio3", "value": "maybe", "label": "Maybe" }
-  ]'></ods-inputoptions>
-```
-
-### Radio button group set `disabled`
-
-![example-img](./images/5.png)
-
-```html
-<ods-inputoptions type="radio" name="radios" disabled label="Form label goes here" for="radio1"
-  componentData='[
-    { "id": "radio1", "value": "yes", "label": "Yes" },
-    { "id": "radio2", "value": "no", "label": "No", "checked": true },
-    { "id": "radio3", "value": "maybe", "label": "Maybe" }
-  ]'></ods-inputoptions>
+<ods-inputoption-radio-group for="radio16" label="Form label goes here" disabled>
+  <ods-inputoption id="radio16" label="Yes" name="radioDemo5" type="radio" value="yes"></ods-inputoption>
+  <ods-inputoption id="radio17" label="No" name="radioDemo5" type="radio" value="no" checked></ods-inputoption>
+  <ods-inputoption id="radio18" label="Maybe" name="radioDemo5" type="radio" value="maybe"></ods-inputoption>
+</ods-inputoption-radio-group>
 ```
 
 ### Radio button group with error
 
-![example-img](./images/6.png)
-
 ```html
-<ods-inputoptions type="radio" name="radios" for="radio1" label="Form label goes here" error="Selection is required; please update."
-  componentData='[
-    { "id": "radio1", "value": "yes", "label": "Yes", "checked": true },
-    { "id": "radio2", "value": "no", "label": "No"},
-    { "id": "radio3", "value": "maybe", "label": "Maybe" }
-  ]'></ods-inputoptions>
+<ods-inputoption-radio-group for="radio19" label="Form label goes here" error="Selection is required; please update.">
+  <ods-inputoption id="radio19" label="Yes" name="radioDemo6" type="radio" value="yes"></ods-inputoption>
+  <ods-inputoption id="radio20" label="No" name="radioDemo6" type="radio" value="no"></ods-inputoption>
+  <ods-inputoption id="radio21" label="Maybe" name="radioDemo6" type="radio" value="maybe"></ods-inputoption>
+</ods-inputoption-radio-group>
 ```
 
 ### Default checkbox group
 
-![example-img](./images/7.png)
-
-`name` attribute is needed to associate checkbox group.
-
-`componentData` object addresses `id`, `value` and `label` for each checkbox in the group.
-
 ```html
-<ods-inputoptions type="checkbox" name="interests" for="coding" label="Form label goes here"
-  componentData='[
-    { "id": "computers", "value": "computers", "label": "Computers" },
-    { "id": "mucic", "value": "music", "label": "Music" },
-    { "id": "sports", "value": "sports", "label": "Sports" },
-    { "id": "arts", "value": "arts", "label": "Arts" },
-    { "id": "machines", "value": "machines", "label": "Machines" }
-  ]'></ods-inputoptions>
+<ods-inputoption-checkbox-group for="computers" label="Form label goes here">
+  <ods-inputoption id="computers" label="Computers" name="checkboxDemo1" type="checkbox" value="computers"></ods-inputoption>
+  <ods-inputoption id="music" label="Music" name="checkboxDemo1" type="checkbox" value="music"></ods-inputoption>
+  <ods-inputoption id="arts" label="Arts" name="checkboxDemo1" type="checkbox" value="arts"></ods-inputoption>
+  <ods-inputoption id="sports" label="Sports" name="checkboxDemo1" type="checkbox" value="sports"></ods-inputoption>
+  <ods-inputoption id="machines" label="Machines" name="checkboxDemo1" type="checkbox" value="machines"></ods-inputoption>
+</ods-inputoption-checkbox-group>
 ```
 
-### Checkbox group, `horizontal` option (limit 3 min breakpoint-narrow)
-
-![example-img](./images/8.png)
+### Checkbox group, horizontal option (limit 3 min breakpoint-narrow)
 
 ```html
-<ods-inputoptions type="checkbox" horizontal name="interests" label="Form label goes here" for="computers"
-  componentData='[
-    { "id": "computers", "value": "computers", "label": "Computers" },
-    { "id": "mucic", "value": "music", "label": "Music" },
-    { "id": "sports", "value": "sports", "label": "Sports" }
-  ]'></ods-inputoptions>
+<ods-inputoption-checkbox-group for="computers" label="Form label goes here" horizontal>
+  <ods-inputoption id="computers" label="Computers" name="checkboxDemo2" type="checkbox" value="computers"></ods-inputoption>
+  <ods-inputoption id="music" label="Music" name="checkboxDemo2" type="checkbox" value="music"></ods-inputoption>
+  <ods-inputoption id="sports" label="Sports" name="checkboxDemo2" type="checkbox" value="sports"></ods-inputoption>
+</ods-inputoption-checkbox-group>
 ```
 
-### Checkbox group, `horizontal` option ignored due to option limit
-
-![example-img](./images/9.png)
+### Checkbox group with option set to checked
 
 ```html
-<ods-inputoptions type="checkbox" horizontal name="interests" label="Form label goes here" for="computers"
-  componentData='[
-    { "id": "computers", "value": "computers", "label": "Computers" },
-    { "id": "mucic", "value": "music", "label": "Music" },
-    { "id": "sports", "value": "sports", "label": "Sports" },
-    { "id": "arts", "value": "arts", "label": "Arts" },
-    { "id": "machines", "value": "machines", "label": "Machines" }
-  ]'></ods-inputoptions>
+<ods-inputoption-checkbox-group for="computers" label="Form label goes here">
+  <ods-inputoption id="computers" label="Computers" name="checkboxDemo4" type="checkbox" value="computers" checked></ods-inputoption>
+  <ods-inputoption id="music" label="Music" name="checkboxDemo4" type="checkbox" value="music"></ods-inputoption>
+  <ods-inputoption id="arts" label="Arts" name="checkboxDemo4" type="checkbox" value="arts"></ods-inputoption>
+</ods-inputoption-checkbox-group>
 ```
 
-### Checkbox group with option set to `checked`
-
-![example-img](./images/10.png)
+### Checkbox group set disabled
 
 ```html
-<ods-inputoptions type="checkbox" name="interests" for="computers" label="Form label goes here"
-  componentData='[
-    { "id": "computers", "value": "computers", "label": "Computers", "checked": true },
-    { "id": "mucic", "value": "music", "label": "Music" },
-    { "id": "sports", "value": "sports", "label": "Sports" }
-  ]'></ods-inputoptions>
-```
-
-### Checkbox group set `disabled`
-
-![example-img](./images/11.png)
-
-```html
-<ods-inputoptions type="checkbox" name="interests" disabled for="computers" label="Form label goes here"
-  componentData='[
-    { "id": "computers", "value": "computers", "label": "Computers", "checked": true },
-    { "id": "mucic", "value": "music", "label": "Music" },
-    { "id": "sports", "value": "sports", "label": "Sports" }
-  ]'></ods-inputoptions>
+<ods-inputoption-checkbox-group for="checkboxDemo5" label="Form label goes here" disabled>
+  <ods-inputoption id="computers" label="Computers" name="checkboxDemo5" type="checkbox" value="computers" checked></ods-inputoption>
+  <ods-inputoption id="music" label="Music" name="checkboxDemo5" type="checkbox" value="music"></ods-inputoption>
+  <ods-inputoption id="arts" label="Arts" name="checkboxDemo5" type="checkbox" value="arts"></ods-inputoption>
+</ods-inputoption-checkbox-group>
 ```
 
 ### Checkbox group with error
 
-![example-img](./images/12.png)
-
 ```html
-<ods-inputoptions type="checkbox" name="interests" for="computers" label="Form label goes here" error="Selection is required; please update."
-  componentData='[
-    { "id": "computers", "value": "computers", "label": "Computers"},
-    { "id": "mucic", "value": "music", "label": "Music" },
-    { "id": "sports", "value": "sports", "label": "Sports" }
-  ]'></ods-inputoptions>
+<ods-inputoption-checkbox-group for="computers" label="Form label goes here" error="Selection is required; please update.">
+  <ods-inputoption id="computers" label="Computers" name="checkboxDemo6" type="checkbox" value="computers"></ods-inputoption>
+  <ods-inputoption id="music" label="Music" name="checkboxDemo6" type="checkbox" value="music"></ods-inputoption>
+  <ods-inputoption id="arts" label="Arts" name="checkboxDemo6" type="checkbox" value="arts"></ods-inputoption>
+</ods-inputoption-checkbox-group>
 ```
 
-## React support
+## Development
 
-React does not require specific support, but if you are choosing to place your componentData in a variable, you will be required to stringify that data when using it with the component.
+In order to develop against this project, if you are not part of the core team, you will be required to fork the project prior to submitting a pull request.
 
-```javascript
-const options = [
-  { "id": "radio1", "value": "yes", "label": "Yes" },
-  { "id": "radio2", "value": "no", "label": "No" },
-  { "id": "radio3", "value": "maybe", "label": "Maybe" } ]
+Please be sure to review the [contribution guidelines](.github/CONTRIBUTING.md) for this project. Please make sure to **pay special attention** to the [conventional commits](.github/CONTRIBUTING.md#conventional-commits) section of the document.
 
-return <ods-inputoptions componentData={JSON.stringify(options)} />
+### Start development environment
+
+Once the project has been cloned to your local resource and you have installed all the dependencies you will need to open three different shell sessions. One is for the Gulp tasks, the second is for a series of npm tasks and the last is to run the Polymer server.
+
+```shell
+// shell terminal one
+$ gulp dev
+
+// shell terminal two
+$ npm run dev
+
+// shell terminal three
+$ npm run serve
 ```
-
-## Alternate build solutions
-
-Included with the distributed npm are two additional directories, `./altImportsCanonical` and `./altImportsVariable`.
-
-| directory | description |
-|---|---|
-| altImportsCanonical† | Sass using canonical values within the scope of the file |
-| altImportsVariable* | Sass using CSS Custom Properties within the scope of the file |
-
-† Using canonical CSS properties breaks inheritance chain from Orion Design Tokens
-
-\* Orion Design Tokens are required to import any file using CSS Custom Properties. Also see Orion Design Tokens [pre-processed resources](https://github.com/AlaskaAirlines/OrionDesignTokens#install-pre-processed-resources). PostCSS using `postcss-custom-properties` will need to be added to your project if you are supporting legacy browsers.
-
-Within the respective directories is the `style_clean.scss` file.
-
-```bash
-├── altImports
-|  ├── canonical
-|  |  ├── style.css
-|  |  └── style_clean.scss
-|  └── variable
-|     ├── style.css
-|     └── style_clean.scss
-```
-
-It is highly recommended that you import the `style_clean.scss` this into a name-space as not to create style collisions. For example:
-
-```scss
-.ods-inputoptions {
-  @import "./node_modules/@alaskaairux/ods-inputoptions/altImports/variable/style_clean.scss";
-}
-```
-
-This pattern will produce all the selectors within `style_clean.scss` with the prefixed selector.
-
-```scss
-.ods-inputoptions .inputoptions {
-  display: var(--ods-inputoptions-display);
-  font-family: var(--ods-inputoptions-font-family);
-  border-width: var(--ods-inputoptions-border-width);
-  border-radius: var(--ods-inputoptions-border-radius);
-  ...
-}
-```
-
-**Warning!** Using the canonical CSS will break the chain of using Design Tokens. If Tokens are updated, this will require the update of the components and their canonical output. Use with caution.
-
-##
-
-Alaska Airlines Orion Design System<br>
-Copyright 2019 Alaska Airlines, Inc. or its affiliates. All Rights Reserved.

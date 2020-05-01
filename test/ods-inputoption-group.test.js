@@ -1,7 +1,8 @@
 import { fixture, html, expect, elementUpdated } from '@open-wc/testing';
 
 import '../src/ods-inputoption.js';
-import '../src/ods-inputoption-group.js';
+import '../src/ods-inputoption-radio-group.js';
+import '../src/ods-inputoption-checkbox-group.js';
 
 describe('ods-inputoption-group', () => {
   it('has the expected properties', async () => {
@@ -10,13 +11,13 @@ describe('ods-inputoption-group', () => {
     const expectedLabel = "expectedLabel";
 
     const el = await fixture(html`
-      <ods-inputoption-group
+      <ods-inputoption-radio-group
         horizontal
         error=${expectedError}
         for=${expectedFor}
         label=${expectedLabel}
         type="radio"
-      ></ods-inputoption-group>
+      ></ods-inputoption-radio-group>
     `);
 
     const root = el.shadowRoot;
@@ -24,16 +25,14 @@ describe('ods-inputoption-group', () => {
     const error = root.querySelector('p');
 
     expect(el.horizontal).to.be.true;
-
     expect(label.textContent).be.equal(expectedLabel);
     expect(label.getAttribute('for')).be.equal(expectedFor);
-
     expect(error.textContent).be.equal(expectedError);
   });
 
   it('exhibits the correct group checking behavior', async () => {
     const el = await fixture(html`
-      <ods-inputoption-group
+      <ods-inputoption-radio-group
         for="stateSelection"
         label="Select your state of residence"
         type="radio"
@@ -53,7 +52,7 @@ describe('ods-inputoption-group', () => {
           type="radio"
           value="washington"
         ></ods-inputoption>
-      </ods-inputoption-group>
+      </ods-inputoption-radio-group>
     `);
 
     const alaskaRadio = el.querySelector("ods-inputoption[id=alaska]");
@@ -76,14 +75,14 @@ describe('ods-inputoption-group', () => {
     await elementUpdated(el);
 
     // Selecting the second radio button should make it `checked`
-    //   and the first radio button should be `unchecked`
+    // and the first radio button should be `unchecked`
     expect(alaskaRadio.checked).to.not.be.true;
     expect(washingtonRadio.checked).to.be.true;
   });
 
   it('can select multiple checkboxes', async () => {
     const el = await fixture(html`
-      <ods-inputoption-group
+      <ods-inputoption-checkbox-group
         for="stateSelection"
         label="Select your favorite states"
       >
@@ -102,7 +101,7 @@ describe('ods-inputoption-group', () => {
           type="checkbox"
           value="washington"
         ></ods-inputoption>
-      </ods-inputoption-group>
+      </ods-inputoption-checkbox-group>
     `);
 
     const alaskaCheckbox = el.querySelector("ods-inputoption[id=alaska]");
@@ -130,7 +129,7 @@ describe('ods-inputoption-group', () => {
     const expectedLabel = "expectedLabel";
 
     const el = await fixture(html`
-      <ods-inputoption-group
+      <ods-inputoption-radio-group
       for=${expectedFor}
       label=${expectedLabel}
       type="radio"
@@ -159,7 +158,7 @@ describe('ods-inputoption-group', () => {
           type="radio"
           value="california"
         ></ods-inputoption>
-      </ods-inputoption-group>
+      </ods-inputoption-radio-group>
     `);
 
     const alaskaRadio = el.querySelector("ods-inputoption[id=alaska]");
@@ -169,14 +168,14 @@ describe('ods-inputoption-group', () => {
     expect(alaskaRadio.checked).to.be.true;
     expect(washingtonRadio.checked).to.not.be.true;
     expect(californiaRadio.checked).to.not.be.true;
-    
+
     el.dispatchEvent(new KeyboardEvent('keydown', {key: "Down"}));
-    
+
     await elementUpdated(el);
-    
-    // expect(alaskaRadio.checked, "Alaska Radio should be false").to.not.be.true;
-    // expect(washingtonRadio.checked, "Washington Radio should be true").to.be.true;
-    // expect(californiaRadio.checked, "California Radio should be false").to.not.be.true;
+
+    expect(alaskaRadio.checked, "Alaska Radio should be false").to.not.be.true;
+    expect(washingtonRadio.checked, "Washington Radio should be true").to.be.true;
+    expect(californiaRadio.checked, "California Radio should be false").to.not.be.true;
   });
 
   it('is accessible', async () => {
@@ -184,7 +183,7 @@ describe('ods-inputoption-group', () => {
     const expectedLabel = "expectedLabel";
 
     const el = await fixture(html`
-      <ods-inputoption-group
+      <ods-inputoption-radio-group
       for=${expectedFor}
       label=${expectedLabel}
       type="radio"
@@ -205,7 +204,7 @@ describe('ods-inputoption-group', () => {
           type="radio"
           value="washington"
         ></ods-inputoption>
-      </ods-inputoption-group>
+      </ods-inputoption-radio-group>
     `);
 
     expect(el).to.be.accessible();
@@ -213,8 +212,11 @@ describe('ods-inputoption-group', () => {
 
   it('does not crash for empty input option groups', async () => {
     const el = await fixture(html`
-      <ods-inputoption-group>
-      </ods-inputoption-group>
+      <ods-inputoption-radio-group>
+      </ods-inputoption-radio-group>
+
+      <ods-inputoption-checkbox-group>
+      </ods-inputoption-checkbox-group>
     `);
 
     expect(el._items.length).to.equal(0);
