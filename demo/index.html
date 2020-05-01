@@ -12,9 +12,7 @@
       import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
       import '@polymer/iron-demo-helpers/demo-snippet';
     </script>
-    <script type="module" src="../src/ods-inputoptions.js"></script>
     <script type="module" src="../src/ods-inputoption.js"></script>
-    <script type="module" src="../src/ods-inputoption-group.js"></script>
     <script type="module" src="../src/ods-inputoption-light.js"></script>
     <script type="module" src="../src/ods-inputoption-radio-group.js"></script>
     <script type="module" src="../src/ods-inputoption-checkbox-group.js"></script>
@@ -72,23 +70,23 @@
       <p>Default radio button group</p>
       <demo-snippet>
         <template>
-          <ods-inputoption-radio-group for="radioDemo1" label="Form label goes here">
+          <ods-inputoption-radio-group for="radio1" label="Form label goes here">
             <ods-inputoption
-              inputId="radio1"
+              id="radio1"
               label="Yes"
               name="radioDemo1"
               type="radio"
               value="yes"
             ></ods-inputoption>
             <ods-inputoption
-              inputId="radio2"
+              id="radio2"
               label="No"
               name="radioDemo1"
               type="radio"
               value="no"
             ></ods-inputoption>
             <ods-inputoption
-              inputId="radio3"
+              id="radio3"
               label="Maybe"
               name="radioDemo1"
               type="radio"
@@ -101,23 +99,23 @@
       <p>Radio button group, <code>horizontal</code> option (limit 3 min breakpoint-narrow)</p>
       <demo-snippet>
         <template>
-          <ods-inputoption-radio-group for="radioDemo2" label="Form label goes here" horizontal>
+          <ods-inputoption-radio-group for="radio4" label="Form label goes here" horizontal>
             <ods-inputoption
-              inputId="radio1"
+              id="radio4"
               label="Yes"
               name="radioDemo2"
               type="radio"
               value="yes"
             ></ods-inputoption>
             <ods-inputoption
-              inputId="radio2"
+              id="radio5"
               label="No"
               name="radioDemo2"
               type="radio"
               value="no"
             ></ods-inputoption>
             <ods-inputoption
-              inputId="radio3"
+              id="radio6"
               label="Maybe"
               name="radioDemo2"
               type="radio"
@@ -130,44 +128,44 @@
       <p>Radio button group, <code>horizontal</code> option ignored due to option limit (3)</p>
       <demo-snippet>
         <template>
-          <ods-inputoption-radio-group for="radioDemo3" label="Form label goes here" horizontal>
+          <ods-inputoption-radio-group for="radio7" label="Form label goes here" horizontal>
             <ods-inputoption
-              inputId="radio1"
+              id="radio7"
               label="Yes"
               name="radioDemo3"
               type="radio"
               value="yes"
             ></ods-inputoption>
             <ods-inputoption
-              inputId="radio2"
+              id="radio8"
               label="No"
               name="radioDemo3"
               type="radio"
               value="no"
             ></ods-inputoption>
             <ods-inputoption
-              inputId="radio3"
+              id="radio9"
               label="Maybe"
               name="radioDemo3"
               type="radio"
               value="maybe"
             ></ods-inputoption>
             <ods-inputoption
-              inputId="radio4"
+              id="radio10"
               label="Somewhat"
               name="radioDemo3"
               type="radio"
               value="somewhat"
             ></ods-inputoption>
             <ods-inputoption
-              inputId="radio5"
+              id="radio11"
               label="Yuppers"
               name="radioDemo3"
               type="radio"
               value="yuppers"
             ></ods-inputoption>
             <ods-inputoption
-              inputId="radio6"
+              id="radio12"
               label="Nope"
               name="radioDemo3"
               type="radio"
@@ -180,24 +178,24 @@
       <p>Radio button group with option set to <code>checked</code></p>
       <demo-snippet>
         <template>
-          <ods-inputoption-radio-group for="radioDemo4" label="Form label goes here">
+          <ods-inputoption-radio-group for="radio13" label="Form label goes here">
             <ods-inputoption
-              inputId="radio1"
+              id="radio13"
               label="Yes"
               name="radioDemo4"
               type="radio"
               value="yes"
             ></ods-inputoption>
             <ods-inputoption
-              inputId="radio2"
+              id="radio14"
               label="No"
               name="radioDemo4"
               type="radio"
               value="no"
-              checked
+              checked="true"
             ></ods-inputoption>
             <ods-inputoption
-              inputId="radio3"
+              id="radio15"
               label="Maybe"
               name="radioDemo4"
               type="radio"
@@ -210,16 +208,16 @@
       <p>Radio button group set <code>disabled</code></p>
       <demo-snippet>
         <template>
-          <ods-inputoption-radio-group for="radioDemo5" label="Form label goes here" disabled>
+          <ods-inputoption-radio-group for="radio16" label="Form label goes here" disabled>
             <ods-inputoption
-              inputId="radio1"
+              id="radio16"
               label="Yes"
               name="radioDemo5"
               type="radio"
               value="yes"
             ></ods-inputoption>
             <ods-inputoption
-              inputId="radio2"
+              id="radio17"
               label="No"
               name="radioDemo5"
               type="radio"
@@ -227,7 +225,7 @@
               checked
             ></ods-inputoption>
             <ods-inputoption
-              inputId="radio3"
+              id="radio18"
               label="Maybe"
               name="radioDemo5"
               type="radio"
@@ -240,23 +238,23 @@
       <p>Radio button group with error</p>
       <demo-snippet>
         <template>
-          <ods-inputoption-radio-group for="radioDemo6" label="Form label goes here" error="Selection is required; please update.">
+          <ods-inputoption-radio-group for="radio19" label="Form label goes here" error="Selection is required; please update.">
             <ods-inputoption
-              inputId="radio1"
+              id="radio19"
               label="Yes"
               name="radioDemo6"
               type="radio"
               value="yes"
             ></ods-inputoption>
             <ods-inputoption
-              inputId="radio2"
+              id="radio20"
               label="No"
               name="radioDemo6"
               type="radio"
               value="no"
             ></ods-inputoption>
             <ods-inputoption
-              inputId="radio3"
+              id="radio21"
               label="Maybe"
               name="radioDemo6"
               type="radio"
@@ -269,37 +267,37 @@
       <p>Default checkbox group</p>
       <demo-snippet>
         <template>
-          <ods-inputoption-checkbox-group for="checkboxDemo1" label="Form label goes here">
+          <ods-inputoption-checkbox-group for="computers" label="Form label goes here">
             <ods-inputoption
-              inputId="computers"
+              id="computers"
               label="Computers"
               name="checkboxDemo1"
               type="checkbox"
               value="computers"
             ></ods-inputoption>
             <ods-inputoption
-              inputId="music"
+              id="music"
               label="Music"
               name="checkboxDemo1"
               type="checkbox"
               value="music"
             ></ods-inputoption>
             <ods-inputoption
-              inputId="arts"
+              id="arts"
               label="Arts"
               name="checkboxDemo1"
               type="checkbox"
               value="arts"
             ></ods-inputoption>
             <ods-inputoption
-              inputId="sports"
+              id="sports"
               label="Sports"
               name="checkboxDemo1"
               type="checkbox"
               value="sports"
             ></ods-inputoption>
             <ods-inputoption
-              inputId="machines"
+              id="machines"
               label="Machines"
               name="checkboxDemo1"
               type="checkbox"
@@ -312,23 +310,23 @@
       <p>Checkbox group, <code>horizontal</code> option (limit 3 min breakpoint-narrow)</p>
       <demo-snippet>
         <template>
-            <ods-inputoption-checkbox-group for="checkboxDemo2" label="Form label goes here" horizontal>
+            <ods-inputoption-checkbox-group for="computers" label="Form label goes here" horizontal>
               <ods-inputoption
-                inputId="computers"
+                id="computers"
                 label="Computers"
                 name="checkboxDemo2"
                 type="checkbox"
                 value="computers"
               ></ods-inputoption>
               <ods-inputoption
-                inputId="music"
+                id="music"
                 label="Music"
                 name="checkboxDemo2"
                 type="checkbox"
                 value="music"
               ></ods-inputoption>
               <ods-inputoption
-                inputId="sports"
+                id="sports"
                 label="Sports"
                 name="checkboxDemo2"
                 type="checkbox"
@@ -341,37 +339,37 @@
       <p>Checkbox group, <code>horizontal</code> option ignored due to option limit</p>
       <demo-snippet>
         <template>
-          <ods-inputoption-checkbox-group for="checkboxDemo3" label="Form label goes here" horizontal>
+          <ods-inputoption-checkbox-group for="computers" label="Form label goes here" horizontal>
             <ods-inputoption
-              inputId="computers"
+              id="computers"
               label="Computers"
               name="checkboxDemo3"
               type="checkbox"
               value="computers"
             ></ods-inputoption>
             <ods-inputoption
-              inputId="music"
+              id="music"
               label="Music"
               name="checkboxDemo3"
               type="checkbox"
               value="music"
             ></ods-inputoption>
             <ods-inputoption
-              inputId="arts"
+              id="arts"
               label="Arts"
               name="checkboxDemo3"
               type="checkbox"
               value="arts"
             ></ods-inputoption>
             <ods-inputoption
-              inputId="sports"
+              id="sports"
               label="Sports"
               name="checkboxDemo3"
               type="checkbox"
               value="sports"
             ></ods-inputoption>
             <ods-inputoption
-              inputId="machines"
+              id="machines"
               label="Machines"
               name="checkboxDemo3"
               type="checkbox"
@@ -384,9 +382,9 @@
       <p>Checkbox group with option set to <code>checked</code></p>
       <demo-snippet>
         <template>
-          <ods-inputoption-checkbox-group for="checkboxDemo4" label="Form label goes here">
+          <ods-inputoption-checkbox-group for="computers" label="Form label goes here">
             <ods-inputoption
-              inputId="computers"
+              id="computers"
               label="Computers"
               name="checkboxDemo4"
               type="checkbox"
@@ -394,14 +392,14 @@
               checked
             ></ods-inputoption>
             <ods-inputoption
-              inputId="music"
+              id="music"
               label="Music"
               name="checkboxDemo4"
               type="checkbox"
               value="music"
             ></ods-inputoption>
             <ods-inputoption
-              inputId="arts"
+              id="arts"
               label="Arts"
               name="checkboxDemo4"
               type="checkbox"
@@ -416,7 +414,7 @@
         <template>
           <ods-inputoption-checkbox-group for="checkboxDemo5" label="Form label goes here" disabled>
             <ods-inputoption
-              inputId="computers"
+              id="computers"
               label="Computers"
               name="checkboxDemo5"
               type="checkbox"
@@ -424,14 +422,14 @@
               checked
             ></ods-inputoption>
             <ods-inputoption
-              inputId="music"
+              id="music"
               label="Music"
               name="checkboxDemo5"
               type="checkbox"
               value="music"
             ></ods-inputoption>
             <ods-inputoption
-              inputId="arts"
+              id="arts"
               label="Arts"
               name="checkboxDemo5"
               type="checkbox"
@@ -444,23 +442,23 @@
       <p>Checkbox group with error</p>
       <demo-snippet>
         <template>
-          <ods-inputoption-checkbox-group for="checkboxDemo6" label="Form label goes here" error="Selection is required; please update.">
+          <ods-inputoption-checkbox-group for="computers" label="Form label goes here" error="Selection is required; please update.">
             <ods-inputoption
-              inputId="computers"
+              id="computers"
               label="Computers"
               name="checkboxDemo6"
               type="checkbox"
               value="computers"
             ></ods-inputoption>
             <ods-inputoption
-              inputId="music"
+              id="music"
               label="Music"
               name="checkboxDemo6"
               type="checkbox"
               value="music"
             ></ods-inputoption>
             <ods-inputoption
-              inputId="arts"
+              id="arts"
               label="Arts"
               name="checkboxDemo6"
               type="checkbox"
@@ -470,26 +468,28 @@
         </template>
       </demo-snippet>
 
+      <h2>Light DOM versions will not be supported with this version</h2>
+
       <p>Light dom version of the radio group</p>
       <demo-snippet>
         <template>
           <div>Form label goes here</div>
           <ods-inputoption-light
-            inputId="computers"
+            id="computers"
             label="Computers"
             name="radioLightDom1"
             type="radio"
             value="computers"
           ></ods-inputoption-light>
           <ods-inputoption-light
-            inputId="music"
+            id="music"
             label="Music"
             name="radioLightDom1"
             type="radio"
             value="music"
           ></ods-inputoption-light>
           <ods-inputoption-light
-            inputId="arts"
+            id="arts"
             label="Arts"
             name="radioLightDom1"
             type="radio"
@@ -503,21 +503,21 @@
         <template>
           <div>Form label goes here</div>
           <ods-inputoption-light
-            inputId="computers-check"
+            id="computers-check"
             label="Computers"
             name="checkboxLightDom1"
             type="checkbox"
             value="computers"
           ></ods-inputoption-light>
           <ods-inputoption-light
-            inputId="music-check"
+            id="music-check"
             label="Music"
             name="checkboxLightDom1"
             type="checkbox"
             value="music"
           ></ods-inputoption-light>
           <ods-inputoption-light
-            inputId="arts-check"
+            id="arts-check"
             label="Arts"
             name="checkboxLightDom1"
             type="checkbox"
@@ -525,16 +525,6 @@
           ></ods-inputoption-light>
         </template>
       </demo-snippet>
-
-      <h2>Element &#60;ods-inputoptions&#62;</h2>
-
-      <pre><code>class OdsInputoptions extends LitElement</code></pre>
-
-      <h3>Styling:</h3>
-      <p>There are no styling options for this element.</p>
-
-      <h3>Responsive state:</h3>
-      <p>Supported.</p>
     </div>
   </body>
 </html>

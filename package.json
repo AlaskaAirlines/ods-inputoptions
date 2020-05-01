@@ -9,13 +9,13 @@
     "# To build resources to view the demo file, perform the following tasks",
     "  1. $ gulp build",
     "  2. $ npm run build",
-    "  3. $ polymer serve",
+    "  3. $ npm run serve",
     "  4. Go to http://127.0.0.1:8081",
     "",
     "# To work within the development environment, run the following tasks",
     "  1. $ gulp dev",
     "  2. $ npm run dev",
-    "  4. $ polymer serve",
+    "  4. $ npm run serve",
     "  3. Go to http://127.0.0.1:8081",
     "================================================================================"
   ],
@@ -110,7 +110,8 @@
     "test": "karma start --coverage",
     "test:debug": "karma start --no-single-run --auto-watch=true",
     "test:watch": "karma start --auto-watch=true --single-run=false",
-    "test:ci": "npm-run-all test lint"
+    "test:ci": "npm-run-all test lint",
+    "serve": "polymer serve --port 3000 --hostname 0.0.0.0"
   },
   "husky": {
     "hooks": {
