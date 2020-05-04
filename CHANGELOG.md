@@ -1,5 +1,32 @@
 # Semantic Release Automated Changelog
 
+# [2.0.0](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions/compare/v1.1.7...v2.0.0) (2020-05-04)
+
+
+### Bug Fixes
+
+* add tab functionality for accessibility ([94c1611](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions/commit/94c16117b806b14a028e63db32ec7ae3bed5fdb0))
+* issues with style dependencies ([cf9d2f9](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions/commit/cf9d2f9251d9f0e99f5139c2cc32b519c0368935))
+* remove tab hijacking for radio buttons ([0d1e9b8](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions/commit/0d1e9b82f4619785acb5aaa30f5c71b18c960d1e))
+* update .stylelintrc to allow ods-inputoptions-group custom element ([8cba3a0](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions/commit/8cba3a0b3f4eb70609f6b2b1a4f04c80f8dc9c74))
+* update a11y UX ([5d58ddb](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions/commit/5d58ddb4239d1ee9f8475d254d991f462db785de))
+* update todo comments to reflect reality ([641631a](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions/commit/641631af3f33c1cdbe996b80f60a18737a691ef5))
+
+
+### Features
+
+* add checks for defined labels and input options ([b1d60e1](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions/commit/b1d60e1f2dc83e936cf24c3f970c69069e79d8ae))
+* add ods-inputoption-checkbox-group component for checkbox groups ([3e21c67](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions/commit/3e21c677de41f26576afbf4ebb00a10e2435b771))
+* add ods-inputoption-radio-group component for radio groups ([494b209](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions/commit/494b209606eb8edcdaf1efe8963e7a11263ab0b1))
+* light dom input option ([f74d856](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions/commit/f74d856814073da2b014606a25def4fd90a2e2b4))
+* splits ods-inputoptions in to multiple components ([8ea3fd4](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions/commit/8ea3fd453302302ee220fcc6940a4adf25dd8034))
+
+
+### BREAKING CHANGES
+
+* this PR re-writes the component API requireing a MAJOR
+release.
+
 ## [1.1.7](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions/compare/v1.1.6...v1.1.7) (2019-11-14)
 
 
