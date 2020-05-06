@@ -1,1 +1,1 @@
-export * from './dist/ods-inputoptions';
+export * from './dist/ods-inputoption';
