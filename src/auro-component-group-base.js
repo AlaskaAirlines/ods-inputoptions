@@ -8,14 +8,13 @@ import { classMap } from 'lit-html/directives/class-map';
 import 'focus-visible/dist/focus-visible.min.js';
 
 // Import the processed CSS file into the scope of the component
-import componentProperties from './tokens/componentShapeProperties-css.js';
 import styleCss from "./style-css.js";
 
-export default class OdsInputoptionGroupBase extends LitElement {
+export default class AuroInputoptionGroupBase extends LitElement {
   constructor() {
     super();
 
-    this._selectable = 'ods-inputoption'
+    this._selectable = 'auro-inputoption'
     this._index = 0;
   }
 
@@ -63,13 +62,12 @@ export default class OdsInputoptionGroupBase extends LitElement {
     }
 
     return html`
-      ${componentProperties}
       ${styleCss}
 
       ${this._errorChange()}
 
       ${this.label ?
-        html`<label for="${this.for}" @click="${this._labelClick}"class="ods-label">${this.label}</label>` :
+        html`<label for="${this.for}" @click="${this._labelClick}"class="auro-label">${this.label}</label>` :
         html``}
 
       <div

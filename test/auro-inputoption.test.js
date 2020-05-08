@@ -1,8 +1,8 @@
 import { fixture, html, expect, elementUpdated } from '@open-wc/testing';
 
-import '../src/ods-inputoption.js';
+import '../src/auro-inputoption.js';
 
-describe('ods-inputoption', () => {
+describe('auro-inputoption', () => {
   it('sets internal element properties', async () => {
     const expectedError = "The expected error message";
     const expectedId = "componentId";
@@ -12,7 +12,7 @@ describe('ods-inputoption', () => {
     const expectedValue = "expectedValue";
 
     const el = await fixture(html`
-      <ods-inputoption
+      <auro-inputoption
         checked
         error=${expectedError}
         id=${expectedId}
@@ -20,7 +20,7 @@ describe('ods-inputoption', () => {
         name=${expectedName}
         type=${type}
         value=${expectedValue}
-      ></ods-inputoption>
+      ></auro-inputoption>
     `);
 
     const root = el.shadowRoot;
@@ -49,7 +49,7 @@ describe('ods-inputoption', () => {
     const value = "value";
 
     const el = await fixture(html`
-      <ods-inputoption
+      <auro-inputoption
         required
         error=${error}
         id=${id}
@@ -57,7 +57,7 @@ describe('ods-inputoption', () => {
         name=${name}
         type=${type}
         value=${value}
-      ></ods-inputoption>
+      ></auro-inputoption>
     `);
 
     const root = el.shadowRoot;
@@ -76,10 +76,10 @@ describe('ods-inputoption', () => {
     const type = "radio";
 
     const el = await fixture(html`
-      <ods-inputoption
+      <auro-inputoption
         disabled
         type=${type}
-      ></ods-inputoption>
+      ></auro-inputoption>
     `);
 
     const root = el.shadowRoot;

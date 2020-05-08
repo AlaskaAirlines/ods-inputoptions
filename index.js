@@ -1,1 +1,1 @@
-export * from './dist/ods-inputoption';
+export * from './dist/auro-inputoption';

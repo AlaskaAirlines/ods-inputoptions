@@ -1,8 +1,8 @@
 import { fixture, html, expect, elementUpdated } from '@open-wc/testing';
 
-import '../src/ods-inputoption-light.js';
+import '../src/auro-inputoption-light.js';
 
-describe('ods-inputoption-light', () => {
+describe('auro-inputoption-light', () => {
   it('sets internal element properties', async () => {
     const expectedError = "The expected error message";
     const expectedId = "componentId";
@@ -12,7 +12,7 @@ describe('ods-inputoption-light', () => {
     const expectedValue = "expectedValue";
 
     const el = await fixture(html`
-      <ods-inputoption-light
+      <auro-inputoption-light
         checked
         error=${expectedError}
         id=${expectedId}
@@ -20,7 +20,7 @@ describe('ods-inputoption-light', () => {
         name=${expectedName}
         type=${type}
         value=${expectedValue}
-      ></ods-inputoption-light>
+      ></auro-inputoption-light>
     `);
 
     const inputElement = el.querySelector('input');
@@ -43,26 +43,26 @@ describe('ods-inputoption-light', () => {
   it('uses the input radio group behavior', async () => {
     const el = await fixture(html`
       <div>
-        <ods-inputoption-light
+        <auro-inputoption-light
           id="alaska"
           label="Alaska"
           name="states"
           type="radio"
           value="alaska"
-        ></ods-inputoption-light>
+        ></auro-inputoption-light>
 
-        <ods-inputoption-light
+        <auro-inputoption-light
           id="washington"
           label="Washington"
           name="states"
           type="radio"
           value="washington"
-        ></ods-inputoption-light>
+        ></auro-inputoption-light>
       </div>
     `);
 
-    const alaskaRadioInput = el.querySelector("ods-inputoption-light[id=alaska] input");
-    const washingtonRadioInput = el.querySelector("ods-inputoption-light[id=washington] input");
+    const alaskaRadioInput = el.querySelector("auro-inputoption-light[id=alaska] input");
+    const washingtonRadioInput = el.querySelector("auro-inputoption-light[id=washington] input");
 
     alaskaRadioInput.click();
     await elementUpdated(el);

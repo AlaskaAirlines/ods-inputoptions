@@ -6,16 +6,16 @@
       name="viewport"
       content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes"
     />
-    <title>Orion Design System | ods-inputoptions element</title>
+    <title>Orion Design System | auro-inputoptions element</title>
     <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
     <script type="module">
       import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
       import '@polymer/iron-demo-helpers/demo-snippet';
     </script>
-    <script type="module" src="../src/ods-inputoption.js"></script>
-    <script type="module" src="../src/ods-inputoption-light.js"></script>
-    <script type="module" src="../src/ods-inputoption-radio-group.js"></script>
-    <script type="module" src="../src/ods-inputoption-checkbox-group.js"></script>
+    <script type="module" src="../src/auro-inputoption.js"></script>
+    <script type="module" src="../src/auro-inputoption-light.js"></script>
+    <script type="module" src="../src/auro-inputoption-radio-group.js"></script>
+    <script type="module" src="../src/auro-inputoption-checkbox-group.js"></script>
     <script src="../demo/alert.js"></script>
     <script type="module">
       import '../node_modules/@polymer/iron-icons/hardware-icons.js';
@@ -28,13 +28,13 @@
   </head>
   <body>
     <div class="vertical-section-container">
-      <h1>ods-inputoptions</h1>
+      <h1>auro-inputoptions</h1>
 
       <p><code>input</code> type <code>checkbox</code> elements are rendered by default as square boxes that are checked (ticked) when activated, like you might see in an official government paper form.</p>
 
       <p><code>input</code> type <code>radio</code> elements are generally used in radio groups—collections of radio buttons describing a set of related options.</p>
 
-      <p><code>ods-options</code> elements support either <code>radio</code> or <code>checkbox</code> use cases. </p>
+      <p><code>auro-options</code> elements support either <code>radio</code> or <code>checkbox</code> use cases. </p>
 
       <p class="ironIcons">
         <span class="util_floatLeft util_marginRight--med"
@@ -70,401 +70,401 @@
       <p>Default radio button group</p>
       <demo-snippet>
         <template>
-          <ods-inputoption-radio-group for="radio1" label="Form label goes here">
-            <ods-inputoption
+          <auro-inputoption-radio-group for="radio1" label="Form label goes here">
+            <auro-inputoption
               id="radio1"
               label="Yes"
               name="radioDemo1"
               type="radio"
               value="yes"
-            ></ods-inputoption>
-            <ods-inputoption
+            ></auro-inputoption>
+            <auro-inputoption
               id="radio2"
               label="No"
               name="radioDemo1"
               type="radio"
               value="no"
-            ></ods-inputoption>
-            <ods-inputoption
+            ></auro-inputoption>
+            <auro-inputoption
               id="radio3"
               label="Maybe"
               name="radioDemo1"
               type="radio"
               value="maybe"
-            ></ods-inputoption>
-          </ods-inputoption-radio-group>
+            ></auro-inputoption>
+          </auro-inputoption-radio-group>
         </template>
       </demo-snippet>
 
       <p>Radio button group, <code>horizontal</code> option (limit 3 min breakpoint-narrow)</p>
       <demo-snippet>
         <template>
-          <ods-inputoption-radio-group for="radio4" label="Form label goes here" horizontal>
-            <ods-inputoption
+          <auro-inputoption-radio-group for="radio4" label="Form label goes here" horizontal>
+            <auro-inputoption
               id="radio4"
               label="Yes"
               name="radioDemo2"
               type="radio"
               value="yes"
-            ></ods-inputoption>
-            <ods-inputoption
+            ></auro-inputoption>
+            <auro-inputoption
               id="radio5"
               label="No"
               name="radioDemo2"
               type="radio"
               value="no"
-            ></ods-inputoption>
-            <ods-inputoption
+            ></auro-inputoption>
+            <auro-inputoption
               id="radio6"
               label="Maybe"
               name="radioDemo2"
               type="radio"
               value="maybe"
-            ></ods-inputoption>
-          </ods-inputoption-radio-group>
+            ></auro-inputoption>
+          </auro-inputoption-radio-group>
         </template>
       </demo-snippet>
 
       <p>Radio button group, <code>horizontal</code> option ignored due to option limit (3)</p>
       <demo-snippet>
         <template>
-          <ods-inputoption-radio-group for="radio7" label="Form label goes here" horizontal>
-            <ods-inputoption
+          <auro-inputoption-radio-group for="radio7" label="Form label goes here" horizontal>
+            <auro-inputoption
               id="radio7"
               label="Yes"
               name="radioDemo3"
               type="radio"
               value="yes"
-            ></ods-inputoption>
-            <ods-inputoption
+            ></auro-inputoption>
+            <auro-inputoption
               id="radio8"
               label="No"
               name="radioDemo3"
               type="radio"
               value="no"
-            ></ods-inputoption>
-            <ods-inputoption
+            ></auro-inputoption>
+            <auro-inputoption
               id="radio9"
               label="Maybe"
               name="radioDemo3"
               type="radio"
               value="maybe"
-            ></ods-inputoption>
-            <ods-inputoption
+            ></auro-inputoption>
+            <auro-inputoption
               id="radio10"
               label="Somewhat"
               name="radioDemo3"
               type="radio"
               value="somewhat"
-            ></ods-inputoption>
-            <ods-inputoption
+            ></auro-inputoption>
+            <auro-inputoption
               id="radio11"
               label="Yuppers"
               name="radioDemo3"
               type="radio"
               value="yuppers"
-            ></ods-inputoption>
-            <ods-inputoption
+            ></auro-inputoption>
+            <auro-inputoption
               id="radio12"
               label="Nope"
               name="radioDemo3"
               type="radio"
               value="nope"
-            ></ods-inputoption>
-          </ods-inputoption-radio-group>
+            ></auro-inputoption>
+          </auro-inputoption-radio-group>
         </template>
       </demo-snippet>
 
       <p>Radio button group with option set to <code>checked</code></p>
       <demo-snippet>
         <template>
-          <ods-inputoption-radio-group for="radio13" label="Form label goes here">
-            <ods-inputoption
+          <auro-inputoption-radio-group for="radio13" label="Form label goes here">
+            <auro-inputoption
               id="radio13"
               label="Yes"
               name="radioDemo4"
               type="radio"
               value="yes"
-            ></ods-inputoption>
-            <ods-inputoption
+            ></auro-inputoption>
+            <auro-inputoption
               id="radio14"
               label="No"
               name="radioDemo4"
               type="radio"
               value="no"
               checked="true"
-            ></ods-inputoption>
-            <ods-inputoption
+            ></auro-inputoption>
+            <auro-inputoption
               id="radio15"
               label="Maybe"
               name="radioDemo4"
               type="radio"
               value="maybe"
-            ></ods-inputoption>
-          </ods-inputoption-radio-group>
+            ></auro-inputoption>
+          </auro-inputoption-radio-group>
         </template>
       </demo-snippet>
 
       <p>Radio button group set <code>disabled</code></p>
       <demo-snippet>
         <template>
-          <ods-inputoption-radio-group for="radio16" label="Form label goes here" disabled>
-            <ods-inputoption
+          <auro-inputoption-radio-group for="radio16" label="Form label goes here" disabled>
+            <auro-inputoption
               id="radio16"
               label="Yes"
               name="radioDemo5"
               type="radio"
               value="yes"
-            ></ods-inputoption>
-            <ods-inputoption
+            ></auro-inputoption>
+            <auro-inputoption
               id="radio17"
               label="No"
               name="radioDemo5"
               type="radio"
               value="no"
               checked
-            ></ods-inputoption>
-            <ods-inputoption
+            ></auro-inputoption>
+            <auro-inputoption
               id="radio18"
               label="Maybe"
               name="radioDemo5"
               type="radio"
               value="maybe"
-            ></ods-inputoption>
-          </ods-inputoption-radio-group>
+            ></auro-inputoption>
+          </auro-inputoption-radio-group>
         </template>
       </demo-snippet>
 
       <p>Radio button group with error</p>
       <demo-snippet>
         <template>
-          <ods-inputoption-radio-group for="radio19" label="Form label goes here" error="Selection is required; please update.">
-            <ods-inputoption
+          <auro-inputoption-radio-group for="radio19" label="Form label goes here" error="Selection is required; please update.">
+            <auro-inputoption
               id="radio19"
               label="Yes"
               name="radioDemo6"
               type="radio"
               value="yes"
-            ></ods-inputoption>
-            <ods-inputoption
+            ></auro-inputoption>
+            <auro-inputoption
               id="radio20"
               label="No"
               name="radioDemo6"
               type="radio"
               value="no"
-            ></ods-inputoption>
-            <ods-inputoption
+            ></auro-inputoption>
+            <auro-inputoption
               id="radio21"
               label="Maybe"
               name="radioDemo6"
               type="radio"
               value="maybe"
-            ></ods-inputoption>
-          </ods-inputoption-radio-group>
+            ></auro-inputoption>
+          </auro-inputoption-radio-group>
         </template>
       </demo-snippet>
 
       <p>Default checkbox group</p>
       <demo-snippet>
         <template>
-          <ods-inputoption-checkbox-group for="computers" label="Form label goes here">
-            <ods-inputoption
+          <auro-inputoption-checkbox-group for="computers" label="Form label goes here">
+            <auro-inputoption
               id="computers"
               label="Computers"
               name="checkboxDemo1"
               type="checkbox"
               value="computers"
-            ></ods-inputoption>
-            <ods-inputoption
+            ></auro-inputoption>
+            <auro-inputoption
               id="music"
               label="Music"
               name="checkboxDemo1"
               type="checkbox"
               value="music"
-            ></ods-inputoption>
-            <ods-inputoption
+            ></auro-inputoption>
+            <auro-inputoption
               id="arts"
               label="Arts"
               name="checkboxDemo1"
               type="checkbox"
               value="arts"
-            ></ods-inputoption>
-            <ods-inputoption
+            ></auro-inputoption>
+            <auro-inputoption
               id="sports"
               label="Sports"
               name="checkboxDemo1"
               type="checkbox"
               value="sports"
-            ></ods-inputoption>
-            <ods-inputoption
+            ></auro-inputoption>
+            <auro-inputoption
               id="machines"
               label="Machines"
               name="checkboxDemo1"
               type="checkbox"
               value="machines"
-            ></ods-inputoption>
-          </ods-inputoption-checkbox-group>
+            ></auro-inputoption>
+          </auro-inputoption-checkbox-group>
         </template>
       </demo-snippet>
 
       <p>Checkbox group, <code>horizontal</code> option (limit 3 min breakpoint-narrow)</p>
       <demo-snippet>
         <template>
-            <ods-inputoption-checkbox-group for="computers" label="Form label goes here" horizontal>
-              <ods-inputoption
+            <auro-inputoption-checkbox-group for="computers" label="Form label goes here" horizontal>
+              <auro-inputoption
                 id="computers"
                 label="Computers"
                 name="checkboxDemo2"
                 type="checkbox"
                 value="computers"
-              ></ods-inputoption>
-              <ods-inputoption
+              ></auro-inputoption>
+              <auro-inputoption
                 id="music"
                 label="Music"
                 name="checkboxDemo2"
                 type="checkbox"
                 value="music"
-              ></ods-inputoption>
-              <ods-inputoption
+              ></auro-inputoption>
+              <auro-inputoption
                 id="sports"
                 label="Sports"
                 name="checkboxDemo2"
                 type="checkbox"
                 value="sports"
-              ></ods-inputoption>
-            </ods-inputoption-checkbox-group>
+              ></auro-inputoption>
+            </auro-inputoption-checkbox-group>
         </template>
       </demo-snippet>
 
       <p>Checkbox group, <code>horizontal</code> option ignored due to option limit</p>
       <demo-snippet>
         <template>
-          <ods-inputoption-checkbox-group for="computers" label="Form label goes here" horizontal>
-            <ods-inputoption
+          <auro-inputoption-checkbox-group for="computers" label="Form label goes here" horizontal>
+            <auro-inputoption
               id="computers"
               label="Computers"
               name="checkboxDemo3"
               type="checkbox"
               value="computers"
-            ></ods-inputoption>
-            <ods-inputoption
+            ></auro-inputoption>
+            <auro-inputoption
               id="music"
               label="Music"
               name="checkboxDemo3"
               type="checkbox"
               value="music"
-            ></ods-inputoption>
-            <ods-inputoption
+            ></auro-inputoption>
+            <auro-inputoption
               id="arts"
               label="Arts"
               name="checkboxDemo3"
               type="checkbox"
               value="arts"
-            ></ods-inputoption>
-            <ods-inputoption
+            ></auro-inputoption>
+            <auro-inputoption
               id="sports"
               label="Sports"
               name="checkboxDemo3"
               type="checkbox"
               value="sports"
-            ></ods-inputoption>
-            <ods-inputoption
+            ></auro-inputoption>
+            <auro-inputoption
               id="machines"
               label="Machines"
               name="checkboxDemo3"
               type="checkbox"
               value="machines"
-            ></ods-inputoption>
-          </ods-inputoption-checkbox-group>
+            ></auro-inputoption>
+          </auro-inputoption-checkbox-group>
         </template>
       </demo-snippet>
 
       <p>Checkbox group with option set to <code>checked</code></p>
       <demo-snippet>
         <template>
-          <ods-inputoption-checkbox-group for="computers" label="Form label goes here">
-            <ods-inputoption
+          <auro-inputoption-checkbox-group for="computers" label="Form label goes here">
+            <auro-inputoption
               id="computers"
               label="Computers"
               name="checkboxDemo4"
               type="checkbox"
               value="computers"
               checked
-            ></ods-inputoption>
-            <ods-inputoption
+            ></auro-inputoption>
+            <auro-inputoption
               id="music"
               label="Music"
               name="checkboxDemo4"
               type="checkbox"
               value="music"
-            ></ods-inputoption>
-            <ods-inputoption
+            ></auro-inputoption>
+            <auro-inputoption
               id="arts"
               label="Arts"
               name="checkboxDemo4"
               type="checkbox"
               value="arts"
-            ></ods-inputoption>
-          </ods-inputoption-checkbox-group>
+            ></auro-inputoption>
+          </auro-inputoption-checkbox-group>
         </template>
       </demo-snippet>
 
       <p>Checkbox group set <code>disabled</code></p>
       <demo-snippet>
         <template>
-          <ods-inputoption-checkbox-group for="checkboxDemo5" label="Form label goes here" disabled>
-            <ods-inputoption
+          <auro-inputoption-checkbox-group for="checkboxDemo5" label="Form label goes here" disabled>
+            <auro-inputoption
               id="computers"
               label="Computers"
               name="checkboxDemo5"
               type="checkbox"
               value="computers"
               checked
-            ></ods-inputoption>
-            <ods-inputoption
+            ></auro-inputoption>
+            <auro-inputoption
               id="music"
               label="Music"
               name="checkboxDemo5"
               type="checkbox"
               value="music"
-            ></ods-inputoption>
-            <ods-inputoption
+            ></auro-inputoption>
+            <auro-inputoption
               id="arts"
               label="Arts"
               name="checkboxDemo5"
               type="checkbox"
               value="arts"
-            ></ods-inputoption>
-          </ods-inputoption-checkbox-group>
+            ></auro-inputoption>
+          </auro-inputoption-checkbox-group>
       </template>
       </demo-snippet>
 
       <p>Checkbox group with error</p>
       <demo-snippet>
         <template>
-          <ods-inputoption-checkbox-group for="computers" label="Form label goes here" error="Selection is required; please update.">
-            <ods-inputoption
+          <auro-inputoption-checkbox-group for="computers" label="Form label goes here" error="Selection is required; please update.">
+            <auro-inputoption
               id="computers"
               label="Computers"
               name="checkboxDemo6"
               type="checkbox"
               value="computers"
-            ></ods-inputoption>
-            <ods-inputoption
+            ></auro-inputoption>
+            <auro-inputoption
               id="music"
               label="Music"
               name="checkboxDemo6"
               type="checkbox"
               value="music"
-            ></ods-inputoption>
-            <ods-inputoption
+            ></auro-inputoption>
+            <auro-inputoption
               id="arts"
               label="Arts"
               name="checkboxDemo6"
               type="checkbox"
               value="arts"
-            ></ods-inputoption>
-          </ods-inputoption-checkbox-group>
+            ></auro-inputoption>
+          </auro-inputoption-checkbox-group>
         </template>
       </demo-snippet>
 
@@ -474,27 +474,27 @@
       <demo-snippet>
         <template>
           <div>Form label goes here</div>
-          <ods-inputoption-light
+          <auro-inputoption-light
             id="computers"
             label="Computers"
             name="radioLightDom1"
             type="radio"
             value="computers"
-          ></ods-inputoption-light>
-          <ods-inputoption-light
+          ></auro-inputoption-light>
+          <auro-inputoption-light
             id="music"
             label="Music"
             name="radioLightDom1"
             type="radio"
             value="music"
-          ></ods-inputoption-light>
-          <ods-inputoption-light
+          ></auro-inputoption-light>
+          <auro-inputoption-light
             id="arts"
             label="Arts"
             name="radioLightDom1"
             type="radio"
             value="arts"
-          ></ods-inputoption-light>
+          ></auro-inputoption-light>
         </template>
       </demo-snippet>
 
@@ -502,27 +502,27 @@
       <demo-snippet>
         <template>
           <div>Form label goes here</div>
-          <ods-inputoption-light
+          <auro-inputoption-light
             id="computers-check"
             label="Computers"
             name="checkboxLightDom1"
             type="checkbox"
             value="computers"
-          ></ods-inputoption-light>
-          <ods-inputoption-light
+          ></auro-inputoption-light>
+          <auro-inputoption-light
             id="music-check"
             label="Music"
             name="checkboxLightDom1"
             type="checkbox"
             value="music"
-          ></ods-inputoption-light>
-          <ods-inputoption-light
+          ></auro-inputoption-light>
+          <auro-inputoption-light
             id="arts-check"
             label="Arts"
             name="checkboxLightDom1"
             type="checkbox"
             value="arts"
-          ></ods-inputoption-light>
+          ></auro-inputoption-light>
         </template>
       </demo-snippet>
     </div>

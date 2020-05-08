@@ -1,23 +1,23 @@
 import { fixture, html, expect, elementUpdated } from '@open-wc/testing';
 
-import '../src/ods-inputoption.js';
-import '../src/ods-inputoption-radio-group.js';
-import '../src/ods-inputoption-checkbox-group.js';
+import '../src/auro-inputoption.js';
+import '../src/auro-inputoption-radio-group.js';
+import '../src/auro-inputoption-checkbox-group.js';
 
-describe('ods-inputoption-group', () => {
+describe('auro-inputoption-group', () => {
   it('has the expected properties', async () => {
     const expectedError = "Expected error message";
     const expectedFor = "labelForId";
     const expectedLabel = "expectedLabel";
 
     const el = await fixture(html`
-      <ods-inputoption-radio-group
+      <auro-inputoption-radio-group
         horizontal
         error=${expectedError}
         for=${expectedFor}
         label=${expectedLabel}
         type="radio"
-      ></ods-inputoption-radio-group>
+      ></auro-inputoption-radio-group>
     `);
 
     const root = el.shadowRoot;
@@ -32,33 +32,33 @@ describe('ods-inputoption-group', () => {
 
   it('exhibits the correct group checking behavior', async () => {
     const el = await fixture(html`
-      <ods-inputoption-radio-group
+      <auro-inputoption-radio-group
         for="stateSelection"
         label="Select your state of residence"
         type="radio"
       >
-        <ods-inputoption
+        <auro-inputoption
           id="alaska"
           label="Alaska"
           name="states"
           type="radio"
           value="alaska"
-        ></ods-inputoption>
+        ></auro-inputoption>
 
-        <ods-inputoption
+        <auro-inputoption
           id="washington"
           label="Washington"
           name="states"
           type="radio"
           value="washington"
-        ></ods-inputoption>
-      </ods-inputoption-radio-group>
+        ></auro-inputoption>
+      </auro-inputoption-radio-group>
     `);
 
-    const alaskaRadio = el.querySelector("ods-inputoption[id=alaska]");
+    const alaskaRadio = el.querySelector("auro-inputoption[id=alaska]");
     const alaskaRadioInput = alaskaRadio.shadowRoot.querySelector('input');
 
-    const washingtonRadio = el.querySelector("ods-inputoption[id=washington]");
+    const washingtonRadio = el.querySelector("auro-inputoption[id=washington]");
     const washingtonRadioInput = washingtonRadio.shadowRoot.querySelector('input');
 
     expect(alaskaRadio.checked).to.not.be.true;
@@ -82,32 +82,32 @@ describe('ods-inputoption-group', () => {
 
   it('can select multiple checkboxes', async () => {
     const el = await fixture(html`
-      <ods-inputoption-checkbox-group
+      <auro-inputoption-checkbox-group
         for="stateSelection"
         label="Select your favorite states"
       >
-        <ods-inputoption
+        <auro-inputoption
           id="alaska"
           label="Alaska"
           name="states"
           type="checkbox"
           value="alaska"
-        ></ods-inputoption>
+        ></auro-inputoption>
 
-        <ods-inputoption
+        <auro-inputoption
           id="washington"
           label="Washington"
           name="states"
           type="checkbox"
           value="washington"
-        ></ods-inputoption>
-      </ods-inputoption-checkbox-group>
+        ></auro-inputoption>
+      </auro-inputoption-checkbox-group>
     `);
 
-    const alaskaCheckbox = el.querySelector("ods-inputoption[id=alaska]");
+    const alaskaCheckbox = el.querySelector("auro-inputoption[id=alaska]");
     const alaskaCheckboxInput = alaskaCheckbox.shadowRoot.querySelector('input');
 
-    const washingtonCheckbox = el.querySelector("ods-inputoption[id=washington]");
+    const washingtonCheckbox = el.querySelector("auro-inputoption[id=washington]");
     const washingtonCheckboxInput = washingtonCheckbox.shadowRoot.querySelector('input');
 
     expect(alaskaCheckbox.checked).to.not.be.true;
@@ -129,41 +129,41 @@ describe('ods-inputoption-group', () => {
     const expectedLabel = "expectedLabel";
 
     const el = await fixture(html`
-      <ods-inputoption-radio-group
+      <auro-inputoption-radio-group
       for=${expectedFor}
       label=${expectedLabel}
       type="radio"
       >
-        <ods-inputoption
+        <auro-inputoption
           id="alaska"
           label="Alaska"
           name="states"
           type="radio"
           value="alaska"
           checked
-        ></ods-inputoption>
+        ></auro-inputoption>
 
-        <ods-inputoption
+        <auro-inputoption
           id="washington"
           label="Washington"
           name="states"
           type="radio"
           value="washington"
-        ></ods-inputoption>
+        ></auro-inputoption>
 
-        <ods-inputoption
+        <auro-inputoption
           id="california"
           label="California"
           name="states"
           type="radio"
           value="california"
-        ></ods-inputoption>
-      </ods-inputoption-radio-group>
+        ></auro-inputoption>
+      </auro-inputoption-radio-group>
     `);
 
-    const alaskaRadio = el.querySelector("ods-inputoption[id=alaska]");
-    const washingtonRadio = el.querySelector("ods-inputoption[id=washington]");
-    const californiaRadio = el.querySelector("ods-inputoption[id=california]");
+    const alaskaRadio = el.querySelector("auro-inputoption[id=alaska]");
+    const washingtonRadio = el.querySelector("auro-inputoption[id=washington]");
+    const californiaRadio = el.querySelector("auro-inputoption[id=california]");
 
     expect(alaskaRadio.checked).to.be.true;
     expect(washingtonRadio.checked).to.not.be.true;
@@ -183,28 +183,28 @@ describe('ods-inputoption-group', () => {
     const expectedLabel = "expectedLabel";
 
     const el = await fixture(html`
-      <ods-inputoption-radio-group
+      <auro-inputoption-radio-group
       for=${expectedFor}
       label=${expectedLabel}
       type="radio"
       >
-        <ods-inputoption
+        <auro-inputoption
           id="alaska"
           label="Alaska"
           name="states"
           type="radio"
           value="alaska"
           checked
-        ></ods-inputoption>
+        ></auro-inputoption>
 
-        <ods-inputoption
+        <auro-inputoption
           id="washington"
           label="Washington"
           name="states"
           type="radio"
           value="washington"
-        ></ods-inputoption>
-      </ods-inputoption-radio-group>
+        ></auro-inputoption>
+      </auro-inputoption-radio-group>
     `);
 
     expect(el).to.be.accessible();
@@ -212,11 +212,11 @@ describe('ods-inputoption-group', () => {
 
   it('does not crash for empty input option groups', async () => {
     const el = await fixture(html`
-      <ods-inputoption-radio-group>
-      </ods-inputoption-radio-group>
+      <auro-inputoption-radio-group>
+      </auro-inputoption-radio-group>
 
-      <ods-inputoption-checkbox-group>
-      </ods-inputoption-checkbox-group>
+      <auro-inputoption-checkbox-group>
+      </auro-inputoption-checkbox-group>
     `);
 
     expect(el._items.length).to.equal(0);

@@ -4,21 +4,21 @@
 // ---------------------------------------------------------------------
 
 // import button styles into element namespaced wrapper
-
-ods-inputoption-light {
+/*
+auro-inputoption-light {
 
   @import './style.scss';
 
   .focus-visible {
 
-    @at-root .ods-inputGroup {
+    @at-root .auro-inputGroup {
       &:focus-within {
         width: var(--host-focus-inputgroup-width);
         display: var(--host-focus-inputgroup-display);
         background-color: var(--host-focus-inputgroup-background-color);
         color: var(--host-focus-inputgroup-color);
 
-        .ods-inputLabel--radio {
+        .auro-inputLabel--radio {
           &:before {
             background-color: var(--host-focus-inputgroup-radio-label-before-backgroundcolor);
           }
@@ -28,7 +28,7 @@ ods-inputoption-light {
           }
         }
 
-        .ods-inputLabel--checkbox {
+        .auro-inputLabel--checkbox {
           &:before,
           &:after {
             border-color: var(--colors-focus-backgroundborder);
@@ -38,3 +38,4 @@ ods-inputoption-light {
     }
   }
 }
+*/

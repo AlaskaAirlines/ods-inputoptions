@@ -2,10 +2,10 @@
 // See LICENSE in the project root for license information.
 // ---------------------------------------------------------------------
 import { html } from "lit-element";
-import OdsInputoptionBase from "./ods-inputoption-base.js";
+import auroInputoptionBase from "./auro-inputoption-base.js";
 import styleCss from "./style-css.js";
 
-export default class OdsInputoption extends OdsInputoptionBase {
+export default class auroInputoption extends auroInputoptionBase {
   static get properties() {
     return {
       ...super.properties
@@ -24,4 +24,4 @@ export default class OdsInputoption extends OdsInputoptionBase {
 }
 
 // define the name of the custom component
-customElements.define("ods-inputoption", OdsInputoption);
+customElements.define("auro-inputoption", auroInputoption);

@@ -2,41 +2,42 @@
 // See LICENSE in the project root for license information.
 
 // ---------------------------------------------------------------------
+// Import Auro CSS Properties as Sass file
+@import "./node_modules/@alaskaairux/orion-design-tokens/dist/tokens/SassCustomProperties";
 
-// Creates ods-inputoptions CSS UI definition of shape
+// Import Auro Sass variables
+@import "./node_modules/@alaskaairux/orion-design-tokens/dist/tokens/SCSSVariables";
 
-// Boilerplate Sass imports
-@import "./tokens/tokenVariables";
-@import "./tokens/componentShapeVariables";
-
-@import "./tokens/tokenProperties";
-@import "./tokens/componentShapeProperties";
-
+// general WCSS imports
 @import "./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/breakpoints";
-@import "./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/baselineLTE";
-@import './node_modules/@alaskaairux/orion-web-core-style-sheets/dist/utilityClasses/displayProperties';
-// @import "./node_modules/@alaskaairux/orion-web-core-style-sheets/animation";
+@import "./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/core";
 
-// container styles - defines the look of the outer custom componet
+@import "./node_modules/@alaskaairux/orion-design-tokens/dist/tokens/SCSSVariableMap";
+
+$auro-inset-spacing-options: lg;
+$auro-inset-directions:'--squish';
+@import "./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/utilityMixins/insetUtility";
+
+// container styles - defines the look of the outer custom component
 :host {
   display: block;
 }
 
-:host(ods-inputoption-group) {
+:host(auro-inputoption-group) {
   padding-bottom: var(--size-scale-med);
 }
 
 // layout styles - define any layout specifications for UI that is contained WITHIN the component
-// never define layout that would cause effect on element ouside the scope of this component
-
+// never define layout that would cause effect on element outside the scope of this component
+/*
 @mixin focus-visible {
   .displayFlex {
-    .ods-inputGroup:focus-within {
+    .auro-inputGroup:focus-within {
       width: var(--host-focus-display-flex-width);
     }
   }
 
-  .ods-inputOption {
+  .auro-inputOption {
     background-color: var(--host-focus-inputgroup-background-color);
     color: var(--host-focus-inputgroup-color);
 
@@ -44,19 +45,19 @@
       border-color: var(--color-base-shark);
     }
 
-    & + .ods-inputLabel {
+    & + .auro-inputLabel {
       color: var(--host-focus-inputgroup-color);
     }
   }
 
-  .ods-inputGroup {
+  .auro-inputGroup {
     display: var(--host-focus-inputgroup-display);
     background-color: var(--host-focus-inputgroup-background-color);
 
     padding-right: var(--host-focus-inputgroup-padding-right);
     margin-right: var(--host-focus-inputgroup-margin-right);
 
-    .ods-inputLabel--radio {
+    .auro-inputLabel--radio {
       &:before {
         background-color: var(--host-focus-inputgroup-radio-label-before-backgroundcolor);
       }
@@ -66,7 +67,7 @@
       }
     }
 
-    .ods-inputLabel--checkbox {
+    .auro-inputLabel--checkbox {
       &:before,
       &:after {
         border-color: var(--colors-focus-backgroundborder);
@@ -81,114 +82,114 @@
 }
 
 .displayFlex {
-  @include breakpoint-narrow {
+  @include auro_breakpoint--sm {
     display: var(--display-flex-breakpoint-narrow-display);
 
-    .ods-inputGroup {
-      margin-left: var(--ods-inputgroup-breakpoint-narrow-margin-left);
+    .auro-inputGroup {
+      margin-left: var(--auro-inputgroup-breakpoint-narrow-margin-left);
 
       &:first-child {
-        margin-left: var(--ods-inputgroup-breakpoint-narrow-first-child);
+        margin-left: var(--auro-inputgroup-breakpoint-narrow-first-child);
       }
     }
   }
 }
 
-.ods-inputGroup {
-  position: var(--ods-inputgroup-position);
-  line-height: var(--ods-inputgroup-line-height);
-  padding-left: var(--ods-inputgroup-padding-left);
+.auro-inputGroup {
+  position: var(--auro-inputgroup-position);
+  line-height: var(--auro-inputgroup-line-height);
+  padding-left: var(--auro-inputgroup-padding-left);
 }
 
-.ods-inputOption {
+.auro-inputOption {
   &:disabled {
-    & + .ods-inputLabel {
-      color: var(--ods-inputoption-disabled-label-color);
+    & + .auro-inputLabel {
+      color: var(--auro-inputoption-disabled-label-color);
     }
-    & + .ods-inputLabel--checkbox {
+    & + .auro-inputLabel--checkbox {
       &:before,
       &:after {
-        border-color: var(--ods-inputoption-disabled-checkbox-psudo-border-color);
+        border-color: var(--auro-inputoption-disabled-checkbox-psudo-border-color);
       }
     }
 
-    & + .ods-inputLabel--radio {
+    & + .auro-inputLabel--radio {
       &:after {
-        border-color: var(--ods-inputoption-disabled-radio-after-border-color);
+        border-color: var(--auro-inputoption-disabled-radio-after-border-color);
       }
       &:before {
-        background-color: var(--ods-inputoption-disabled-radio-before-background-color);
+        background-color: var(--auro-inputoption-disabled-radio-before-background-color);
       }
     }
   }
   &:checked {
-    & + .ods-inputLabel {
+    & + .auro-inputLabel {
       &:after {
-        opacity: var(--ods-inputoption-checked-label-after-opacity);
+        opacity: var(--auro-inputoption-checked-label-after-opacity);
       }
       &:before {
-        transition: var(--ods-inputoption-checked-label-before-transition-fulltransition);
-        opacity: var(--ods-inputoption-checked-label-before-opacity);
+        transition: var(--auro-inputoption-checked-label-before-transition-fulltransition);
+        opacity: var(--auro-inputoption-checked-label-before-opacity);
       }
     }
   }
 }
 
-.ods-inputLabel {
-  margin-left: var(--ods-inputlabel-margin-left);
-  display: var(--ods-inputlabel-display);
+.auro-inputLabel {
+  margin-left: var(--auro-inputlabel-margin-left);
+  display: var(--auro-inputlabel-display);
 
   &:after {
     -webkit-tap-highlight-color: transparent;
-    position: var(--ods-inputlabel-after-position);
+    position: var(--auro-inputlabel-after-position);
     content: '';
-    top: var(--ods-inputlabel-after-top);
-    left: var(--ods-inputlabel-after-left);
-    width: var(--ods-inputlabel-after-width);
-    height: var(--ods-inputlabel-after-height);
-    border: var(--ods-inputlabel-after-border);
-    z-index: var(--ods-inputlabel-after-z-index);
+    top: var(--auro-inputlabel-after-top);
+    left: var(--auro-inputlabel-after-left);
+    width: var(--auro-inputlabel-after-width);
+    height: var(--auro-inputlabel-after-height);
+    border: var(--auro-inputlabel-after-border);
+    z-index: var(--auro-inputlabel-after-z-index);
   }
 
   &:before {
     content: '';
-    position: var(--ods-inputlabel-before-position);
-    opacity: var(--ods-inputlabel-before-opacity);
-    pointer-events: var(--ods-inputlabel-before-pointer-events);
-    z-index: var(--ods-inputlabel-before-z-index);
+    position: var(--auro-inputlabel-before-position);
+    opacity: var(--auro-inputlabel-before-opacity);
+    pointer-events: var(--auro-inputlabel-before-pointer-events);
+    z-index: var(--auro-inputlabel-before-z-index);
   }
 }
 
-.ods-inputLabel--radio {
+.auro-inputLabel--radio {
   &:after {
-    border-radius: var(--ods-inputlabel-radio-after-border-radius);
+    border-radius: var(--auro-inputlabel-radio-after-border-radius);
   }
 
   &:before {
-    top: var(--ods-inputlabel-radio-before-top);
-    left: var(--ods-inputlabel-radio-before-left);
-    width: var(--ods-inputlabel-radio-before-width);
-    height: var(--ods-inputlabel-radio-before-height);
-    border-radius: var(--ods-inputlabel-radio-before-border-radius);
-    background-color: var(--ods-inputlabel-radio-before-background-color);
-    transform: var(--ods-inputlabel-radio-before-border-transform);
+    top: var(--auro-inputlabel-radio-before-top);
+    left: var(--auro-inputlabel-radio-before-left);
+    width: var(--auro-inputlabel-radio-before-width);
+    height: var(--auro-inputlabel-radio-before-height);
+    border-radius: var(--auro-inputlabel-radio-before-border-radius);
+    background-color: var(--auro-inputlabel-radio-before-background-color);
+    transform: var(--auro-inputlabel-radio-before-border-transform);
   }
 }
 
-.ods-inputLabel--checkbox {
+.auro-inputLabel--checkbox {
   &:after {
-    border-radius: var(--ods-inputlabel-checkbox-after-border-radius);
+    border-radius: var(--auro-inputlabel-checkbox-after-border-radius);
   }
 
   &:before {
-    top: var(--ods-inputlabel-checkbox-before-top);
-    left: var(--ods-inputlabel-checkbox-before-left);
-    width: var(--ods-inputlabel-checkbox-before-width);
-    height: var(--ods-inputlabel-checkbox-before-height);
-    border-style: var(--ods-inputlabel-checkbox-before-border-style);
-    border-color: var(--ods-inputlabel-checkbox-before-border-color);
-    border-width: var(--ods-inputlabel-checkbox-before-border-width);
-    transform: var(--ods-inputlabel-checkbox-before-transform);
+    top: var(--auro-inputlabel-checkbox-before-top);
+    left: var(--auro-inputlabel-checkbox-before-left);
+    width: var(--auro-inputlabel-checkbox-before-width);
+    height: var(--auro-inputlabel-checkbox-before-height);
+    border-style: var(--auro-inputlabel-checkbox-before-border-style);
+    border-color: var(--auro-inputlabel-checkbox-before-border-color);
+    border-width: var(--auro-inputlabel-checkbox-before-border-width);
+    transform: var(--auro-inputlabel-checkbox-before-transform);
   }
 }
 
@@ -197,28 +198,29 @@
   margin-bottom: 0;
 }
 
-.ods-inputLabel--radio {
+.auro-inputLabel--radio {
   &.errorBorder {
     &:after {
-      border-color: var(--ods-inputlabel-radio-error-border-after-border-color);
+      border-color: var(--auro-inputlabel-radio-error-border-after-border-color);
     }
     &:before {
-      background-color: var(--ods-inputlabel-radio-error-border-before-background-color);
+      background-color: var(--auro-inputlabel-radio-error-border-before-background-color);
     }
   }
 }
 
-.ods-inputLabel--checkbox {
+.auro-inputLabel--checkbox {
   &.errorBorder {
     &:before,
     &:after {
-      border-color: var(--ods-inputlabel-checkbox-error-border-before-after-border-color);
+      border-color: var(--auro-inputlabel-checkbox-error-border-before-after-border-color);
     }
   }
 }
 
-.ods-label {
-  color: var(--ods-label-color);
-  margin-bottom: var(--ods-label-margin-bottom);
-  display: var(--ods-label-display);
+.auro-label {
+  color: var(--auro-label-color);
+  margin-bottom: var(--auro-label-margin-bottom);
+  display: var(--auro-label-display);
 }
+*/

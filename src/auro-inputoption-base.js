@@ -5,9 +5,8 @@ import { LitElement, html } from "lit-element";
 import { classMap } from 'lit-html/directives/class-map';
 import {ifDefined} from 'lit-html/directives/if-defined';
 import 'focus-visible/dist/focus-visible.min.js';
-import componentProperties from './tokens/componentShapeProperties-css.js';
 
-export default class OdsInputoptionBase extends LitElement {
+export default class auroInputoptionBase extends LitElement {
   static get properties() {
     return {
       checked:  { type: Boolean, reflect: true },
@@ -23,19 +22,18 @@ export default class OdsInputoptionBase extends LitElement {
 
   render() {
     let labelClasses = {
-      'ods-inputLabel': true,
-      'ods-inputLabel--checkbox': this.type === 'checkbox',
-      'ods-inputLabel--radio': this.type === 'radio',
+      'auro-inputLabel': true,
+      'auro-inputLabel--checkbox': this.type === 'checkbox',
+      'auro-inputLabel--radio': this.type === 'radio',
       'errorBorder': !!this.error
     }
 
     return html`
-      ${componentProperties}
       ${this.getStyles()}
 
-      <div class="ods-inputGroup">
+      <div class="auro-inputGroup">
         <input
-          class="util_displayHiddenVisually ods-inputOption"
+          class="util_displayHiddenVisually auro-inputOption"
           @input="${this._setChecked}"
           ?disabled="${this.disabled}"
           .checked="${ifDefined(this.checked)}"

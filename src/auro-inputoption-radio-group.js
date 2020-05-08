@@ -1,12 +1,12 @@
 // Copyright (c) Alaska Air. All right reserved. Licensed under the Apache-2.0 license
 // See LICENSE in the project root for license information.
 // ---------------------------------------------------------------------
-import OdsInputoptionGroupBase from './ods-component-group-base';
+import auroInputoptionGroupBase from './auro-component-group-base';
 
 // Import touch detection lib
 import 'focus-visible/dist/focus-visible.min.js';
 
-class OdsInputoptionRadioGroup extends OdsInputoptionGroupBase {
+class auroInputoptionRadioGroup extends auroInputoptionGroupBase {
   constructor() {
     super();
   }
@@ -135,4 +135,4 @@ class OdsInputoptionRadioGroup extends OdsInputoptionGroupBase {
 }
 
 // define the name of the custom component
-customElements.define("ods-inputoption-radio-group", OdsInputoptionRadioGroup);
+customElements.define("auro-inputoption-radio-group", auroInputoptionRadioGroup);

@@ -1,12 +1,12 @@
 // Copyright (c) Alaska Air. All right reserved. Licensed under the Apache-2.0 license
 // See LICENSE in the project root for license information.
 // ---------------------------------------------------------------------
-import OdsInputoptionGroupBase from './ods-component-group-base';
+import auroInputoptionGroupBase from './auro-component-group-base';
 
 // Import touch detection lib
 import 'focus-visible/dist/focus-visible.min.js';
 
-class OdsInputoptionCheckboxGroup extends OdsInputoptionGroupBase {
+class auroInputoptionCheckboxGroup extends auroInputoptionGroupBase {
   constructor() {
     super();
   }
@@ -19,4 +19,4 @@ class OdsInputoptionCheckboxGroup extends OdsInputoptionGroupBase {
 }
 
 // define the name of the custom component
-customElements.define("ods-inputoption-checkbox-group", OdsInputoptionCheckboxGroup);
+customElements.define("auro-inputoption-checkbox-group", auroInputoptionCheckboxGroup);
