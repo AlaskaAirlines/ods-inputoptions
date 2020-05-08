@@ -73,7 +73,7 @@ export default class OdsInputoptionGroupBase extends LitElement {
         html``}
 
       <div
-        @input="${this._handleInput}"
+        @input="${this._updateCheckedIndex}"
         class="${classMap(groupClasses)}">
         <slot></slot>
       </div>

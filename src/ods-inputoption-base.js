@@ -36,13 +36,13 @@ export default class OdsInputoptionBase extends LitElement {
       <div class="ods-inputGroup">
         <input
           class="util_displayHiddenVisually ods-inputOption"
-          @change="${this.handleChange}"
+          @input="${this._setChecked}"
           ?disabled="${this.disabled}"
           .checked="${ifDefined(this.checked)}"
           id="${ifDefined(this.id)}"
           name="${ifDefined(this.name)}"
           type="${ifDefined(this.type)}"
-          value="${ifDefined(this.value)}"
+          .value="${ifDefined(this.value)}"
         />
 
         <label
