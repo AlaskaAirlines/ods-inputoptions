@@ -5,7 +5,7 @@
     "font-family-no-duplicate-names": null,
     "no-descending-specificity": null,
     "selector-type-no-unknown": [true, {
-      "ignoreTypes": ["ods-inputoption-group"]
+      "ignoreTypes": ["ods-inputoption-group", "ods-inputoption-light"]
     }]
   }
 }
