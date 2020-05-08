@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [2.0.2](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions/compare/v2.0.1...v2.0.2) (2020-05-08)
+
+
+### Bug Fixes
+
+* checked value ([5e84b48](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions/commit/5e84b48fe3009cb828a00ea9756f8ab052f446d3))
+
 ## [2.0.1](https://github.com/AlaskaAirlines/OrionStatelessComponents__ods-inputoptions/compare/v2.0.0...v2.0.1) (2020-05-06)
 
 
