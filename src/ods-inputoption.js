@@ -11,7 +11,8 @@ export default class OdsInputoption extends OdsInputoptionBase {
       ...super.properties
     }
   }
-  handleChange({target}) {
+
+  _setChecked({ target }) {
     this.checked = target.checked
   }
 

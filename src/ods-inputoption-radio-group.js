@@ -117,8 +117,7 @@ class OdsInputoptionRadioGroup extends OdsInputoptionGroupBase {
     }
   }
 
-  _handleInput({ target }) {
-
+  _updateCheckedIndex({ target }) {
     /**
      * This feature only sets the tabindex AFTER a user has tabbed into
      * the block of elements and sets the checked value.
