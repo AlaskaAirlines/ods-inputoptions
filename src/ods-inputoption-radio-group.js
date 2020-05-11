@@ -1,7 +1,7 @@
 // Copyright (c) Alaska Air. All right reserved. Licensed under the Apache-2.0 license
 // See LICENSE in the project root for license information.
 // ---------------------------------------------------------------------
-import OdsInputoptionGroupBase from './ods-component-group-base';
+import OdsInputoptionGroupBase from './ods-inputoption-group-base';
 
 // Import touch detection lib
 import 'focus-visible/dist/focus-visible.min.js';
@@ -18,14 +18,16 @@ class OdsInputoptionRadioGroup extends OdsInputoptionGroupBase {
   }
 
   connectedCallback() {
+    console.log("radio group connectedCallback");
     super.connectedCallback();
+    this._focusIndex(this._items);
 
-    this._focusIndex(this._items)
     this.addEventListener('click', this._handleClick)
     this.addEventListener('keydown', this._handleKeyDown)
   }
 
   _handleClick({target}) {
+    console.log("handleClick");
     const idx = this._items.indexOf(target);
 
     if (idx !== -1) {
@@ -34,59 +36,29 @@ class OdsInputoptionRadioGroup extends OdsInputoptionGroupBase {
   }
 
   _focusIndex(items) {
+    console.log("focusIndex");
     let index = 0;
-    let tabbed = false;
+    let checked = false;
 
-    items.forEach((el) => {
-
-      // variable for elements within the array with checked="true"
-      const trueElement = el.getAttribute('checked') === "true";
-
-      // test for checked="true"
-      const _focusedIndex = (item) => {
-        return item.getAttribute('checked') === "true";
-      }
-
-      /**
-       * This statement looks to see if elements in the array
-       * are preset to checked="true" and sets the tabindex="0"
-       * and all others to tabindex="-1"
-       *
-       * This allows for the first tab into a group to associate directly
-       * with the checked element.
-       *
-       * Additionally this reset the index variable to the
-       * preselected index to allow for arrow tabbing between elements.
-       */
-      if (trueElement) {
-        items.forEach((el) => {
-
-          if (trueElement) {
-            el.setAttribute('tabindex', '0');
-            index = items.findIndex(_focusedIndex)
-          }
-
-          if (!el.getAttribute('checked')) {
-            el.setAttribute('tabindex', '-1')
-          }
-        })
-      }
+    index = items.findIndex( (item) => {
+      return item.getAttribute('checked' === "true");
     });
 
-    items.forEach((el, idx) => {
+    console.log(index);
 
-      if (el.tabbed) {
-        index = idx;
-        tabbed = true;
-      }
-    });
+    if (index === -1) {
+      items[0].setAttribute('tabindex', 0);
+    } else {
+      items[index].setAttribute('tabindex', 0);
+      checked = true;
+    } 
 
-    this._selectItem(index, tabbed);
+    this._selectItem(0, checked);
   }
 
-  _selectItem(newIndex, tabbed=true) {
-
-    if (tabbed) {
+  _selectItem(newIndex, checked=true) {
+    console.log("selectItem");
+    if (checked) {
       this.focus();
       const label = this._items[newIndex].renderRoot.querySelector('label');
       if (label) label.click();
@@ -96,13 +68,15 @@ class OdsInputoptionRadioGroup extends OdsInputoptionGroupBase {
   }
 
   _handleKeyDown(event) {
+    console.log(`handleKeyDown: ${event.key}`);
     switch (event.key) {
       case "Down":
       case "ArrowDown":
       case "Right":
       case "ArrowRight": {
         event.preventDefault();
-        this._selectItem(this._index + 1);
+        let index = this._index === this._items.length - 1 ? 0 : this._index + 1;
+        this._selectItem(index);
         break;
       }
 
@@ -111,13 +85,15 @@ class OdsInputoptionRadioGroup extends OdsInputoptionGroupBase {
       case "Left":
       case "ArrowLeft": {
         event.preventDefault();
-        this._selectItem(this._index - 1);
+        let index = this._index === 0 ? this._items.length - 1 : this._index - 1;
+        this._selectItem(index);
         break;
       }
     }
   }
 
   _updateCheckedIndex({ target }) {
+    console.log("updateCheckedIndex");
     /**
      * This feature only sets the tabindex AFTER a user has tabbed into
      * the block of elements and sets the checked value.

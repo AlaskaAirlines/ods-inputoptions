@@ -12,6 +12,16 @@ export default class OdsInputoption extends OdsInputoptionBase {
     }
   }
 
+  connectedCallback() {
+    super.connectedCallback();
+
+    if (this.type === "radio") {
+      this.setAttribute("tabindex", -1);
+    } else {
+      this.setAttribute("tabindex", 0);
+    }
+  }
+
   _setChecked({ target }) {
     this.checked = target.checked
   }

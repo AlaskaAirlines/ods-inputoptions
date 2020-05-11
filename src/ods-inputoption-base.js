@@ -43,6 +43,7 @@ export default class OdsInputoptionBase extends LitElement {
           name="${ifDefined(this.name)}"
           type="${ifDefined(this.type)}"
           .value="${ifDefined(this.value)}"
+          tabindex="-1"
         />
 
         <label

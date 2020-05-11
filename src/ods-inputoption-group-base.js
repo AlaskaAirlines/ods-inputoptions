@@ -15,7 +15,6 @@ export default class OdsInputoptionGroupBase extends LitElement {
   constructor() {
     super();
 
-    this._selectable = 'ods-inputoption'
     this._index = 0;
   }
 
@@ -24,40 +23,25 @@ export default class OdsInputoptionGroupBase extends LitElement {
       disabled:   { type: Boolean },
       horizontal: { type: Boolean },
       error:      { type: String },
-      for:        { type: String },
       label:      { type: String }
     };
   }
 
   connectedCallback() {
+    console.log("group base connectedCallback");
     super.connectedCallback();
-    this._items = Array.from(this.querySelectorAll(this._selectable)) || [];
+    this._items = Array.from(this.querySelectorAll('ods-inputoption')) || [];
 
     this._items.forEach(el => el.disabled = this.disabled);
   }
 
   _errorChange() {
+    console.log("errorChange");
     this._items.forEach(el => el.error = !!this.error);
   }
 
-  // function to replicate a11y feature of tapping on label for the option group
-  _labelClick() {
-    if (!this.disabled) {
-      for (let child of this.children) {
-        if (child.id === `${this.for}`) {
-          if (child.getAttribute('checked') === null) {
-            child.setAttribute('checked', '')
-          } else if (child.getAttribute('checked') === '' && child.getAttribute('type') === 'checkbox') {
-            child.removeAttribute('checked')
-          }
-        } else if (child.id != `${this.for}`) {
-          child.removeAttribute('checked')
-        }
-      }
-    }
-  }
-
   render() {
+    console.log("render");
     let groupClasses = {
       'displayFlex': (this.horizontal && this._items.length <= 3)
     }
@@ -68,14 +52,14 @@ export default class OdsInputoptionGroupBase extends LitElement {
 
       ${this._errorChange()}
 
-      ${this.label ?
-        html`<label for="${this.for}" @click="${this._labelClick}"class="ods-label">${this.label}</label>` :
-        html``}
-
-      <div
-        @input="${this._updateCheckedIndex}"
-        class="${classMap(groupClasses)}">
-        <slot></slot>
+      <div class="${classMap(groupClasses)}">
+        <fieldset>
+          ${this.label ?
+            html`<legend>${this.label}</legend>` :
+            html``
+          }
+          <slot></slot>
+        </fieldset>
       </div>
 
       ${this.error ?
