@@ -1,7 +1,7 @@
 // Copyright (c) Alaska Air. All right reserved. Licensed under the Apache-2.0 license
 // See LICENSE in the project root for license information.
 // ---------------------------------------------------------------------
-import OdsInputoptionGroupBase from './ods-component-group-base';
+import OdsInputoptionGroupBase from './ods-inputoption-group-base';
 
 // Import touch detection lib
 import 'focus-visible/dist/focus-visible.min.js';
