@@ -49,15 +49,13 @@ export default class OdsInputoptionGroupBase extends LitElement {
 
       ${this._errorChange()}
 
-      <div class="${classMap(groupClasses)}">
-        <fieldset>
-          ${this.label ?
-            html`<legend>${this.label}</legend>` :
-            html``
-          }
-          <slot></slot>
-        </fieldset>
-      </div>
+      <fieldset class="${classMap(groupClasses)}">
+        ${this.label ?
+          html`<legend>${this.label}</legend>` :
+          html``
+        }
+        <slot></slot>
+      </fieldset>
 
       ${this.error ?
         html`<p class="errorText">${this.error}</p>` :
