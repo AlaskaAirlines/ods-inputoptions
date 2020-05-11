@@ -7,35 +7,29 @@ import '../src/ods-inputoption-checkbox-group.js';
 describe('ods-inputoption-group', () => {
   it('has the expected properties', async () => {
     const expectedError = "Expected error message";
-    const expectedFor = "labelForId";
     const expectedLabel = "expectedLabel";
 
     const el = await fixture(html`
       <ods-inputoption-radio-group
         horizontal
         error=${expectedError}
-        for=${expectedFor}
         label=${expectedLabel}
-        type="radio"
       ></ods-inputoption-radio-group>
     `);
 
     const root = el.shadowRoot;
-    const label = root.querySelector('label');
+    const label = root.querySelector('legend');
     const error = root.querySelector('p');
 
     expect(el.horizontal).to.be.true;
     expect(label.textContent).be.equal(expectedLabel);
-    expect(label.getAttribute('for')).be.equal(expectedFor);
     expect(error.textContent).be.equal(expectedError);
   });
 
   it('exhibits the correct group checking behavior', async () => {
     const el = await fixture(html`
       <ods-inputoption-radio-group
-        for="stateSelection"
         label="Select your state of residence"
-        type="radio"
       >
         <ods-inputoption
           id="alaska"
@@ -83,7 +77,6 @@ describe('ods-inputoption-group', () => {
   it('can select multiple checkboxes', async () => {
     const el = await fixture(html`
       <ods-inputoption-checkbox-group
-        for="stateSelection"
         label="Select your favorite states"
       >
         <ods-inputoption
@@ -125,14 +118,11 @@ describe('ods-inputoption-group', () => {
   // TODO - Address the event trigger for @input on the parent div not triggering
   // for the automated test in the upcoming Auro work.
   it('supports arrow group traversal', async () => {
-    const expectedFor = "labelForId";
     const expectedLabel = "expectedLabel";
 
     const el = await fixture(html`
       <ods-inputoption-radio-group
-      for=${expectedFor}
       label=${expectedLabel}
-      type="radio"
       >
         <ods-inputoption
           id="alaska"
@@ -179,14 +169,11 @@ describe('ods-inputoption-group', () => {
   });
 
   it('is accessible', async () => {
-    const expectedFor = "labelForId";
     const expectedLabel = "expectedLabel";
 
     const el = await fixture(html`
       <ods-inputoption-radio-group
-      for=${expectedFor}
       label=${expectedLabel}
-      type="radio"
       >
         <ods-inputoption
           id="alaska"

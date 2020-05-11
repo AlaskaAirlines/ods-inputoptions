@@ -18,16 +18,16 @@ class OdsInputoptionRadioGroup extends OdsInputoptionGroupBase {
   }
 
   connectedCallback() {
-    console.log("radio group connectedCallback");
     super.connectedCallback();
-    this._focusIndex(this._items);
+    if (this._items.length > 0) {
+      this._focusIndex(this._items);
+    }
 
     this.addEventListener('click', this._handleClick)
     this.addEventListener('keydown', this._handleKeyDown)
   }
 
   _handleClick({target}) {
-    console.log("handleClick");
     const idx = this._items.indexOf(target);
 
     if (idx !== -1) {
@@ -36,15 +36,12 @@ class OdsInputoptionRadioGroup extends OdsInputoptionGroupBase {
   }
 
   _focusIndex(items) {
-    console.log("focusIndex");
     let index = 0;
     let checked = false;
 
     index = items.findIndex( (item) => {
       return item.getAttribute('checked' === "true");
     });
-
-    console.log(index);
 
     if (index === -1) {
       items[0].setAttribute('tabindex', 0);
@@ -57,23 +54,30 @@ class OdsInputoptionRadioGroup extends OdsInputoptionGroupBase {
   }
 
   _selectItem(newIndex, checked=true) {
-    console.log("selectItem");
     if (checked) {
-      this.focus();
-      const label = this._items[newIndex].renderRoot.querySelector('label');
-      if (label) label.click();
+      this._items[this._index].removeAttribute('checked');
+      this._items[newIndex].setAttribute('checked', '');
+      this._items[newIndex].focus();
     }
 
     this._index = newIndex
   }
 
   _handleKeyDown(event) {
-    console.log(`handleKeyDown: ${event.key}`);
-    switch (event.key) {
+    let key = event.key || event.keyCode;
+    switch (key) {
+      case " ":
+      case "32":
+        event.preventDefault();
+        this._selectItem(this._index);
+        break;
+
       case "Down":
       case "ArrowDown":
       case "Right":
-      case "ArrowRight": {
+      case "ArrowRight": 
+      case "39":
+      case "40": {
         event.preventDefault();
         let index = this._index === this._items.length - 1 ? 0 : this._index + 1;
         this._selectItem(index);
@@ -83,30 +87,15 @@ class OdsInputoptionRadioGroup extends OdsInputoptionGroupBase {
       case "Up":
       case "ArrowUp":
       case "Left":
-      case "ArrowLeft": {
+      case "ArrowLeft": 
+      case "37": 
+      case "38": {
         event.preventDefault();
         let index = this._index === 0 ? this._items.length - 1 : this._index - 1;
         this._selectItem(index);
         break;
       }
     }
-  }
-
-  _updateCheckedIndex({ target }) {
-    console.log("updateCheckedIndex");
-    /**
-     * This feature only sets the tabindex AFTER a user has tabbed into
-     * the block of elements and sets the checked value.
-     */
-    this._items.forEach(el => {
-      el === target ?
-        el.setAttribute('checked', '') :
-        el.removeAttribute('checked');
-
-      el === target ?
-        el.setAttribute('tabindex', '0') :
-        el.setAttribute('tabindex', '-1');
-    });
   }
 }
 

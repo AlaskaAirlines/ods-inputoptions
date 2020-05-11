@@ -28,7 +28,6 @@ export default class OdsInputoptionGroupBase extends LitElement {
   }
 
   connectedCallback() {
-    console.log("group base connectedCallback");
     super.connectedCallback();
     this._items = Array.from(this.querySelectorAll('ods-inputoption')) || [];
 
@@ -36,12 +35,10 @@ export default class OdsInputoptionGroupBase extends LitElement {
   }
 
   _errorChange() {
-    console.log("errorChange");
     this._items.forEach(el => el.error = !!this.error);
   }
 
   render() {
-    console.log("render");
     let groupClasses = {
       'displayFlex': (this.horizontal && this._items.length <= 3)
     }
