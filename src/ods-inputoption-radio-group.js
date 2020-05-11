@@ -31,36 +31,43 @@ class OdsInputoptionRadioGroup extends OdsInputoptionGroupBase {
     const idx = this._items.indexOf(target);
 
     if (idx !== -1) {
-      this._selectItem(idx);
+      this._selectItem(idx, this._index);
     }
   }
 
   _focusIndex(items) {
-    let index = 0;
-    let checked = false;
+    let index = -1;
 
     index = items.findIndex( (item) => {
-      return item.getAttribute('checked' === "true");
+      return item.hasAttribute('checked');
     });
-
+    
     if (index === -1) {
-      items[0].setAttribute('tabindex', 0);
+      items[0].setAttribute('tabindex', "0");
     } else {
-      items[index].setAttribute('tabindex', 0);
-      checked = true;
-    } 
-
-    this._selectItem(0, checked);
+      this._setCheckedState(index);
+    }
   }
 
-  _selectItem(newIndex, checked=true) {
-    if (checked) {
-      this._items[this._index].removeAttribute('checked');
-      this._items[newIndex].setAttribute('checked', '');
-      this._items[newIndex].focus();
-    }
+  _setCheckedState(index) {
+    let item = this._items[index];
+    item.setAttribute('checked', '');
+    item.setAttribute('tabindex', 0);
+    item.focus();
+    this._index = index;
+  }
 
-    this._index = newIndex
+  _setUncheckedState(index) {
+    let item = this._items[index];
+    item.setAttribute('tabindex', -1);
+    item.removeAttribute('checked');
+  }
+
+  _selectItem(newIndex, oldIndex=-1) {
+    if (oldIndex !== -1) {
+      this._setUncheckedState(oldIndex);
+    }
+    this._setCheckedState(newIndex);
   }
 
   _handleKeyDown(event) {
@@ -80,7 +87,7 @@ class OdsInputoptionRadioGroup extends OdsInputoptionGroupBase {
       case "40": {
         event.preventDefault();
         let index = this._index === this._items.length - 1 ? 0 : this._index + 1;
-        this._selectItem(index);
+        this._selectItem(index, this._index);
         break;
       }
 
@@ -92,7 +99,7 @@ class OdsInputoptionRadioGroup extends OdsInputoptionGroupBase {
       case "38": {
         event.preventDefault();
         let index = this._index === 0 ? this._items.length - 1 : this._index - 1;
-        this._selectItem(index);
+        this._selectItem(index, this._index);
         break;
       }
     }

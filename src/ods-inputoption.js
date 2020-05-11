@@ -16,7 +16,12 @@ export default class OdsInputoption extends OdsInputoptionBase {
     super.connectedCallback();
 
     if (this.type === "radio") {
-      this.setAttribute("tabindex", -1);
+      // Safari executes stuff out of order.
+      // We one item may have already been set to 0, so don't override it.
+      // Set the rest to -1. This achieves the radio butten experience we want.
+      if (!this.hasAttribute('tabindex')) {
+        this.setAttribute("tabindex", -1);
+      }
     } else {
       this.setAttribute("tabindex", 0);
     }
