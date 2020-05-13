@@ -27,11 +27,14 @@ class OdsInputoptionRadioGroup extends OdsInputoptionGroupBase {
     this.addEventListener('keydown', this._handleKeyDown)
   }
 
-  _handleClick({target}) {
-    const idx = this._items.indexOf(target);
-
-    if (idx !== -1) {
-      this._selectItem(idx, this._index);
+  _handleClick(event) {
+    if (event.path[0].name) {
+      console.log(this._items);
+      const idx = this._items.indexOf(event.target);
+      if (idx !== -1) {
+        console.log('calling selectItem');
+        this._selectItem(idx, this._index);
+      }
     }
   }
 
@@ -39,35 +42,51 @@ class OdsInputoptionRadioGroup extends OdsInputoptionGroupBase {
     let index = -1;
 
     index = items.findIndex( (item) => {
-      return item.hasAttribute('checked');
+      return item.checked;
     });
-    
+
     if (index === -1) {
-      items[0].setAttribute('tabindex', "0");
+      items[0].tabIndex = 0;
     } else {
       this._setCheckedState(index);
     }
   }
 
   _setCheckedState(index) {
+    console.log(`setCheckedState: ${index}`);
     let item = this._items[index];
-    item.setAttribute('checked', '');
-    item.setAttribute('tabindex', 0);
+    item.checked = true;
+    item.tabIndex = 0;
     item.focus();
     this._index = index;
+    item.dispatchEvent(
+      new CustomEvent('toggleEvent', {
+        bubbles: true,
+        composed: true,
+        target: item
+      })
+    );
   }
 
   _setUncheckedState(index) {
+    console.log(`setUncheckedState: ${index}`);
     let item = this._items[index];
-    item.setAttribute('tabindex', -1);
-    item.removeAttribute('checked');
+    item.checked = false;
+    item.tabIndex = -1;
   }
 
   _selectItem(newIndex, oldIndex=-1) {
-    if (oldIndex !== -1) {
+    console.log(`${newIndex}:${oldIndex}`);
+    if (oldIndex !== -1 && newIndex !== oldIndex) {
       this._setUncheckedState(oldIndex);
     }
     this._setCheckedState(newIndex);
+  }
+
+  _selectItemDispatch(key, index) {
+    this._items[index].dispatchEvent(
+      new KeyboardEvent(key)
+    )
   }
 
   _handleKeyDown(event) {

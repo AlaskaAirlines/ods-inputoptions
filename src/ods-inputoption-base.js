@@ -11,8 +11,9 @@ export default class OdsInputoptionBase extends LitElement {
   static get properties() {
     return {
       checked:  { type: Boolean, reflect: true },
-      disabled: { type: Boolean },
-      error:    { type: String },
+      disabled: { type: Boolean, reflect: true },
+      error:    { type: String, reflect: true },
+      tabIndex: { type: String },
       id:       { type: String },
       label:    { type: String },
       name:     { type: String },
@@ -21,12 +22,21 @@ export default class OdsInputoptionBase extends LitElement {
     };
   }
 
+  constructor() {
+    super();
+
+    this.checked = false;
+    this.disabled = false;
+    this.tabIndex = -1;
+  }
+
   render() {
     let labelClasses = {
       'ods-inputLabel': true,
       'ods-inputLabel--checkbox': this.type === 'checkbox',
       'ods-inputLabel--radio': this.type === 'radio',
-      'errorBorder': !!this.error
+      'errorBorder': !!this.error,
+      'isChecked' : this.checked
     }
 
     return html`
@@ -36,14 +46,13 @@ export default class OdsInputoptionBase extends LitElement {
       <div class="ods-inputGroup">
         <input
           class="util_displayHiddenVisually ods-inputOption"
-          @input="${this._setChecked}"
           ?disabled="${this.disabled}"
-          .checked="${ifDefined(this.checked)}"
+          ?checked="${this.checked}"
           id="${ifDefined(this.id)}"
           name="${ifDefined(this.name)}"
           type="${ifDefined(this.type)}"
           .value="${ifDefined(this.value)}"
-          tabindex="-1"
+          tabindex="${this.tabIndex}"
         />
 
         <label
