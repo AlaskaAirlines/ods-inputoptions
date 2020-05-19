@@ -4,7 +4,7 @@
 // ---------------------------------------------------------------------
 
 // import button styles into element namespaced wrapper
-/*
+
 auro-inputoption-light {
 
   @import './style.scss';
@@ -13,29 +13,9 @@ auro-inputoption-light {
 
     @at-root .auro-inputGroup {
       &:focus-within {
-        width: var(--host-focus-inputgroup-width);
-        display: var(--host-focus-inputgroup-display);
-        background-color: var(--host-focus-inputgroup-background-color);
-        color: var(--host-focus-inputgroup-color);
-
-        .auro-inputLabel--radio {
-          &:before {
-            background-color: var(--host-focus-inputgroup-radio-label-before-backgroundcolor);
-          }
-
-          &:after {
-            border-color: var(--host-focus-inputgroup-radio-label-after-bordercolor);
-          }
-        }
-
-        .auro-inputLabel--checkbox {
-          &:before,
-          &:after {
-            border-color: var(--colors-focus-backgroundborder);
-          }
-        }
+        box-shadow: inset 0 0 0 2px var(--auro-color-border-active-on-light);
+        border-radius: var(--auro-size-xxxs);
       }
     }
   }
 }
-*/

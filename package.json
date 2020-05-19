@@ -30,6 +30,7 @@
   "main": "index.js",
   "license": "Apache-2.0",
   "dependencies": {
+    "@alaskaairux/icons": "^3.1.1",
     "lit-element": "^2.3.1"
   },
   "peerDependencies": {

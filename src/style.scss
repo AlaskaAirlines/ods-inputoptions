@@ -24,54 +24,19 @@ $auro-inset-directions:'--squish';
 }
 
 :host(auro-inputoption-group) {
-  padding-bottom: var(--size-scale-med);
+  padding-bottom: var(--auro-size-md);
 }
 
 // layout styles - define any layout specifications for UI that is contained WITHIN the component
 // never define layout that would cause effect on element outside the scope of this component
-/*
+
 @mixin focus-visible {
-  .displayFlex {
-    .auro-inputGroup:focus-within {
-      width: var(--host-focus-display-flex-width);
-    }
-  }
-
-  .auro-inputOption {
-    background-color: var(--host-focus-inputgroup-background-color);
-    color: var(--host-focus-inputgroup-color);
-
-    &:after {
-      border-color: var(--color-base-shark);
-    }
-
-    & + .auro-inputLabel {
-      color: var(--host-focus-inputgroup-color);
-    }
-  }
 
   .auro-inputGroup {
-    display: var(--host-focus-inputgroup-display);
-    background-color: var(--host-focus-inputgroup-background-color);
-
-    padding-right: var(--host-focus-inputgroup-padding-right);
-    margin-right: var(--host-focus-inputgroup-margin-right);
-
-    .auro-inputLabel--radio {
-      &:before {
-        background-color: var(--host-focus-inputgroup-radio-label-before-backgroundcolor);
-      }
-
-      &:after {
-        border-color: var(--host-focus-inputgroup-radio-label-after-bordercolor);
-      }
-    }
-
-    .auro-inputLabel--checkbox {
-      &:before,
-      &:after {
-        border-color: var(--colors-focus-backgroundborder);
-      }
+    box-shadow: inset 0 0 0 2px var(--auro-color-border-active-on-light);
+    border-radius: var(--auro-size-xxxs);
+    &Ondark {
+      box-shadow: inset 0 0 0 2px var(--auro-color-border-active-on-dark);
     }
   }
 }
@@ -81,146 +46,118 @@ $auro-inset-directions:'--squish';
   @include focus-visible;
 }
 
-.displayFlex {
-  @include auro_breakpoint--sm {
-    display: var(--display-flex-breakpoint-narrow-display);
-
-    .auro-inputGroup {
-      margin-left: var(--auro-inputgroup-breakpoint-narrow-margin-left);
-
-      &:first-child {
-        margin-left: var(--auro-inputgroup-breakpoint-narrow-first-child);
-      }
-    }
-  }
-}
-
 .auro-inputGroup {
-  position: var(--auro-inputgroup-position);
-  line-height: var(--auro-inputgroup-line-height);
-  padding-left: var(--auro-inputgroup-padding-left);
+  padding-right: 5px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  font-family: "AS Circular", sans-serif;
+  font-size: 16px;
+  width: max-content;
+  margin: var(--auro-size-xxxs);
+
+
 }
 
 .auro-inputOption {
-  &:disabled {
-    & + .auro-inputLabel {
-      color: var(--auro-inputoption-disabled-label-color);
-    }
-    & + .auro-inputLabel--checkbox {
-      &:before,
-      &:after {
-        border-color: var(--auro-inputoption-disabled-checkbox-psudo-border-color);
-      }
-    }
+  font-family: "AS Circular", sans-serif;
 
-    & + .auro-inputLabel--radio {
-      &:after {
-        border-color: var(--auro-inputoption-disabled-radio-after-border-color);
-      }
-      &:before {
-        background-color: var(--auro-inputoption-disabled-radio-before-background-color);
-      }
-    }
-  }
   &:checked {
     & + .auro-inputLabel {
-      &:after {
-        opacity: var(--auro-inputoption-checked-label-after-opacity);
-      }
       &:before {
-        transition: var(--auro-inputoption-checked-label-before-transition-fulltransition);
-        opacity: var(--auro-inputoption-checked-label-before-opacity);
+        content: '✓';
+        border: none;
       }
     }
   }
 }
 
 .auro-inputLabel {
-  margin-left: var(--auro-inputlabel-margin-left);
-  display: var(--auro-inputlabel-display);
+  font-family: "AS Circular", sans-serif;
+
+  &:before {
+    content: '';
+    width: 1.25em;
+    height: 1.25em;
+    border-radius: 6px;
+    border: 1px solid var(--auro-color-border-focus-on-light);
+    background-color: var(--auro-color-ui-default-on-light);
+    color: var(--auro-color-background-lightest);
+    min-width: 100px;
+  }
 
   &:after {
     -webkit-tap-highlight-color: transparent;
-    position: var(--auro-inputlabel-after-position);
     content: '';
-    top: var(--auro-inputlabel-after-top);
-    left: var(--auro-inputlabel-after-left);
-    width: var(--auro-inputlabel-after-width);
-    height: var(--auro-inputlabel-after-height);
-    border: var(--auro-inputlabel-after-border);
-    z-index: var(--auro-inputlabel-after-z-index);
   }
-
-  &:before {
-    content: '';
-    position: var(--auro-inputlabel-before-position);
-    opacity: var(--auro-inputlabel-before-opacity);
-    pointer-events: var(--auro-inputlabel-before-pointer-events);
-    z-index: var(--auro-inputlabel-before-z-index);
-  }
-}
-
-.auro-inputLabel--radio {
-  &:after {
-    border-radius: var(--auro-inputlabel-radio-after-border-radius);
-  }
-
-  &:before {
-    top: var(--auro-inputlabel-radio-before-top);
-    left: var(--auro-inputlabel-radio-before-left);
-    width: var(--auro-inputlabel-radio-before-width);
-    height: var(--auro-inputlabel-radio-before-height);
-    border-radius: var(--auro-inputlabel-radio-before-border-radius);
-    background-color: var(--auro-inputlabel-radio-before-background-color);
-    transform: var(--auro-inputlabel-radio-before-border-transform);
+  &Ondark {
+    &:before {
+      border: 1px solid var(--auro-color-border-focus-on-dark);
+      background-color: var(--auro-color-ui-default-on-dark);
+      color: var(--auro-color-background-darkest);
+    }
   }
 }
 
 .auro-inputLabel--checkbox {
-  &:after {
-    border-radius: var(--auro-inputlabel-checkbox-after-border-radius);
-  }
 
   &:before {
-    top: var(--auro-inputlabel-checkbox-before-top);
-    left: var(--auro-inputlabel-checkbox-before-left);
-    width: var(--auro-inputlabel-checkbox-before-width);
-    height: var(--auro-inputlabel-checkbox-before-height);
-    border-style: var(--auro-inputlabel-checkbox-before-border-style);
-    border-color: var(--auro-inputlabel-checkbox-before-border-color);
-    border-width: var(--auro-inputlabel-checkbox-before-border-width);
-    transform: var(--auro-inputlabel-checkbox-before-transform);
+    margin-left: var(--auro-size-xs);
+    margin-right: var(--auro-size-xs);
+    top: var(--auro-size-md);
+    left: 1rem;
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
   }
+}
+
+.auro-inputLabel--indeterminateParent {
+  &:before {
+    content: '-';
+    background-color: var(--auro-color-background-lightest);
+    color: var(--auro-color-ui-default-on-light);
+  }
+
+  &Ondark {
+    &:before {
+      content: '-';
+      background-color: var(--auro-color-background-darkest);
+      color: var(--auro-color-ui-default-on-dark);
+    }
+  }
+}
+
+.auro-inputLabel--indeterminateChild {
+  padding-left: var(--auro-size-md);
+}
+
+.auro-inputLabelOndark {
+  color: var(--auro-color-text-primary-on-dark);
 }
 
 .errorText {
-  color: var(--error-text-color);
-  margin-bottom: 0;
-}
-
-.auro-inputLabel--radio {
-  &.errorBorder {
-    &:after {
-      border-color: var(--auro-inputlabel-radio-error-border-after-border-color);
-    }
-    &:before {
-      background-color: var(--auro-inputlabel-radio-error-border-before-background-color);
-    }
-  }
-}
-
-.auro-inputLabel--checkbox {
-  &.errorBorder {
-    &:before,
-    &:after {
-      border-color: var(--auro-inputlabel-checkbox-error-border-before-after-border-color);
-    }
+  color: var(--auro-color-border-error-on-light);
+  margin: var(--auro-size-none);
+  padding-left: 5px;
+  &Ondark {
+    color: var(--auro-color-border-error-on-dark);
   }
 }
 
 .auro-label {
-  color: var(--auro-label-color);
-  margin-bottom: var(--auro-label-margin-bottom);
-  display: var(--auro-label-display);
+  color: var(--auro-color-text-primary-on-light);
+  padding-left: 9px;
+  &Ondark {
+    color: var(--auro-color-text-primary-on-dark);
+  }
 }
-*/
+
+.util_displayHiddenVisually {
+  border: var(--auro-size-none);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  padding: var(--auro-size-none);
+  position: absolute;
+  width: 1px;
+}

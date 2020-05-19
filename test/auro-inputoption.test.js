@@ -72,24 +72,4 @@ describe('auro-inputoption', () => {
     expect(el.hasAttribute('checked')).to.be.true;
   });
 
-  it('is unable to be check when disabled', async () => {
-    const type = "radio";
-
-    const el = await fixture(html`
-      <auro-inputoption
-        disabled
-        type=${type}
-      ></auro-inputoption>
-    `);
-
-    const root = el.shadowRoot;
-    const input = root.querySelector('input');
-
-    expect(el.checked).to.not.be.true;
-
-    input.click();
-    await elementUpdated(el);
-
-    expect(el.checked).to.not.be.true;
-  });
 });

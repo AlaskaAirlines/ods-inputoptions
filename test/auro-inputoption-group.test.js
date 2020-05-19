@@ -27,7 +27,7 @@ describe('auro-inputoption-group', () => {
     expect(el.horizontal).to.be.true;
     expect(label.textContent).be.equal(expectedLabel);
     expect(label.getAttribute('for')).be.equal(expectedFor);
-    expect(error.textContent).be.equal(expectedError);
+    expect(error.innerText).be.equal(expectedError);
   });
 
   it('exhibits the correct group checking behavior', async () => {
