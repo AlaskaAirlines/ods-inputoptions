@@ -1,16 +1,13 @@
-[![Build Status](https://travis-ci.org/AlaskaAirlines/ods-inputoptions.svg?branch=master)](https://travis-ci.org/AlaskaAirlines/ods-inputoptions)
-![npm (scoped)](https://img.shields.io/npm/v/@alaskaairux/ods-inputoptions.svg?color=orange)
-![NPM](https://img.shields.io/npm/l/@alaskaairux/ods-inputoptions.svg?color=blue)
-
-# ods-inputoption
+# inputoption
 
 `<ods-inputoption>` is a wrapper component for a HTML `<input type"checkbox">` or `<input type"radio">` elements containing styling and behavior.
 
-## Docs
-
-All information regarding Project Setup, Technical Details, Tests and information regarding ODS Stateless Components can be found in the [./docs](https://github.com/AlaskaAirlines/auro_docs/blob/master/README.md) repository.
-
 ## Install
+
+[![Build Status](https://img.shields.io/travis/AlaskaAirlines/ods-inputoptions.svg?branch=master&style=for-the-badge)](https://travis-ci.org/github/AlaskaAirlines/ods-inputoptions.svg)
+[![See it on NPM!](https://img.shields.io/npm/v/@alaskaairux/ods-inputoptions.svg?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@alaskaairux/ods-inputoptions.svg)
+[![License](https://img.shields.io/npm/l/@alaskaairux/ods-inputoptions.svg?color=blue&style=for-the-badge)](https://www.apache.org/licenses/LICENSE-2.0)
+[![issues](https://img.shields.io/github/issues-raw/AlaskaAirlines/ods-inputoptions.svg?style=for-the-badge)](https://github.com/AlaskaAirlines/ods-inputoptions.svg/issues)
 
 ```shell
 $ npm i @alaskaairux/ods-inputoptions
@@ -28,7 +25,7 @@ CSS Custom Properties are not supported in older browsers. For this, fallback pr
 
 ### Define dependency in project component
 
-Define the component dependency within each component that is using the \<ods-inputoptions> component.
+Define the component dependency within each component that is using the `<ods-inputoptions>` component.
 
 ```javascript
 import "@alaskaairux/ods-inputoptions";
@@ -54,7 +51,7 @@ The `<ods-inputoptions>` element should be used in situations where users may:
 
 ### inputoption groups 
 
-Using ods-inputoption required a group wrapper. Depending on wether the intention is to use radio buttons or checkboxes, depends on the group used. 
+Using `<ods-inputoptions>` required a group wrapper. Depending on wether the intention is to use radio buttons or checkboxes, depends on the group used. 
 
 For radio buttons, use:
 
@@ -202,12 +199,6 @@ The following examples illustrate the use of `ods-inputoption` within the scope 
 ```
 
 ## Development
-
-In order to develop against this project, if you are not part of the core team, you will be required to fork the project prior to submitting a pull request.
-
-Please be sure to review the [contribution guidelines](.github/CONTRIBUTING.md) for this project. Please make sure to **pay special attention** to the [conventional commits](.github/CONTRIBUTING.md#conventional-commits) section of the document.
-
-### Start development environment
 
 Once the project has been cloned to your local resource and you have installed all the dependencies you will need to open three different shell sessions. One is for the Gulp tasks, the second is for a series of npm tasks and the last is to run the Polymer server.
 
