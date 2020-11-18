@@ -72,7 +72,7 @@
     "postcss-custom-properties": "^8.0.10",
     "postcss-remove-selectors": "^2.0.1",
     "postcss-selector-replace": "^1.0.2",
-    "semantic-release": "^15.14.0",
+    "semantic-release": "^17.2.3",
     "style-dictionary": "^2.10.0",
     "styleflux": "^1.2.0",
     "stylelint": "^13.3.3",
